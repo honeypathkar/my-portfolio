@@ -1,11 +1,10 @@
 import React from "react";
-import logo1 from "./25231-removebg-preview.png";
-import logo2 from "./image-removebg-preview.png";
-import logo3 from "./image__1_-removebg-preview.png";
-import logo4 from "./image__2_-removebg-preview.png";
-import logo5 from "./image__3_-removebg-preview.png";
-import logo6 from "./marker-glyph-black-icon-png_293085__1_-removebg-preview.png";
-
+import logo1 from "./images/25231-removebg-preview.png";
+import logo2 from "./images/image-removebg-preview.png";
+import logo3 from "./images/image__1_-removebg-preview.png";
+import logo4 from "./images/image__2_-removebg-preview.png";
+import logo5 from "./images/image__3_-removebg-preview.png";
+import logo6 from "./images/marker-glyph-black-icon-png_293085__1_-removebg-preview.png";
 export default function Contact() {
   return (
     <div className="box container">
