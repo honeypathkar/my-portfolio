@@ -1,10 +1,10 @@
 import React from "react";
-import logo1 from "./images/25231-removebg-preview.png";
-import logo2 from "./images/image-removebg-preview.png";
-import logo3 from "./images/image__1_-removebg-preview.png";
-import logo4 from "./images/image__2_-removebg-preview.png";
-import logo5 from "./images/image__3_-removebg-preview.png";
-import logo6 from "./images/marker-glyph-black-icon-png_293085__1_-removebg-preview.png";
+import logo1 from "./images/location.png";
+import logo2 from "./images/phone.png";
+import logo3 from "./images/email.png";
+import logo4 from "./images/insta.png";
+import logo5 from "./images/fb.png";
+import logo6 from "./images/github.png";
 export default function Contact() {
   return (
     <div className="box container">
@@ -15,7 +15,7 @@ export default function Contact() {
         <li>Name: Honey Pathkar</li>
         <li>
           <img
-            src={logo6}
+            src={logo1}
             width="30"
             height="30"
             alt="location"
@@ -71,7 +71,7 @@ export default function Contact() {
         <a href="https://github.com/honeypatkar" target='_blank'
           rel='noreferrer'>
           <img
-            src={logo1}
+            src={logo6}
             alt="github"
             width="40"
             height="40"

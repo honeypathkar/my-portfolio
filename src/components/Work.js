@@ -15,6 +15,7 @@ export default function Work() {
                   imageUrl={element.imageUrl}
                   url={element.url}
                   description={element.description}
+                  source = {element.source}
                 />
               </div>
             );

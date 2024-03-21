@@ -1,16 +1,17 @@
 // const counter = "./images/counter.png"
-import image1 from "./images/counter.png"
-import image2 from "./images/resume.png"
-import image3 from "./images/textchange.png"
-import image4 from "./images/tic-tac-toe.png"
-import image5 from "./images/todo.png"
-import image6 from "./images/weather.png"
-import image7 from "./images/moviedb.png"
-import image8 from "./images/imagegallery.png"
+import image1 from "./images/counter.png";
+import image2 from "./images/resume.png";
+import image3 from "./images/textchange.png";
+import image4 from "./images/tic-tac-toe.png";
+import image5 from "./images/todo.png";
+import image6 from "./images/weather.png";
+import image7 from "./images/moviedb.png";
+import image8 from "./images/imagegallery.png";
 
 const work = [
   {
     imageUrl: image1,
+    source: "https://github.com/honeypatkar/Button-Count",
     url: "https://honeypatkar.github.io/Button-Count/",
     name: "Button Click Counter",
     description:
@@ -18,6 +19,7 @@ const work = [
   },
   {
     imageUrl: image2,
+    source: "https://github.com/honeypatkar/My-Resume",
     url: "https://honeypatkar.github.io/My-Resume/",
     name: "Resume",
     description:
@@ -25,6 +27,7 @@ const work = [
   },
   {
     imageUrl: image3,
+    source: "https://github.com/honeypatkar/Textchange",
     url: "https://text-change.netlify.app/",
     name: "TextChange",
     description:
@@ -32,6 +35,7 @@ const work = [
   },
   {
     imageUrl: image4,
+    source: "https://github.com/honeypatkar/Tic-Tac-Toe",
     url: "https://honeypatkar.github.io/Tic-Tac-Toe/",
     name: "Tic Tac Toe",
     description:
@@ -39,6 +43,7 @@ const work = [
   },
   {
     imageUrl: image5,
+    source: "https://github.com/honeypatkar/Todo-App",
     url: "https://honeypatkar.github.io/Todo-App/",
     name: "Todo-List App",
     description:
@@ -46,6 +51,7 @@ const work = [
   },
   {
     imageUrl: image6,
+    source: "https://github.com/honeypatkar/Weather-App",
     url: "https://honeypatkar.github.io/Weather_App/",
     name: "Weather App",
     description:
@@ -53,6 +59,7 @@ const work = [
   },
   {
     imageUrl: image7,
+    source: "https://github.com/honeypatkar/MovieDB",
     url: "https://moviedb-honey.netlify.com",
     name: "Movie DB",
     description:
@@ -60,6 +67,7 @@ const work = [
   },
   {
     imageUrl: image8,
+    source: "https://github.com/honeypatkar/ImageGallery",
     url: "https://image-gallery-honey.netlify.com",
     name: "Image Gallery",
     description:
