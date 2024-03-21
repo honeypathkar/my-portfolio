@@ -1,0 +1,29 @@
+{
+  "files": {
+    "main.css": "/my-portfolio/static/css/main.97d714df.css",
+    "main.js": "/my-portfolio/static/js/main.284c4fcc.js",
+    "static/js/787.2dcca737.chunk.js": "/my-portfolio/static/js/787.2dcca737.chunk.js",
+    "static/media/imagegallery.png": "/my-portfolio/static/media/imagegallery.342e15ae3b88327c0db2.png",
+    "static/media/moviedb.png": "/my-portfolio/static/media/moviedb.b8741b295d3a57c184dd.png",
+    "static/media/resume.png": "/my-portfolio/static/media/resume.7e7c0c3722f8874b50e4.png",
+    "static/media/weather.png": "/my-portfolio/static/media/weather.1dbe09d1f350debde17a.png",
+    "static/media/counter.png": "/my-portfolio/static/media/counter.d1b179e502ac90eda6ea.png",
+    "static/media/textchange.png": "/my-portfolio/static/media/textchange.3853f9deeb9520ec6aa5.png",
+    "static/media/todo.png": "/my-portfolio/static/media/todo.2281f99787e8a75ae97d.png",
+    "static/media/tic-tac-toe.png": "/my-portfolio/static/media/tic-tac-toe.89030599e547d2f005c8.png",
+    "static/media/fb.png": "/my-portfolio/static/media/fb.da15dfa728c8d3a598dd.png",
+    "static/media/insta.png": "/my-portfolio/static/media/insta.2c82b9c3a9f3331222c0.png",
+    "static/media/email.png": "/my-portfolio/static/media/email.5e7d945796f84671774b.png",
+    "static/media/github.png": "/my-portfolio/static/media/github.df976b4c3e8f54b7893b.png",
+    "static/media/location.png": "/my-portfolio/static/media/location.5a830dab846563171651.png",
+    "static/media/phone.png": "/my-portfolio/static/media/phone.5dcc2273e4513aa673c0.png",
+    "index.html": "/my-portfolio/index.html",
+    "main.97d714df.css.map": "/my-portfolio/static/css/main.97d714df.css.map",
+    "main.284c4fcc.js.map": "/my-portfolio/static/js/main.284c4fcc.js.map",
+    "787.2dcca737.chunk.js.map": "/my-portfolio/static/js/787.2dcca737.chunk.js.map"
+  },
+  "entrypoints": [
+    "static/css/main.97d714df.css",
+    "static/js/main.284c4fcc.js"
+  ]
+}
