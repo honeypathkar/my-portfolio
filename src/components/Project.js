@@ -7,6 +7,7 @@ import image5 from "./images/todo.png";
 import image6 from "./images/weather.png";
 import image7 from "./images/moviedb.png";
 import image8 from "./images/imagegallery.png";
+import image9 from "./images/recipe.png"
 
 const work = [
   {
@@ -60,7 +61,7 @@ const work = [
   {
     imageUrl: image7,
     source: "https://github.com/honeypatkar/MovieDB",
-    url: "https://moviedb-honey.netlify.com",
+    url: "https://moviedb-honey.netlify.app",
     name: "Movie DB",
     description:
       "Movie DB is a web application created with Vite + React. It enables users to search for movies and series by name or IMDb ID, providing comprehensive information about each title.",
@@ -68,10 +69,18 @@ const work = [
   {
     imageUrl: image8,
     source: "https://github.com/honeypatkar/ImageGallery",
-    url: "https://image-gallery-honey.netlify.com",
+    url: "https://image-gallery-honey.netlify.app",
     name: "Image Gallery",
     description:
       "Image Gallery is a Vite + React application that allows users to explore a wide range of images based on their preferences. It provides an enjoyable browsing experience for image enthusiasts.",
+  },
+  {
+    imageUrl: image9,
+    source: "https://github.com/honeypatkar/FoodRecipe",
+    url: "https://recipe-finder-honey.netlify.app",
+    name: "Recipe Finder",
+    description:
+      "A Recipe Finder App. I built it using Vite + ReactJS, Tailwind CSS, and Bootstrap. In this app, you can search for any recipe you want. It’s an awesome and very attractive app.",
   },
 ];
 
