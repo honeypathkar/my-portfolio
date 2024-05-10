@@ -1,98 +1,46 @@
 import React from "react";
-import logo1 from "./images/location.png";
-import logo2 from "./images/phone.png";
-import logo3 from "./images/email.png";
-import logo4 from "./images/insta.png";
-import logo5 from "./images/fb.png";
-import logo6 from "./images/github.png";
-export default function Contact() {
+import LocationOnIcon from "@mui/icons-material/LocationOn";
+import EmailIcon from "@mui/icons-material/Email";
+import LocalPhoneIcon from "@mui/icons-material/LocalPhone";
+import GitHubIcon from "@mui/icons-material/GitHub";
+import LinkedInIcon from "@mui/icons-material/LinkedIn";
+import InstagramIcon from "@mui/icons-material/Instagram";
+
+const Contact = () => {
   return (
-    <div className="box container">
-      <h2 className="phone">Contact With Me....</h2>
-      <br />
-      <h3>Details:</h3>
-      <ul>
-        <li>Name: Honey Pathkar</li>
-        <li>
-          <img
-            src={logo1}
-            width="30"
-            height="30"
-            alt="location"
-          />{" "}
-          Baran, Rajasthan (325205)
-        </li>
-      </ul>
-      <br />
-      <h3>Contact Details:</h3>
-      <ul>
-        <li>
-          <img src={logo2} width="50" height="20" alt="phone" />
-          +917976909686
-        </li>
-        <li>
-          <img src={logo3} width="50" height="30" alt="email" />
-        </li>
-        <ul>
-          <li>
-            <a href="mailto: honeypatkar70@gmail.com" target='_blank'
-          rel='noreferrer'>
-              honeypatkar70@gmail.com
-            </a>
-          </li>
-          <li>
-            <a href="mailto: honeypatwa358@gmail.com" target='_blank'
-          rel='noreferrer'>
-              honeypatwa358@gmail.com
-            </a>
-          </li>
-        </ul>
-      </ul>
-      <br />
-      <div className="social">
-        <h3>Social Profiles:</h3>
-        <a
-          href="https://instagram.com/honey_patwa_01?igshid=ZDc40DBmNjImNQ=="
-          alt="instagram"
-          target='_blank'
-          rel='noreferrer'
-        >
-          <img src={logo4} width="40" height="40" alt="instagram" className="mx-2"/>
-        </a>
-        <a
-          href="https://www.facebook.com/honey.patkar.98
-    ?mibextid=ZbWKWL"
-          alt="facebook"
-          target='_blank'
-          rel='noreferrer'
-        >
-          <img src={logo5} width="40" height="40" alt="facebook" className="mx-2" />
-        </a>
-        <a href="https://github.com/honeypatkar" target='_blank'
-          rel='noreferrer'>
-          <img
-            src={logo6}
-            alt="github"
-            width="40"
-            height="40"
-            className="mx-2"
-          />
-        </a>
+    <div className="max-w-lg mx-auto p-8 my-20">
+      <h2 className="text-2xl font-bold mb-6">Get in touch</h2>
+      <p className="text-zinc-600 mb-6">Let's Contact &rarr;</p>
+      <div className="space-y-4 mb-6">
+        <div className="flex items-center">
+          <LocationOnIcon />
+          <span>&nbsp;&nbsp;&nbsp;Baran , Rajasthan 325205</span>
+        </div>
+        <div className="flex items-center">
+          <LocalPhoneIcon />
+          <span>&nbsp;&nbsp;&nbsp;+91 7976909686</span>
+        </div>
+        <div className="flex items-center">
+          <EmailIcon />
+          <span>&nbsp;&nbsp;&nbsp;honeypatkar70@gmail.com</span>
+        </div>
       </div>
-      <style jsx="true">
-        {`
-        .phone {
-            font-family: 'Pangolin', cursive;
-            font-size: 30px;
-          }
-          .box {
-            padding-top: 50px;
-            padding-bottom: 300px;
-            padding-left: 20px;
-            padding-right: 225px;
-            }
-        `}
-      </style>
+      <p className="text-zinc-600 mb-6">Social Media &rarr;</p>
+      <div className="space-y-4">
+        <div className="flex items-center">
+          <GitHubIcon />
+          <span>&nbsp;&nbsp;&nbsp;@honaypatkar</span>
+        </div>
+        <div className="flex items-center">
+          <LinkedInIcon />
+          <span>&nbsp;&nbsp;&nbsp; @honeypatkar</span>
+        </div>
+        <div className="flex items-center">
+          <InstagramIcon />
+          <span>&nbsp;&nbsp;&nbsp; honey.jsx</span>
+        </div>
+      </div>
     </div>
   );
-}
+};
+export default Contact;
