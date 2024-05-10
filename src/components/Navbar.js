@@ -1,79 +1,89 @@
-import { useState } from "react";
+import { useState } from 'react'
+import { Dialog } from '@headlessui/react'
+import { Bars3Icon, XMarkIcon } from '@heroicons/react/24/outline'
+import { Link } from 'react-router-dom'
 
-const Navbar = () => {
-  const [open, setOpen] = useState(false);
+const navigation = [
+  { name: 'Home', to: '/' },
+  { name: 'Projects', to: '/work' },
+  { name: 'Skills', to: '/' },
+  { name: 'Contact', to: '/contact' },
+]
+
+export default function Example() {
+  const [mobileMenuOpen, setMobileMenuOpen] = useState(false)
 
   return (
-    <div>
-      <div className="antialiased bg-gray-100 dark-mode:bg-gray-900">
-        <div className="w-full text-gray-700 bg-white dark-mode:text-gray-200 dark-mode:bg-gray-800">
-          <div className="flex flex-col max-w-screen-xl px-4 mx-auto md:items-center md:justify-between md:flex-row md:px-6 lg:px-8">
-            <div className="flex flex-row items-center justify-between p-4">
-              <a
-                href="/"
-                className="text-lg font-semibold tracking-widest text-gray-900 uppercase rounded-lg dark-mode:text-white focus:outline-none focus:shadow-outline"
-              >
-                Flowtrail UI
-              </a>
+    <div className="bg-white">
+      <header className="absolute inset-x-0 top-0 z-50">
+        <nav className="flex items-center justify-between p-6 lg:px-8" aria-label="Global">
+          <div className="flex lg:flex-1">
+            < Link to="/" className="-m-1.5 p-1.5">
+              <span className="sr-only">Your Company</span>
+              <img
+                className="h-8 w-auto"
+                src="https://tailwindui.com/img/logos/mark.svg?color=indigo&shade=600"
+                alt=""
+              />
+            </Link>
+          </div>
+          <div className="flex lg:hidden">
+            <button
+              type="button"
+              className="-m-2.5 inline-flex items-center justify-center rounded-md p-2.5 text-gray-700"
+              onClick={() => setMobileMenuOpen(true)}
+            >
+              <span className="sr-only">Open main menu</span>
+              <Bars3Icon className="h-6 w-6" aria-hidden="true" />
+            </button>
+          </div>
+          <div className="hidden lg:flex lg:gap-x-12">
+            {navigation.map((item) => (
+              <Link  key={item.name} to={item.to} className="text-sm font-semibold leading-6 text-gray-900">
+                {item.name}
+              </Link>
+            ))}
+          </div>
+        </nav>
+        <Dialog className="lg:hidden" open={mobileMenuOpen} onClose={setMobileMenuOpen}>
+          <div className="fixed inset-0 z-50" />
+          <Dialog.Panel className="fixed inset-y-0 right-0 z-50 w-full overflow-y-auto bg-white px-6 py-6 sm:max-w-sm sm:ring-1 sm:ring-gray-900/10">
+            <div className="flex items-center justify-between">
+              <Link Link to="#" className="-m-1.5 p-1.5">
+                <span className="sr-only">Your Company</span>
+                <img
+                  className="h-8 w-auto"
+                  src="https://tailwindui.com/img/logos/mark.svg?color=indigo&shade=600"
+                  alt=""
+                />
+              </Link>
               <button
-                className="rounded-lg md:hidden focus:outline-none focus:shadow-outline"
-                onClick={() => setOpen(!open)}
+                type="button"
+                className="-m-2.5 rounded-md p-2.5 text-gray-700"
+                onClick={() => setMobileMenuOpen(false)}
               >
-                <svg
-                  fill="currentColor"
-                  viewBox="0 0 20 20"
-                  className="w-6 h-6"
-                >
-                  <path
-                    style={{ display: open ? "none" : "block" }}
-                    fillRule="evenodd"
-                    d="M3 5a1 1 0 011-1h12a1 1 0 110 2H4a1 1 0 01-1-1zM3 10a1 1 0 011-1h12a1 1 0 110 2H4a1 1 0 01-1-1zM9 15a1 1 0 011-1h6a1 1 0 110 2h-6a1 1 0 01-1-1z"
-                    clipRule="evenodd"
-                  ></path>
-                  <path
-                    style={{ display: open ? "block" : "none" }}
-                    fillRule="evenodd"
-                    d="M4.293 4.293a1 1 0 011.414 0L10 8.586l4.293-4.293a1 1 0 111.414 1.414L11.414 10l4.293 4.293a1 1 0 01-1.414 1.414L10 11.414l-4.293 4.293a1 1 0 01-1.414-1.414L8.586 10 4.293 5.707a1 1 0 010-1.414z"
-                    clipRule="evenodd"
-                  ></path>
-                </svg>
+                <span className="sr-only">Close menu</span>
+                <XMarkIcon className="h-6 w-6" aria-hidden="true" />
               </button>
             </div>
-            <nav
-              className={`flex-col ${
-                open ? "flex" : "hidden"
-              } pb-4 md:pb-0 md:flex md:justify-end md:flex-row`}
-            >
-              <a
-                className="px-4 py-2 mt-2 text-sm font-semibold bg-transparent rounded-lg dark-mode:bg-transparent dark-mode:hover:bg-gray-600 dark-mode:focus:bg-gray-600 dark-mode:focus:text-white dark-mode:hover:text-white dark-mode:text-gray-200 md:mt-0 md:ml-4 hover:text-gray-900 focus:text-gray-900 hover:bg-gray-200 focus:bg-gray-200 focus:outline-none focus:shadow-outline"
-                href="/"
-              >
-                Home
-              </a>
-              <a
-                className="px-4 py-2 mt-2 text-sm font-semibold bg-transparent rounded-lg dark-mode:bg-transparent dark-mode:hover:bg-gray-600 dark-mode:focus:bg-gray-600 dark-mode:focus:text-white dark-mode:hover:text-white dark-mode:text-gray-200 md:mt-0 md:ml-4 hover:text-gray-900 focus:text-gray-900 hover:bg-gray-200 focus:bg-gray-200 focus:outline-none focus:shadow-outline"
-                href="/"
-              >
-                Projects
-              </a>
-              <a
-                className="px-4 py-2 mt-2 text-sm font-semibold bg-transparent rounded-lg dark-mode:bg-transparent dark-mode:hover:bg-gray-600 dark-mode:focus:bg-gray-600 dark-mode:focus:text-white dark-mode:hover:text-white dark-mode:text-gray-200 md:mt-0 md:ml-4 hover:text-gray-900 focus:text-gray-900 hover:bg-gray-200 focus:bg-gray-200 focus:outline-none focus:shadow-outline"
-                href="/"
-              >
-                Skills
-              </a>
-              <a
-                className="px-4 py-2 mt-2 text-sm font-semibold bg-transparent rounded-lg dark-mode:bg-transparent dark-mode:hover:bg-gray-600 dark-mode:focus:bg-gray-600 dark-mode:focus:text-white dark-mode:hover:text-white dark-mode:text-gray-200 md:mt-0 md:ml-4 hover:text-gray-900 focus:text-gray-900 hover:bg-gray-200 focus:bg-gray-200 focus:outline-none focus:shadow-outline"
-                href="/"
-              >
-                Contact
-              </a>
-            </nav>
-          </div>
-        </div>
-      </div>
+            <div className="mt-6 flow-root">
+              <div className="-my-6 divide-y divide-gray-500/10">
+                <div className="space-y-2 py-6">
+                  {navigation.map((item) => (
+                    <Link
+                      key={item.name}
+                      to={item.to}
+                      className="-mx-3 block rounded-lg px-3 py-2 text-base font-semibold leading-7 text-gray-900 hover:bg-gray-50"
+                    >
+                      {item.name}
+                    </Link>
+                  ))}
+                </div>
+              </div>
+            </div>
+          </Dialog.Panel>
+        </Dialog>
+      </header>
     </div>
-  );
-};
-
-export default Navbar;
+  )
+}
