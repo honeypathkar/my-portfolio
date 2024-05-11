@@ -5,7 +5,7 @@ import {work} from "./Project"
 export default function Work() {
   return (
     <>
-      <div className="container my-20">
+      <div className="container my-40">
         <div className="row box-container">
           {work.map((element) => {
             return (
