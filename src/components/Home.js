@@ -1,4 +1,5 @@
 import React from "react";
+import { Link } from "react-router-dom";
 import Typewriter from "typewriter-effect";
 
 export default function Home() {
@@ -49,12 +50,12 @@ export default function Home() {
               practice. Hopefully you like them.
             </p>
             <div className="mt-10 flex items-center justify-center gap-x-6">
-              <a
-                href="/contact"
+              <Link
+                to="/contact"
                 className="rounded-md bg-[#6FB3B8] px-3.5 py-2.5 text-sm font-semibold text-white shadow-sm hover:bg-[#388087] focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-indigo-600"
               >
                 Get started
-              </a>
+              </Link>
               <a
                 href="https://linkedin.com/in/honey-patkar-7725632ba"
                 className="text-sm font-semibold leading-6 text-gray-900"
