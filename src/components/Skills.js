@@ -21,7 +21,7 @@ const Skills = () => {
   };
 
   return (
-    <main className="grid w-full min-h-screen text-gray-100 place-content-center" style={{marginTop: "22px", marginBottom: "-20px"}}>
+    <main className="grid w-full min-h-screen text-gray-100 place-content-center" style={{marginTop: "30px", marginBottom: "-20px"}}>
       <section className="p-6 space-y-6 border border-black rounded-xl md:grid md:grid-cols-2 md:gap-4 sm:space-y-0">
         <div className="grid grid-cols-2 gap-6">
           {skillsData.map((skill) => (
