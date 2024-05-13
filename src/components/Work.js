@@ -1,11 +1,17 @@
 import React from "react";
 import Container from "./Container";
-import {work} from "./Project"
+import { work } from "./Project";
 
 export default function Work() {
   return (
     <>
-      <div className="container my-40">
+        <div
+          className="mt-32 text-center text-4xl underline"
+          style={{ fontFamily: "'Pangolin', cursive" }}
+        >
+          Projects
+        </div>
+      <div className="container my-4">
         <div className="row box-container">
           {work.map((element) => {
             return (
@@ -15,7 +21,7 @@ export default function Work() {
                   imageUrl={element.imageUrl}
                   url={element.url}
                   description={element.description}
-                  source = {element.source}
+                  source={element.source}
                 />
               </div>
             );

@@ -1,31 +1,32 @@
-import { useState } from 'react'
-import { Dialog } from '@headlessui/react'
-import { Bars3Icon, XMarkIcon } from '@heroicons/react/24/outline'
-import { Link } from 'react-router-dom'
-import Logo from "./images/portfolio.png"
+import {useState } from "react";
+import { Dialog } from "@headlessui/react";
+import { Bars3Icon, XMarkIcon } from "@heroicons/react/24/outline";
+import { Link } from "react-router-dom";
+import Logo from "./images/portfolio.png";
 
 const navigation = [
-  { name: 'Home', to: '/' },
-  { name: 'Projects', to: '/work' },
-  { name: 'Skills', to: '/skills' },
-  { name: 'Contact', to: '/contact' },
-]
+  { name: "Home", to: "/" },
+  { name: "Projects", to: "/work" },
+  { name: "Skills", to: "/skills" },
+  { name: "Contact", to: "/contact" },
+];
+
+
 
 export default function Example() {
-  const [mobileMenuOpen, setMobileMenuOpen] = useState(false)
+  const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
 
   return (
     <div className="bg-[#96ade6]">
       <header className="inset-x-0 top-0 z-50 bg-[#6FB3B8] fixed">
-        <nav className="flex items-center justify-between p-6 lg:px-8" aria-label="Global">
+        <nav
+          className="flex items-center justify-between p-6 lg:px-8"
+          aria-label="Global"
+        >
           <div className="flex lg:flex-1">
-            < Link to="/" className="-m-1.5 p-1.5">
+            <Link to="/" className="-m-1.5 p-1.5">
               <span className="sr-only">Your Company</span>
-              <img
-                className="h-8 w-auto"
-                src={Logo}
-                alt=""
-              />
+              <img className="h-8 w-auto" src={Logo} alt="" />
             </Link>
           </div>
           <div className="flex lg:hidden">
@@ -40,23 +41,27 @@ export default function Example() {
           </div>
           <div className="hidden lg:flex lg:gap-x-12">
             {navigation.map((item) => (
-              <Link  key={item.name} to={item.to} className="text-sm font-semibold leading-6 text-gray-900">
+              <Link
+                key={item.name}
+                to={item.to}
+                className="text-sm font-semibold leading-6 text-gray-900"
+              >
                 {item.name}
               </Link>
             ))}
           </div>
         </nav>
-        <Dialog className="lg:hidden" open={mobileMenuOpen} onClose={setMobileMenuOpen}>
+        <Dialog
+          className="lg:hidden"
+          open={mobileMenuOpen}
+          onClose={setMobileMenuOpen}
+        >
           <div className="fixed inset-0 z-50" />
           <Dialog.Panel className="fixed inset-y-0 right-0 z-50 w-full overflow-y-auto bg-[#6FB3B8] px-6 py-6 sm:max-w-sm sm:ring-1 sm:ring-gray-900/10">
             <div className="flex items-center justify-between">
               <Link Link to="#" className="-m-1.5 p-1.5">
                 <span className="sr-only">Your Company</span>
-                <img
-                  className="h-8 w-auto"
-                  src={Logo}
-                  alt=""
-                />
+                <img className="h-8 w-auto" src={Logo} alt="" />
               </Link>
               <button
                 type="button"
@@ -74,7 +79,7 @@ export default function Example() {
                     <Link
                       key={item.name}
                       to={item.to}
-                      className="-mx-3 block rounded-lg px-3 py-2 text-base font-semibold leading-7 text-gray-900 hover:bg-gray-50"
+                      className="-mx-3 block rounded-lg px-3 py-2 text-base font-semibold leading-7 text-gray-900 hover:bg-[#BADFE7]"
                     >
                       {item.name}
                     </Link>
@@ -86,5 +91,5 @@ export default function Example() {
         </Dialog>
       </header>
     </div>
-  )
+  );
 }
