@@ -5,7 +5,7 @@ import LocalPhoneIcon from "@mui/icons-material/LocalPhone";
 import GitHubIcon from "@mui/icons-material/GitHub";
 import LinkedInIcon from "@mui/icons-material/LinkedIn";
 import InstagramIcon from "@mui/icons-material/Instagram";
-import Resume from "./images/Resume.pdf";
+// import Resume from "./images/Resume.pdf";
 import DownloadForOfflineRoundedIcon from "@mui/icons-material/DownloadForOfflineRounded";
 
 const Contact = () => {
@@ -40,7 +40,7 @@ const Contact = () => {
         <div className="space-y-4">
           <div className="flex items-center">
             <a
-              href="https://github.com/honeypatkar"
+              href="https://github.com/honeypathkar"
               target="_blank"
               rel="noopener noreferrer"
             >
@@ -50,7 +50,7 @@ const Contact = () => {
           </div>
           <div className="flex items-center">
             <a
-              href="https://linkedin.com/in/honey-patkar-7725632ba"
+              href="https://linkedin.com/in/honey-pathkar-7725632ba"
               target="_blank"
               rel="noopener noreferrer"
             >
@@ -70,7 +70,12 @@ const Contact = () => {
           </div>
         </div>
         <p className="text-zinc-600 mb-6 mt-6">Download Resume &rarr;</p>
-        <a href={Resume} download="resume.pdf">
+        <a
+          href="https://drive.google.com/file/d/1jZREXGRTUKRVzf6Q3C-n9AduqMsHgyoN/view?usp=sharing"
+          download="resume.pdf"
+          target="_blank"
+          rel="noopener noreferrer"
+        >
           <DownloadForOfflineRoundedIcon />{" "}
           <span>&nbsp;&nbsp;&nbsp;Download</span>
         </a>

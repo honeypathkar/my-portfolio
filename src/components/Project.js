@@ -1,4 +1,3 @@
-// const counter = "./images/counter.png"
 import image1 from "./images/counter.png";
 import image2 from "./images/resume.png";
 import image3 from "./images/textchange.png";
@@ -12,23 +11,23 @@ import image9 from "./images/recipe.png"
 const work = [
   {
     imageUrl: image1,
-    source: "https://github.com/honeypatkar/Button-Count",
-    url: "https://honeypatkar.github.io/Button-Count/",
+    source: "https://github.com/honeypathkar/Button-Count",
+    url: "https://honeypathkar.github.io/Button-Count/",
     name: "Button Click Counter",
     description:
       "This is a practice project made using HTML, CSS, and JavaScript. It's a simple button click counter application.",
   },
   {
     imageUrl: image2,
-    source: "https://github.com/honeypatkar/My-Resume",
-    url: "https://honeypatkar.github.io/My-Resume/",
+    source: "https://github.com/honeypathkar/My-Resume",
+    url: "https://honeypathkar.github.io/My-Resume/",
     name: "Resume",
     description:
       "This is my personal resume showcasing my skills, experiences, and projects. It's designed using HTML, CSS, and JavaScript.",
   },
   {
     imageUrl: image3,
-    source: "https://github.com/honeypatkar/Textchange",
+    source: "https://github.com/honeypathkar/Textchange",
     url: "https://text-change.netlify.app/",
     name: "TextChange",
     description:
@@ -36,31 +35,31 @@ const work = [
   },
   {
     imageUrl: image4,
-    source: "https://github.com/honeypatkar/Tic-Tac-Toe",
-    url: "https://honeypatkar.github.io/Tic-Tac-Toe/",
+    source: "https://github.com/honeypathkar/Tic-Tac-Toe",
+    url: "https://honeypathkar.github.io/Tic-Tac-Toe/",
     name: "Tic Tac Toe",
     description:
       "Tic Tac Toe is a classic game implemented using React JS. It offers an interactive and enjoyable gaming experience.",
   },
   {
     imageUrl: image5,
-    source: "https://github.com/honeypatkar/Todo-App",
-    url: "https://honeypatkar.github.io/Todo-App/",
+    source: "https://github.com/honeypathkar/Todo-App",
+    url: "https://honeypathkar.github.io/Todo-App/",
     name: "Todo-List App",
     description:
       "Todo-List App is a React-based application where you can manage your daily tasks efficiently. It supports adding, editing, and deleting tasks.",
   },
   {
     imageUrl: image6,
-    source: "https://github.com/honeypatkar/Weather-App",
-    url: "https://honeypatkar.github.io/Weather_App/",
+    source: "https://github.com/honeypathkar/Weather-App",
+    url: "https://honeypathkar.github.io/Weather_App/",
     name: "Weather App",
     description:
       "Weather App is developed using React JS. It allows users to check the weather conditions of any city worldwide, providing accurate and real-time data.",
   },
   {
     imageUrl: image7,
-    source: "https://github.com/honeypatkar/MovieDB",
+    source: "https://github.com/honeypathkar/MovieDB",
     url: "https://moviedb-honey.netlify.app",
     name: "Movie DB",
     description:
@@ -68,7 +67,7 @@ const work = [
   },
   {
     imageUrl: image8,
-    source: "https://github.com/honeypatkar/ImageGallery",
+    source: "https://github.com/honeypathkar/ImageGallery",
     url: "https://image-gallery-honey.netlify.app",
     name: "Image Gallery",
     description:
@@ -76,7 +75,7 @@ const work = [
   },
   {
     imageUrl: image9,
-    source: "https://github.com/honeypatkar/FoodRecipe",
+    source: "https://github.com/honeypathkar/FoodRecipe",
     url: "https://recipe-finder-honey.netlify.app",
     name: "Recipe Finder",
     description:
