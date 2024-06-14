@@ -5,13 +5,80 @@ import LocalPhoneIcon from "@mui/icons-material/LocalPhone";
 import GitHubIcon from "@mui/icons-material/GitHub";
 import LinkedInIcon from "@mui/icons-material/LinkedIn";
 import InstagramIcon from "@mui/icons-material/Instagram";
-// import Resume from "./images/Resume.pdf";
 import DownloadForOfflineRoundedIcon from "@mui/icons-material/DownloadForOfflineRounded";
 
 const Contact = () => {
   return (
-    <>
-      <div className="max-w-lg mx-auto p-8 my-20">
+    <div className="lg:flex sm:block md:block container">
+      <div className="w-full max-w-3xl mx-auto py-12 md:py-20 my-10">
+        <div className="space-y-6 text-center">
+          <h1 className="text-3xl font-bold tracking-tight sm:text-4xl">
+            Contact Us
+          </h1>
+          <p className="text-lg text-black dark:text-gray-400">
+            Have a question or want to work together? Fill out the form below
+            and we'll get back to you as soon as possible.
+          </p>
+        </div>
+        <div className="mt-10">
+          <form className="space-y-6" action="https://getform.io/f/pbgxwjka" method="POST">
+            <div className="grid grid-cols-1 gap-y-6 gap-x-8 sm:grid-cols-2">
+              <div>
+                <label
+                  className="text-sm font-medium leading-none peer-disabled:cursor-not-allowed peer-disabled:opacity-70"
+                  htmlFor="name"
+                >
+                  Name
+                </label>
+                <input
+                  className="input-style"
+                  id="name"
+                  placeholder="Your name"
+                  type="text"
+                  name="name"
+                />
+              </div>
+              <div>
+                <label
+                  className="text-sm font-medium leading-none peer-disabled:cursor-not-allowed peer-disabled:opacity-70"
+                  htmlFor="email"
+                >
+                  Email
+                </label>
+                <input
+                  className="input-style"
+                  id="email"
+                  placeholder="Your email"
+                  type="email"
+                  name="email"
+                />
+              </div>
+            </div>
+            <div>
+              <label
+                className="text-sm font-medium leading-none peer-disabled:cursor-not-allowed peer-disabled:opacity-70"
+                htmlFor="message"
+              >
+                Message
+              </label>
+              <textarea
+                className="textarea-style"
+                id="message"
+                rows="5"
+                placeholder="Your message"
+                name="message"
+              ></textarea>
+            </div>
+            <button
+              className="rounded-md bg-[#6FB3B8] w-[100%] py-2 text-sm font-semibold text-white shadow-sm hover:bg-[#86bdc8] focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-indigo-600"
+              type="submit"
+            >
+              Submit
+            </button>
+          </form>
+        </div>
+      </div>
+      <div className="max-w-lg mx-auto p-8 my-24">
         <h2 className="text-3xl font-bold mb-6">Get in touch</h2>
         <p className="text-zinc-600 mb-6">Let's Contact &rarr;</p>
         <div className="space-y-4 mb-6">
@@ -80,7 +147,40 @@ const Contact = () => {
           <span>&nbsp;&nbsp;&nbsp;Download</span>
         </a>
       </div>
-    </>
+      <style jsx="true">{`
+        .input-style {
+          width: 100%;
+          height: 40px;
+          padding: 0.5rem;
+          font-size: 1rem;
+          border-radius: 5px;
+          border: none;
+          outline: none;
+          background-color: #86bdc8;
+          color: black;
+        }
+
+        .input-style::placeholder {
+          color: black;
+        }
+
+        .textarea-style {
+          width: 100%;
+          padding: 0.5rem;
+          font-size: 1rem;
+          border-radius: 5px;
+          border: none;
+          outline: none;
+          background-color: #86bdc8;
+          color: black;
+        }
+
+        .textarea-style::placeholder {
+          color: black;
+        }
+      `}</style>
+    </div>
   );
 };
+
 export default Contact;
