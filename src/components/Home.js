@@ -54,7 +54,7 @@ export default function Home() {
                 to="/contact"
                 className="rounded-md bg-[#6FB3B8] px-3.5 py-2.5 text-sm font-semibold text-white shadow-sm hover:bg-[#388087] focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-indigo-600"
               >
-                Get started
+                Contact
               </Link>
               <a
                 href="https://linkedin.com/in/honey-patkar-7725632ba"
@@ -62,7 +62,7 @@ export default function Home() {
                 target="_blank"
                 rel="noopener noreferrer"
               >
-                Learn more <span aria-hidden="true">→</span>
+                More <span aria-hidden="true">→</span>
               </a>
             </div>
           </div>

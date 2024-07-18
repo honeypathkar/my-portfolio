@@ -6,6 +6,7 @@ import GitHubIcon from "@mui/icons-material/GitHub";
 import LinkedInIcon from "@mui/icons-material/LinkedIn";
 import InstagramIcon from "@mui/icons-material/Instagram";
 import DownloadForOfflineRoundedIcon from "@mui/icons-material/DownloadForOfflineRounded";
+import Leetcode from "./images/leetcode.png";
 
 const Contact = () => {
   return (
@@ -21,7 +22,11 @@ const Contact = () => {
           </p>
         </div>
         <div className="mt-10">
-          <form className="space-y-6" action="https://getform.io/f/pbgxwjka" method="POST">
+          <form
+            className="space-y-6"
+            action="https://getform.io/f/pbgxwjka"
+            method="POST"
+          >
             <div className="grid grid-cols-1 gap-y-6 gap-x-8 sm:grid-cols-2">
               <div>
                 <label
@@ -112,7 +117,7 @@ const Contact = () => {
               rel="noopener noreferrer"
             >
               <GitHubIcon />
-              <span>&nbsp;&nbsp;&nbsp;@honaypatkar</span>
+              <span>&nbsp;&nbsp;&nbsp; @honaypathkar</span>
             </a>
           </div>
           <div className="flex items-center">
@@ -122,7 +127,7 @@ const Contact = () => {
               rel="noopener noreferrer"
             >
               <LinkedInIcon />
-              <span>&nbsp;&nbsp;&nbsp; @honeypatkar</span>
+              <span>&nbsp;&nbsp;&nbsp; @honeypathkar</span>
             </a>
           </div>
           <div className="flex items-center">
@@ -132,7 +137,19 @@ const Contact = () => {
               rel="noopener noreferrer"
             >
               <InstagramIcon />
-              <span>&nbsp;&nbsp;&nbsp; honey.jsx</span>
+              <span>&nbsp;&nbsp;&nbsp; @honey.jsx</span>
+            </a>
+          </div>
+          <div className="flex items-center">
+            <a
+              href="https://leetcode.com/u/honeypatkar70"
+              target="_blank"
+              rel="noopener noreferrer"
+            >
+              <div className="flex items-center">
+                <img src={Leetcode} className="w-[8%]" alt="Leetcode" />
+                <span>&nbsp;&nbsp; @honeypatkar70</span>
+              </div>
             </a>
           </div>
         </div>
