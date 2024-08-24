@@ -122,7 +122,7 @@ const Contact = () => {
           </div>
           <div className="flex items-center">
             <a
-              href="https://linkedin.com/in/honey-pathkar-7725632ba"
+              href="https://linkedin.com/in/honey-pathkar"
               target="_blank"
               rel="noopener noreferrer"
             >

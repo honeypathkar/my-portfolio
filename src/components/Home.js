@@ -57,7 +57,7 @@ export default function Home() {
                 Contact
               </Link>
               <a
-                href="https://linkedin.com/in/honey-patkar-7725632ba"
+                href="https://linkedin.com/in/honey-pathkar"
                 className="text-sm font-semibold leading-6 text-gray-900"
                 target="_blank"
                 rel="noopener noreferrer"

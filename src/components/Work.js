@@ -24,13 +24,7 @@ export default function Work() {
   const offset = currentPage * itemsPerPage;
   const currentPageData = work.slice(offset, offset + itemsPerPage);
   return (
-    <>
-      <div
-        className="mt-32 text-center text-4xl underline"
-        style={{ fontFamily: "'Pangolin', cursive" }}
-      >
-        Projects
-      </div>
+    <div className="mt-28">
       <div className="container my-4">
         <div className="row box-container">
           {currentPageData.map((element) => {
@@ -67,6 +61,6 @@ export default function Work() {
           </button>
         </div>
       </div>
-    </>
+    </div>
   );
 }

@@ -82,21 +82,29 @@ const otherSkills = [
     image:
       "https://yt3.googleusercontent.com/_q52i8bUAEvcb7JR4e-eNTv23y2A_wg5sCz0NC0GrGtcw1CRMWJSOPVHUDh_bngD0q4gMvVeoA=s900-c-k-c0x00ffffff-no-rj",
   },
+  {
+    title: "C++",
+    image:
+      "https://raw.githubusercontent.com/devicons/devicon/master/icons/cplusplus/cplusplus-original.svg",
+  },
+  {
+    title: "Dart",
+    image: "https://www.vectorlogo.zone/logos/dartlang/dartlang-icon.svg",
+  },
+  {
+    title: "TypeScript",
+    image:
+      "https://raw.githubusercontent.com/devicons/devicon/master/icons/typescript/typescript-original.svg",
+  },
 ];
 
 const Skills = () => {
   return (
     <div className="container">
-      <div
-        className="mt-32 text-center text-4xl underline"
-        style={{ fontFamily: "'Pangolin', cursive" }}
-      >
-        Skills
-      </div>
-      <div className="mt-10">
+      <div className="mt-24">
         <div className="mb-3">
           <h1 className="bold text-xl text-black">Frontend Tools:</h1>
-          <div className="grid grid-cols-4 sm:grid-cols-6 lg:grid-cols-12 gap-4 justify-center items-center mt-3">
+          <div className="grid grid-cols-3 sm:grid-cols-6 lg:grid-cols-12 gap-4 justify-center items-center mt-3">
             {frontEndSkills.map((item, index) => (
               <div
                 className="flex flex-col items-center bg-white py-6 rounded-md shadow-md hover:scale-105"
@@ -112,7 +120,7 @@ const Skills = () => {
         </div>
         <div className="mb-3">
           <h1 className="bold text-xl text-black">Css Framework:</h1>
-          <div className="grid grid-cols-4 sm:grid-cols-6 lg:grid-cols-12 gap-4 justify-center items-center mt-3">
+          <div className="grid grid-cols-3 sm:grid-cols-6 lg:grid-cols-12 gap-4 justify-center items-center mt-3">
             {cssFramwork.map((item, index) => (
               <div
                 className="flex flex-col items-center bg-white py-6 rounded-md shadow-md hover:scale-105"
@@ -130,7 +138,7 @@ const Skills = () => {
           <h1 className="bold text-xl text-black">
             Backend Development Tools:
           </h1>
-          <div className="grid grid-cols-4 sm:grid-cols-6 lg:grid-cols-12 gap-4 justify-center items-center mt-3">
+          <div className="grid grid-cols-3 sm:grid-cols-6 lg:grid-cols-12 gap-4 justify-center items-center mt-3">
             {backendSkills.map((item, index) => (
               <div
                 className="flex flex-col items-center bg-white py-6 rounded-md shadow-md hover:scale-105"
@@ -146,7 +154,7 @@ const Skills = () => {
         </div>
         <div className="mb-3">
           <h1 className="bold text-xl text-black">Other tools and skills:</h1>
-          <div className="grid grid-cols-4 sm:grid-cols-6 lg:grid-cols-12 gap-4 justify-center items-center mt-3">
+          <div className="grid grid-cols-3 sm:grid-cols-6 lg:grid-cols-12 gap-4 justify-center items-center mt-3">
             {otherSkills.map((item, index) => (
               <div
                 className="flex flex-col items-center bg-white py-6 rounded-md shadow-md hover:scale-105"
