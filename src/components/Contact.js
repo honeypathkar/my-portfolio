@@ -142,13 +142,13 @@ const Contact = () => {
           </div>
           <div className="flex items-center">
             <a
-              href="https://leetcode.com/u/honeypatkar70"
+              href="https://leetcode.com/u/honeypathkar70"
               target="_blank"
               rel="noopener noreferrer"
             >
               <div className="flex items-center">
                 <img src={Leetcode} className="w-[8%]" alt="Leetcode" />
-                <span>&nbsp;&nbsp; @honeypatkar70</span>
+                <span>&nbsp;&nbsp; @honeypathkar70</span>
               </div>
             </a>
           </div>
