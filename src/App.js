@@ -1,10 +1,10 @@
 import "./App.css";
-import Contact from "./components/Contact";
-import Home from "./components/Home";
+import Contact from "./components/pages/ContactPage";
+import Home from "./components/pages/HomePage";
 // import Footer from './components/Footer';
 import Navbar from "./components/Navbar";
-import Skills from "./components/Skills";
-import Work from "./components/Work";
+import Skills from "./components/pages/SkillsPage";
+import Work from "./components/pages/WorkPage";
 import { HashRouter as Router, Routes, Route } from "react-router-dom";
 
 function App() {

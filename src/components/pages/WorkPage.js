@@ -1,6 +1,6 @@
 import React, { useState } from "react";
-import Container from "./Container";
-import { work } from "./Project";
+import Container from "../Container";
+import { work } from "../utils/Project";
 import ArrowForwardIosIcon from "@mui/icons-material/ArrowForwardIos";
 import ArrowBackIosIcon from "@mui/icons-material/ArrowBackIos";
 

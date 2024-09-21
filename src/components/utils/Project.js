@@ -1,13 +1,13 @@
-import image1 from "./images/counter.png";
-import image2 from "./images/resume.png";
-import image3 from "./images/textchange.png";
-import image4 from "./images/tic-tac-toe.png";
-import image5 from "./images/todo.png";
-import image6 from "./images/weather.png";
-import image7 from "./images/moviedb.png";
-import image8 from "./images/imagegallery.png";
-import image9 from "./images/recipe.png";
-import image10 from "./images/dashBoard.png";
+import image1 from "../images/counter.png";
+import image2 from "../images/resume.png";
+import image3 from "../images/textchange.png";
+import image4 from "../images/tic-tac-toe.png";
+import image5 from "../images/todo.png";
+import image6 from "../images/weather.png";
+import image7 from "../images/moviedb.png";
+import image8 from "../images/imagegallery.png";
+import image9 from "../images/recipe.png";
+import image10 from "../images/dashBoard.png";
 
 const work = [
   {
