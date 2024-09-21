@@ -4,7 +4,7 @@ import {
   backendSkills,
   frontEndSkills,
   otherSkills,
-} from "../utils/Project";
+} from "../utils/data";
 
 const Skills = () => {
   return (

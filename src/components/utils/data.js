@@ -8,6 +8,8 @@ import image7 from "../images/moviedb.png";
 import image8 from "../images/imagegallery.png";
 import image9 from "../images/recipe.png";
 import image10 from "../images/dashBoard.png";
+import image11 from "../images/chat-app.png";
+import image12 from "../images/s-mart.png";
 
 //Project Details
 const work = [
@@ -90,6 +92,22 @@ const work = [
     name: "React Crypto Dashboard",
     description:
       "Experience the power of data visualization with the React Crypto Dashboard. This cutting-edge dashboard, developed with Vite + ReactJS, Tailwind CSS, and Bootstrap, offers real-time insights and analytics for cryptocurrency markets. From price trends and market cap rankings to historical data and portfolio management, the dashboard equips users with the tools and information needed to make informed decisions in the dynamic crypto landscape. Whether investors, traders, or crypto enthusiasts, the React Crypto Dashboard provides a comprehensive overview and actionable insights for navigating the digital asset ecosystem with confidence.",
+  },
+  {
+    imageUrl: image11,
+    source: "https://github.com/honeypathkar/Chat-Application",
+    url: "https://react-chat-application-honey.netlify.app",
+    name: "React Chat Application",
+    description:
+      "I successfully designed and developed a chat application that enhances connectivity and communication. This application allows users to easily sign in or register, and engage in real-time conversations with their friends. Key features include: Seamless User Authentication: Implemented secure and efficient user registration and sign-in processes.Real-Time Messaging: Developed a robust messaging system for instant communication.Intuitive User Interface: Crafted a user-friendly interface for an optimal user experience.This project showcases my expertise in software development, user experience design, and real-time communication technologies.",
+  },
+  {
+    imageUrl: image12,
+    source: "https://github.com/honeypathkar/EcommerceSite",
+    url: "https://s-mart-honey.netlify.app/",
+    name: "S-Mart An eCommerce Website",
+    description:
+      "S-Mart is a responsive e-commerce platform built with React.js and styled using Tailwind CSS. It features dynamically rendered products from a fake API, ensuring real-time updates and a smooth user experience. Designed for both desktop and mobile, S-Mart offers seamless navigation and a clean, modern interface for all your shopping needs.",
   },
 ];
 
