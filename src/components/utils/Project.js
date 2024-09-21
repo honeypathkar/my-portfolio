@@ -9,6 +9,7 @@ import image8 from "../images/imagegallery.png";
 import image9 from "../images/recipe.png";
 import image10 from "../images/dashBoard.png";
 
+//Project Details
 const work = [
   {
     imageUrl: image1,
@@ -92,4 +93,103 @@ const work = [
   },
 ];
 
-export { work };
+//Css framework skills
+const cssFramwork = [
+  {
+    title: "Tailwind CSS",
+    image:
+      "https://camo.githubusercontent.com/52643e404ca1a1d90beb0095ebddda4b16b8c30dfcfeb5d42355a2df037c7c8e/68747470733a2f2f7777772e766563746f726c6f676f2e7a6f6e652f6c6f676f732f7461696c77696e646373732f7461696c77696e646373732d69636f6e2e737667",
+  },
+  {
+    title: "Bootstrap",
+    image:
+      "https://raw.githubusercontent.com/devicons/devicon/master/icons/bootstrap/bootstrap-plain-wordmark.svg",
+  },
+];
+
+//Frontend Development Skills
+const frontEndSkills = [
+  {
+    title: "HTML",
+    image:
+      "https://raw.githubusercontent.com/devicons/devicon/master/icons/html5/html5-original-wordmark.svg",
+  },
+  {
+    title: "CSS",
+    image:
+      "https://raw.githubusercontent.com/devicons/devicon/master/icons/css3/css3-original-wordmark.svg",
+  },
+  {
+    title: "JavaScript",
+    image:
+      "https://raw.githubusercontent.com/devicons/devicon/master/icons/javascript/javascript-original.svg",
+  },
+  {
+    title: "React Js",
+    image:
+      "https://raw.githubusercontent.com/devicons/devicon/master/icons/react/react-original-wordmark.svg",
+  },
+];
+
+//Backend Developmet Skills
+const backendSkills = [
+  {
+    title: "Node Js",
+    image:
+      "https://raw.githubusercontent.com/devicons/devicon/master/icons/nodejs/nodejs-original-wordmark.svg",
+  },
+  {
+    title: "Express Js",
+    image:
+      "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTXgAuAwfMMDkwZScsLkBAeZ4GjyfB7GtIzcA&s",
+  },
+  {
+    title: "MongoDB",
+    image:
+      "https://cdn.icon-icons.com/icons2/2415/PNG/512/mongodb_original_wordmark_logo_icon_146425.png",
+  },
+];
+
+//Others Skills
+const otherSkills = [
+  {
+    title: "Redux Toolkit",
+    image:
+      "https://raw.githubusercontent.com/devicons/devicon/master/icons/redux/redux-original.svg",
+  },
+  {
+    title: "Git",
+    image:
+      "https://camo.githubusercontent.com/ff5301ef7472dbdf522b776167a8af8c326299fe8175e53f6b052bbcc04533e3/68747470733a2f2f7777772e766563746f726c6f676f2e7a6f6e652f6c6f676f732f6769742d73636d2f6769742d73636d2d69636f6e2e737667",
+  },
+  {
+    title: "React Native",
+    image: "https://reactnative.dev/img/header_logo.svg",
+  },
+  {
+    title: "Github",
+    image:
+      "https://github.githubassets.com/assets/GitHub-Mark-ea2971cee799.png",
+  },
+  {
+    title: "Vs Code",
+    image:
+      "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRiJNnjZv36ijogi3aM_xcSMy26_QeOWrVmJQ&s",
+  },
+  {
+    title: "C++",
+    image:
+      "https://raw.githubusercontent.com/devicons/devicon/master/icons/cplusplus/cplusplus-original.svg",
+  },
+  {
+    title: "Dart",
+    image: "https://www.vectorlogo.zone/logos/dartlang/dartlang-icon.svg",
+  },
+  {
+    title: "TypeScript",
+    image:
+      "https://raw.githubusercontent.com/devicons/devicon/master/icons/typescript/typescript-original.svg",
+  },
+];
+
+export { work, cssFramwork, frontEndSkills, backendSkills, otherSkills };
