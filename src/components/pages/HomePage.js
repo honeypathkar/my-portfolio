@@ -4,13 +4,15 @@ import "../../App.css";
 import SkillsPage from "./SkillsPage";
 import WorkPage from "./WorkPage";
 import ContactPage from "./ContactPage";
+import About from "./About";
+import ArrowDownwardIcon from "@mui/icons-material/ArrowDownward";
 
 export default function Home({ home, about, skills, project, contact }) {
   return (
     <>
       <div className="homepage" id={home}>
-        <div className="inset-0 bg-gradient-to-br from-purple-900 via-gray-900 to-gray-900">
-          <div className="relative isolate px-6 pt-5 lg:px-8">
+        <div className="inset-0 bg-gradient-to-br from-purple-900 via-gray-900 to-gray-900 ">
+          <div className="relative isolate px-6 pt-5 lg:px-20">
             <div className="mx-auto max-w-2xl py-24 sm:py-48 lg:py-[195px]">
               <div className="hidden sm:mb-8 sm:flex sm:justify-center">
                 <div className="relative rounded-full px-3 py-1 text-sm leading-6 text-white ring-1 ring-gray-900/10 hover:ring-gray-900/20">
@@ -54,12 +56,6 @@ export default function Home({ home, about, skills, project, contact }) {
                     />
                   </span>
                 </h1>
-                <p className="mt-6 text-lg leading-8 text-white">
-                  I'm a intermidiate Frotend developer and learning web
-                  devlopment. I'm looking for job opportunity. This is my
-                  Personal Portfolio. Here I have included some of my project
-                  that i made during practice. Hopefully you like them.
-                </p>
                 <div className="mt-10 flex items-center justify-center gap-x-6">
                   <a
                     href={"#" + contact}
@@ -79,7 +75,13 @@ export default function Home({ home, about, skills, project, contact }) {
               </div>
             </div>
           </div>
+          <div className="flex justify-center mt-10 transform -translate-x-1/2 animate-bounce">
+            <ArrowDownwardIcon sx={{ color: "white", fontSize: 30 }} />
+          </div>
         </div>
+      </div>
+      <div id={about} className="pt-[70px]">
+        <About />
       </div>
       <div id={skills}>
         <SkillsPage />
