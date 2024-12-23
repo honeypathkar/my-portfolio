@@ -1,7 +1,7 @@
 import React, { useState } from "react";
-import { Link } from "react-router-dom";
+// import { Link } from "react-router-dom";
 
-const Navbar = () => {
+const Navbar = ({ home, about, skills, project, contact }) => {
   const [isOpen, setIsOpen] = useState(false);
 
   const toggleMenu = () => {
@@ -9,10 +9,11 @@ const Navbar = () => {
   };
 
   const url = [
-    { name: "Home", link: "/" },
-    { name: "Skills", link: "/skills" },
-    { name: "Project", link: "/projects" },
-    { name: "Contact", link: "/contact" },
+    { name: "Home", link: home },
+    { name: "About", link: about },
+    { name: "Skills", link: skills },
+    { name: "Project", link: project },
+    { name: "Contact", link: contact },
   ];
 
   return (
@@ -20,15 +21,19 @@ const Navbar = () => {
       <div className="container mx-auto flex items-center justify-between p-3">
         {/* Logo */}
         <div className="text-2xl font-bold">
-          <h1>Portfolio</h1>
+          <a href="#">Portfolio</a>
         </div>
 
         {/* Menu Items */}
-        <div className="hidden md:flex space-x-6">
+        <div className="hidden md:flex gap-6">
           {url.map((data, index) => (
-            <Link key={index} to={data.link} className="hover:text-gray-400">
+            <a
+              key={index}
+              href={"#" + data.link}
+              className="hover:text-purple-400"
+            >
               {data.name}
-            </Link>
+            </a>
           ))}
         </div>
 
@@ -55,15 +60,15 @@ const Navbar = () => {
 
       {/* Mobile Menu */}
       {isOpen && (
-        <div className="md:hidden bg-gray-700">
+        <div className="md:hidden bg-gray-900/80">
           {url.map((data, index) => (
-            <Link
+            <a
               key={index}
-              to={data.link}
-              className="block px-4 py-2 hover:bg-gray-600"
+              href={"#" + data.link}
+              className="block px-4 py-2 hover:text-purple-400"
             >
               {data.name}
-            </Link>
+            </a>
           ))}
         </div>
       )}
