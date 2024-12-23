@@ -1,5 +1,10 @@
 body {
-  background-color: #BADFE7;
+  /* background-color: #581c87; */
+  background: radial-gradient(
+    circle at center,
+    transparent 0%,
+    rgba(0, 0, 0, 0.8) 100%
+  );
   font-family: "Rajdhani", sans-serif;
   font-weight: 400;
   font-style: normal;
