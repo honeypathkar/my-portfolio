@@ -37,6 +37,7 @@ export default function Work() {
                   url={element.url}
                   description={element.description}
                   tools={element.tools}
+                  source={element.source}
                 />
               </div>
             );

@@ -13,7 +13,7 @@ export default function Home({ home, about, skills, project, contact }) {
       <div className="homepage" id={home}>
         <div className="inset-0 bg-gradient-to-br from-purple-900 via-gray-900 to-gray-900 ">
           <div className="relative isolate px-6 pt-5 lg:px-20">
-            <div className="mx-auto max-w-2xl py-24 sm:py-48 lg:py-[195px]">
+            <div className="mx-auto max-w-2xl py-56 lg:py-[195px]">
               <div className="hidden sm:mb-8 sm:flex sm:justify-center">
                 <div className="relative rounded-full px-3 py-1 text-sm leading-6 text-white ring-1 ring-gray-900/10 hover:ring-gray-900/20">
                   Let's Contact{" "}
@@ -89,7 +89,7 @@ export default function Home({ home, about, skills, project, contact }) {
       <div id={project} className="pt-[1px]">
         <WorkPage />
       </div>
-      <div id={contact}>
+      <div id={contact} className="py-[70px]">
         <ContactPage />
       </div>
     </>

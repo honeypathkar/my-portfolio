@@ -1,7 +1,7 @@
 import React from "react";
 
 export default function Container(props) {
-  const { name, imageUrl, url, description, tools } = props;
+  const { name, imageUrl, url, description, tools, source } = props;
 
   return (
     <div className="group bg-gray-800/50 rounded-xl border-[1px] border-purple-600/30 overflow-hidden hover:border-purple-700 transition-all duration-300">
@@ -58,7 +58,7 @@ export default function Container(props) {
             </span>
           </a>
           <a
-            href={props.source}
+            href={source}
             className="text-white hover:text-blue-400 transition-colors duration-300 text-xs"
             target="_blank"
             rel="noopener noreferrer"
