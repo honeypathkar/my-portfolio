@@ -69,7 +69,7 @@ export default function Home({ home, about, skills, project, contact }) {
                     target="_blank"
                     rel="noopener noreferrer"
                   >
-                    View Work
+                    More
                   </a>
                 </div>
               </div>
@@ -89,7 +89,10 @@ export default function Home({ home, about, skills, project, contact }) {
       <div id={project} className="pt-[1px]">
         <WorkPage />
       </div>
-      <div id={contact} className="py-[70px]">
+      <div
+        id={contact}
+        className="py-[70px] inset-0 bg-gradient-to-br to-purple-900 via-gray-900 from-gray-900 "
+      >
         <ContactPage />
       </div>
     </>

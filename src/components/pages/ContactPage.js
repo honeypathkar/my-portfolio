@@ -9,7 +9,7 @@ import DownloadIcon from "@mui/icons-material/Download";
 
 const Contact = () => {
   return (
-    <>
+    <div>
       <div className="flex flex-col items-center text-center mb-5 text-white">
         <h2 className="text-3xl font-bold text-center">Get In Touch</h2>
         <div className="w-20 h-1 bg-purple-600 mt-3"></div>
@@ -160,7 +160,7 @@ const Contact = () => {
           </div>
         </div>
       </div>
-    </>
+    </div>
   );
 };
 

@@ -1,20 +1,51 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import Container from "../Container";
-import { work } from "../utils/data";
 import ReactPaginate from "react-paginate";
+import ChevronLeftIcon from "@mui/icons-material/ChevronLeft";
+import ChevronRightIcon from "@mui/icons-material/ChevronRight";
 
 export default function Work() {
+  const [works, setWorks] = useState([]); // State for fetched data
   const [currentPage, setCurrentPage] = useState(0);
+  const [loading, setLoading] = useState(true);
+  const [error, setError] = useState(null);
 
-  const itemsPerPage = 6; // Display 3 projects per page
-  const totalPages = Math.ceil(work.length / itemsPerPage);
+  const itemsPerPage = 6; // Number of items per page
+  const offset = currentPage * itemsPerPage;
+
+  // Fetch data from the API
+  useEffect(() => {
+    const fetchWorks = async () => {
+      try {
+        const response = await fetch("http://localhost:5000/api/works");
+        if (!response.ok) {
+          throw new Error("Failed to fetch works");
+        }
+        const data = await response.json();
+        setWorks(data);
+      } catch (err) {
+        setError(err.message);
+      } finally {
+        setLoading(false);
+      }
+    };
+
+    fetchWorks();
+  }, []);
 
   const handlePageClick = (data) => {
     setCurrentPage(data.selected);
   };
 
-  const offset = currentPage * itemsPerPage;
-  const currentPageData = work.slice(offset, offset + itemsPerPage);
+  const currentPageData = works.slice(offset, offset + itemsPerPage);
+
+  if (loading) {
+    return <div className="text-center mt-20 text-white">Loading...</div>;
+  }
+
+  if (error) {
+    return <div className="text-center mt-20 text-red-500">{error}</div>;
+  }
 
   return (
     <div className="mt-28">
@@ -24,32 +55,29 @@ export default function Work() {
           <div className="w-20 h-1 bg-purple-600 mt-3"></div>
         </div>
         <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8 max-w-7xl mx-auto">
-          {" "}
-          {currentPageData.map((element) => {
-            return (
-              <div
-                className="col-span-1" // Ensures each item takes up one column
-                key={element.url}
-              >
-                <Container
-                  name={element.name}
-                  imageUrl={element.imageUrl}
-                  url={element.url}
-                  description={element.description}
-                  tools={element.tools}
-                  source={element.source}
-                />
-              </div>
-            );
-          })}
+          {currentPageData.map((element) => (
+            <div
+              className="col-span-1"
+              key={element._id} // Assuming each work has a unique _id
+            >
+              <Container
+                name={element.name}
+                imageUrl={element.image}
+                url={element.url}
+                description={element.description}
+                tools={element.tools}
+                source={element.source}
+              />
+            </div>
+          ))}
         </div>
 
         <div className="pagination-controls mt-4 flex justify-center space-x-4 mb-12">
           <ReactPaginate
-            previousLabel={"← Previous"}
-            nextLabel={"Next →"}
+            previousLabel={<ChevronLeftIcon />}
+            nextLabel={<ChevronRightIcon />}
             breakLabel={"..."}
-            pageCount={totalPages}
+            pageCount={Math.ceil(works.length / itemsPerPage)}
             marginPagesDisplayed={2}
             pageRangeDisplayed={3}
             onPageChange={handlePageClick}
