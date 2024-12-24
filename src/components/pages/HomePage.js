@@ -86,7 +86,7 @@ export default function Home({ home, about, skills, project, contact }) {
       <div id={skills} className="pt-[70px]">
         <SkillsPage />
       </div>
-      <div id={project}>
+      <div id={project} className="pt-[1px]">
         <WorkPage />
       </div>
       <div id={contact}>

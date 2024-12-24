@@ -1,49 +1,86 @@
 import React from "react";
 
 export default function Container(props) {
-  let { name, imageUrl, url, description, source } = props;
+  const { name, imageUrl, url, description, tools } = props;
+
   return (
-    <div className="hover1">
-      <div className="card my-3 bg-[#96dadf]">
-        <img src={imageUrl} className="card-img-top" alt="..." />
-        <div className="card-body">
-          <h5
-            className="card-title font-bold text-xl"
-            style={{ fontFamily: "'Pangolin', cursive" }}
-          >
-            {name}
-          </h5>
-          <p className="card-text mb-4">{description}</p>
+    <div className="group bg-gray-800/50 rounded-xl border-[1px] border-purple-600/30 overflow-hidden hover:border-purple-700 transition-all duration-300">
+      {/* Image Section */}
+      <div className="relative w-full">
+        <img
+          src={imageUrl}
+          alt={name}
+          className="w-full h-[14rem] object-cover transform group-hover:scale-105 transition-transform duration-500"
+          loading="lazy"
+        />{" "}
+      </div>
+
+      {/* Content Section */}
+      <div className="p-4">
+        <h3 className="text-lg font-semibold text-white mb-2">{name}</h3>
+        <p className="text-neutral-300 mb-3 text-sm">{description}</p>
+
+        {/* Tools Section */}
+        <div className="flex flex-wrap gap-2 mb-3">
+          {tools?.map((tech, index) => (
+            <span
+              key={index}
+              className="px-3 py-1 text-sm bg-purple-500/10 text-purple-400 rounded-full"
+            >
+              {tech}
+            </span>
+          ))}
+        </div>
+
+        {/* Action Links Section */}
+        <div className="flex gap-3">
           <a
             href={url}
-            className="btn bg-[#6FB3B8] hover:bg-[#388087] text-white mr-4"
+            className="text-white hover:text-blue-400 transition-colors duration-300 text-xs"
             target="_blank"
-            rel="noreferrer"
+            rel="noopener noreferrer"
           >
-            Click Here
+            <span className="flex items-center">
+              <span>Live Demo</span>
+              <svg
+                className="w-3 h-3 ml-1"
+                fill="none"
+                stroke="currentColor"
+                viewBox="0 0 24 24"
+              >
+                <path
+                  strokeLinecap="round"
+                  strokeLinejoin="round"
+                  strokeWidth="2"
+                  d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14"
+                ></path>
+              </svg>
+            </span>
           </a>
           <a
-            href={source}
-            className="btn bg-[#6FB3B8] hover:bg-[#388087] text-white"
+            href={props.source}
+            className="text-white hover:text-blue-400 transition-colors duration-300 text-xs"
             target="_blank"
-            rel="noreferrer"
+            rel="noopener noreferrer"
           >
-            Source Code
+            <span className="flex items-center">
+              <span>Code</span>
+              <svg
+                className="w-3 h-3 ml-1"
+                fill="none"
+                stroke="currentColor"
+                viewBox="0 0 24 24"
+              >
+                <path
+                  strokeLinecap="round"
+                  strokeLinejoin="round"
+                  strokeWidth="2"
+                  d="M10 20l4-16m4 4l4 4-4 4M6 16l-4-4 4-4"
+                ></path>
+              </svg>
+            </span>
           </a>
         </div>
-        <style jsx="true">
-          {`
-            .hover1 div {
-              transition: 0.5s ease;
-            }
-            .hover1 img:hover {
-              -webkit-transform: scale(0.9);
-              -ms-transform: scale(0.9);
-              transform: scale(0.9);
-              transition: 0.5s ease;
-            }
-          `}
-        </style>
       </div>
     </div>
   );
