@@ -83,7 +83,7 @@ export default function Home({ home, about, skills, project, contact }) {
       <div id={about} className="pt-[70px]">
         <About />
       </div>
-      <div id={skills}>
+      <div id={skills} className="pt-[70px]">
         <SkillsPage />
       </div>
       <div id={project}>

@@ -20,7 +20,7 @@ const Navbar = ({ home, about, skills, project, contact }) => {
       <div className="container mx-auto flex items-center justify-between p-3">
         {/* Logo */}
         <div className="text-2xl font-bold">
-          <a href="#">Portfolio</a>
+          <a href="/">Portfolio</a>
         </div>
 
         {/* Menu Items */}
