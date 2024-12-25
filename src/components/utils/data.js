@@ -123,4 +123,4 @@ const work = [
   },
 ];
 
-export { work };
+export default work;
