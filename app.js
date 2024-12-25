@@ -9,7 +9,7 @@ app.use(bodyParser.json());
 app.use(cors());
 
 // Routes
-app.get("/api/works", async (req, res) => {
+app.get("/", async (req, res) => {
   try {
     const works = await Work.find();
     const worksWithImage = works.map((work) => ({
