@@ -1,26 +1,14 @@
 {
   "files": {
-    "main.css": "/my-portfolio/static/css/main.9c3cc8a2.css",
-    "main.js": "/my-portfolio/static/js/main.7a9a5bf6.js",
-    "static/media/imagegallery.png": "/my-portfolio/static/media/imagegallery.342e15ae3b88327c0db2.png",
-    "static/media/moviedb.png": "/my-portfolio/static/media/moviedb.b8741b295d3a57c184dd.png",
-    "static/media/s-mart.png": "/my-portfolio/static/media/s-mart.313aaa1eddb10dddd9ac.png",
-    "static/media/resume.png": "/my-portfolio/static/media/resume.7e7c0c3722f8874b50e4.png",
-    "static/media/weather.png": "/my-portfolio/static/media/weather.1dbe09d1f350debde17a.png",
-    "static/media/counter.png": "/my-portfolio/static/media/counter.d1b179e502ac90eda6ea.png",
+    "main.css": "/my-portfolio/static/css/main.7df1b3ca.css",
+    "main.js": "/my-portfolio/static/js/main.0814476d.js",
     "static/media/profile-image.jpeg": "/my-portfolio/static/media/profile-image.6018abb5fcaef66c36e9.jpeg",
-    "static/media/tic-tac-toe.png": "/my-portfolio/static/media/tic-tac-toe.f708a287857164f01edb.png",
-    "static/media/recipe.png": "/my-portfolio/static/media/recipe.2c3021cd694d43eb563c.png",
-    "static/media/dashBoard.png": "/my-portfolio/static/media/dashBoard.e2ef9fdc051af1740a85.png",
-    "static/media/textchange.png": "/my-portfolio/static/media/textchange.3853f9deeb9520ec6aa5.png",
-    "static/media/todo.png": "/my-portfolio/static/media/todo.c38f9b97a943be29089b.png",
-    "static/media/chat-app.png": "/my-portfolio/static/media/chat-app.9b022e19360fbcfbd1b4.png",
     "index.html": "/my-portfolio/index.html",
-    "main.9c3cc8a2.css.map": "/my-portfolio/static/css/main.9c3cc8a2.css.map",
-    "main.7a9a5bf6.js.map": "/my-portfolio/static/js/main.7a9a5bf6.js.map"
+    "main.7df1b3ca.css.map": "/my-portfolio/static/css/main.7df1b3ca.css.map",
+    "main.0814476d.js.map": "/my-portfolio/static/js/main.0814476d.js.map"
   },
   "entrypoints": [
-    "static/css/main.9c3cc8a2.css",
-    "static/js/main.7a9a5bf6.js"
+    "static/css/main.7df1b3ca.css",
+    "static/js/main.0814476d.js"
   ]
 }
