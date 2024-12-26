@@ -36,7 +36,7 @@ const Skills = () => {
     { name: "MySQL", icon: faDatabase },
     { name: "C++", icon: faCode },
     { name: "Bootstrap", icon: faBootstrap },
-    { name: "Tailwind CSS", icon: faCode },
+    { name: "Tailwind", icon: faCode },
     { name: "Redux", icon: faCogs },
   ];
 

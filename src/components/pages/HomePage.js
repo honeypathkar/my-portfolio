@@ -32,7 +32,7 @@ export default function Home({ home, about, skills, project, contact }) {
                 </div>
               </div>
               <div className="text-center">
-                <h1 className="text-4xl font-bold tracking-tight text-gray-900 sm:text-6xl">
+                <h1 className="text-3xl font-bold tracking-tight text-gray-900 sm:text-6xl">
                   <span className="text-white">Hii I'm</span>{" "}
                   <span className="text-purple-500">Honey</span> <br />
                   <span className="text-purple-500">

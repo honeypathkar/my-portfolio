@@ -58,7 +58,15 @@ export default function Work() {
   }
 
   if (error) {
-    return <div className="text-center mt-20 text-red-500">{error}</div>;
+    return (
+      <div className="my-40">
+        <div className="flex flex-col items-center text-center mb-5 text-white">
+          <h2 className="text-3xl font-bold text-center">Featured Projects</h2>
+          <div className="w-20 h-1 bg-purple-600 mt-3"></div>
+        </div>
+        <div className="text-center mt-20 text-red-500">{error}</div>
+      </div>
+    );
   }
 
   return (

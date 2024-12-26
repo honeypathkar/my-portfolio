@@ -6,6 +6,7 @@ import GitHubIcon from "@mui/icons-material/GitHub";
 import LinkedInIcon from "@mui/icons-material/LinkedIn";
 import InstagramIcon from "@mui/icons-material/Instagram";
 import DownloadIcon from "@mui/icons-material/Download";
+import Footer from "./Footer";
 
 const Contact = () => {
   return (
@@ -160,6 +161,8 @@ const Contact = () => {
           </div>
         </div>
       </div>
+      <div className="border-[1px] border-gray-700 mt-5 mx-8"></div>
+      <Footer />
     </div>
   );
 };
