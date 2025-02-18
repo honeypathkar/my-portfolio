@@ -66,7 +66,7 @@ const Contact = () => {
                     <GitHubIcon />
                   </a>
                   <a
-                    href="https://linkedin.com/honey-pathkar"
+                    href="https://www.linkedin.com/in/honey-pathkar/"
                     target="_blank"
                     rel="noopener noreferrer"
                     className="w-10 h-10 bg-purple-600/20 rounded-full flex items-center justify-center text-purple-400 hover:bg-purple-600 hover:text-white transition-colors duration-300"
@@ -150,7 +150,7 @@ const Contact = () => {
                 <div className="sm:col-span-2">
                   <button
                     type="submit"
-                    className="w-full bg-purple-600 text-white py-3 px-6 rounded-lg hover:bg-purple-700 transition-colors duration-300"
+                    className="w-full bg-purple-600 text-white py-3 px-6 rounded-lg hover:bg-purple-700 cursor-auto transition-colors duration-300"
                     fdprocessedid="4lr358"
                   >
                     Send Message

@@ -5,6 +5,17 @@ body {
   font-style: normal;
 }
 
+* {
+  cursor: url("./components/images/cursor.png"), auto;
+}
+
+button,
+a,
+input,
+textarea {
+  cursor: url("./components/images/cursor.png"), auto;
+}
+
 .homepage {
   background: radial-gradient(
     circle at center,
