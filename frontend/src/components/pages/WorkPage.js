@@ -14,12 +14,12 @@ export default function Work() {
   const itemsPerPage = 6;
   const offset = currentPage * itemsPerPage;
 
+  const myDataApi = process.env.REACT_APP_DATA_API;
+
   useEffect(() => {
     const fetchWorks = async () => {
       try {
-        const response = await fetch(
-          "https://my-api-production-433f.up.railway.app/"
-        );
+        const response = await fetch(`${myDataApi}`);
         if (!response.ok) {
           throw new Error("Failed to fetch works");
         }
@@ -33,6 +33,7 @@ export default function Work() {
     };
 
     fetchWorks();
+    // eslint-disable-next-line
   }, []);
 
   const handlePageClick = (data) => {
