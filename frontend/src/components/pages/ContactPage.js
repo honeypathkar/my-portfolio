@@ -87,7 +87,7 @@ const Contact = () => {
               <div className="mt-8">
                 <h4 className="text-white font-semibold mb-4">Resume</h4>
                 <a
-                  href="https://drive.google.com/file/d/1cx7roHwR7MTqcXkYmW28X00J3gizqtNw/view?usp=drive_link"
+                  href="https://drive.google.com/file/d/1alPFKOfvFhDyrm7QhpNUgPWd4vYx-e0q/view?usp=drive_link"
                   download="resume.pdf"
                   target="_blank"
                   rel="noopener noreferrer"
