@@ -69,7 +69,7 @@ export default function Work() {
                 <Container
                   key={element._id}
                   name={element.name}
-                  imageUrl={element.image}
+                  imageUrl={element.imageUrl}
                   url={element.url}
                   description={element.description}
                   tools={element.tools}
