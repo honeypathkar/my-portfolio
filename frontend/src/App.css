@@ -6,14 +6,14 @@ body {
 }
 
 * {
-  cursor: url("./components/images/cursor.png"), auto;
+  cursor: url("./images/cursor.png"), auto;
 }
 
 button,
 a,
 input,
 textarea {
-  cursor: url("./components/images/cursor.png"), auto;
+  cursor: url("./images/cursor.png"), auto;
 }
 
 .homepage {

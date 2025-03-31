@@ -9,13 +9,13 @@ mongoose
   .catch((err) => console.log(err.errmsg));
 
 const workSchema = new mongoose.Schema({
-  image: String, // Store image as Base64 string
-  contentType: String, // Store the MIME type of the image
+  imageUrl: String, // Store Cloudinary URL
   source: String,
   url: String,
   name: String,
   description: String,
   tools: [String],
+  cloudinary_id: String, // Store Cloudinary Image ID
 });
 
 module.exports = mongoose.model("Work", workSchema);

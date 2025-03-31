@@ -1,6 +1,6 @@
 import React from "react";
 import Typewriter from "typewriter-effect";
-import "../../App.css";
+import "../App.css";
 import SkillsPage from "./SkillsPage";
 import WorkPage from "./WorkPage";
 import ContactPage from "./ContactPage";
@@ -39,12 +39,12 @@ export default function Home({ home, about, skills, project, contact }) {
                     <Typewriter
                       onInit={(typewriter) => {
                         typewriter
-                          .typeString("Front End Developer !")
+                          .typeString("Web Developer !")
                           .pauseFor(2000)
-                          .deleteChars(21)
-                          .typeString("Web Designer !")
+                          .deleteChars(17)
+                          .typeString("Android Developer !")
                           .pauseFor(2000)
-                          .deleteChars(14)
+                          .deleteChars(20)
                           .typeString("Programmer !")
                           .pauseFor(2000)
                           .deleteAll()

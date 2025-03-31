@@ -23,15 +23,15 @@ export default function About() {
             Frontend Developer & Programmer
           </h1>
           <p className="mt-4 text-sm sm:text-base lg:text-lg text-white leading-relaxed">
-            "Hello, I'm Honey Pathkar, a passionate Frontend Developer &
+            Hello, I'm Honey Pathkar, a passionate Frontend Developer &
             Programmer. I have built over 20 projects and solved 300+ LeetCode
-            problems, enhancing my problem-solving skills. With more than a year
-            of experience in the field, I am actively learning web development
-            and sharpening my expertise. Although I haven’t worked in a company
-            yet, my portfolio showcases my hands-on experience with various
-            projects. I am now looking for job opportunities where I can apply
-            my skills and continue to grow. Hopefully, you like the projects I
-            have worked on!"
+            problems, continuously improving my problem-solving skills. With
+            over a year of experience, I have completed an internship where I
+            learned Android app development. Currently, I am working at an
+            organization, further expanding my expertise in web and mobile
+            development. My portfolio showcases hands-on experience with various
+            projects, and I am eager to take on new challenges and
+            opportunities. Hopefully, you like the projects I have worked on!
           </p>
           <div className="text-white mt-4 text-sm sm:text-[15px]">
             <div className="grid grid-cols-1 sm:grid-cols-2 gap-3">

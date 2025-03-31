@@ -12,11 +12,7 @@ app.use(cors());
 app.get("/", async (req, res) => {
   try {
     const works = await Work.find();
-    const worksWithImage = works.map((work) => ({
-      ...work.toObject(),
-      image: `data:${work.contentType};base64,${work.image}`,
-    }));
-    res.status(200).json(worksWithImage);
+    res.status(200).json({ status: true, works });
   } catch (error) {
     console.error(error);
     res.status(500).json({ error: "Failed to fetch works" });

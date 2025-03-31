@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from "react";
-import Container from "../Container";
-import SkeletonCard from "../SkeletonCard";
+import Container from "../components/Container";
+import SkeletonCard from "../components/SkeletonCard";
 import ReactPaginate from "react-paginate";
 import ChevronLeftIcon from "@mui/icons-material/ChevronLeft";
 import ChevronRightIcon from "@mui/icons-material/ChevronRight";
