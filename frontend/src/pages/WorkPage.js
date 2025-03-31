@@ -19,13 +19,22 @@ export default function Work() {
   useEffect(() => {
     const fetchWorks = async () => {
       try {
-        const response = await fetch(`${myDataApi}`);
+        console.log("Fetching data from:", myDataApi);
+        const response = await fetch(myDataApi);
         if (!response.ok) {
-          throw new Error("Failed to fetch works");
+          throw new Error(`HTTP error! Status: ${response.status}`);
         }
         const data = await response.json();
-        setWorks(data);
+        console.log("Fetched Data:", data);
+
+        if (Array.isArray(data.works)) {
+          setWorks(data.works); // ✅ Set the correct array
+        } else {
+          console.error("API response does not contain an array:", data);
+          setError("Invalid data format received from API");
+        }
       } catch (err) {
+        console.error("Error fetching works:", err);
         setError(err.message);
       } finally {
         setLoading(false);
@@ -40,7 +49,9 @@ export default function Work() {
     setCurrentPage(data.selected);
   };
 
-  const currentPageData = works.slice(offset, offset + itemsPerPage);
+  const currentPageData = Array.isArray(works)
+    ? works.slice(offset, offset + itemsPerPage)
+    : [];
 
   if (error) {
     return (
