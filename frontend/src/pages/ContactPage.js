@@ -1,4 +1,5 @@
-import React from "react";
+import React, { useState, useEffect } from "react"; // Import useState and useEffect
+import axios from "axios"; // Import axios
 import LocationOnIcon from "@mui/icons-material/LocationOn";
 import EmailIcon from "@mui/icons-material/Email";
 import LocalPhoneIcon from "@mui/icons-material/LocalPhone";
@@ -7,9 +8,77 @@ import LinkedInIcon from "@mui/icons-material/LinkedIn";
 import InstagramIcon from "@mui/icons-material/Instagram";
 import DownloadIcon from "@mui/icons-material/Download";
 import Footer from "./Footer";
-import LeetcodeIcon from "../images/leetcode.png";
+import LeetcodeIcon from "../images/leetcode.png"; // Make sure this path is correct
 
 const Contact = () => {
+  // State to manage form input values
+  const [formData, setFormData] = useState({
+    name: "",
+    email: "",
+    subject: "",
+    message: "",
+  });
+
+  // State to manage form submission feedback
+  const [feedback, setFeedback] = useState(null);
+  const [isSubmitting, setIsSubmitting] = useState(false);
+
+  // Effect to hide feedback message after a few seconds
+  useEffect(() => {
+    if (feedback) {
+      const timer = setTimeout(() => {
+        setFeedback(null); // Hide the feedback message
+      }, 5000); // Hide after 5 seconds (5000 milliseconds)
+
+      // Cleanup function to clear the timer if the component unmounts
+      // or if feedback changes before the timer runs out
+      return () => clearTimeout(timer);
+    }
+  }, [feedback]); // Re-run this effect whenever the 'feedback' state changes
+
+  // Handle input changes
+  const handleChange = (e) => {
+    const { name, value } = e.target;
+    setFormData({
+      ...formData,
+      [name]: value,
+    });
+  };
+
+  // Handle form submission
+  const handleSubmit = async (e) => {
+    e.preventDefault(); // Prevent default form submission
+    setIsSubmitting(true); // Set submitting state to true
+    setFeedback(null); // Clear previous feedback immediately on new submission attempt
+
+    try {
+      // Use environment variable for backend URL
+      // If running locally, it might be 'http://localhost:5000'
+      // If deployed, use your deployed backend URL
+      const backendUrl =
+        process.env.REACT_APP_DATA_API || "http://localhost:5000/";
+      const response = await axios.post(`${backendUrl}send-email`, formData);
+
+      // Handle successful submission
+      setFeedback({ type: "success", message: response.data });
+      setFormData({ name: "", email: "", subject: "", message: "" }); // Clear form
+    } catch (error) {
+      // Handle submission error
+      console.error("Error submitting form:", error);
+      setFeedback({
+        type: "error",
+        message:
+          error.response?.data || "Failed to send message. Please try again.",
+      });
+    } finally {
+      // isSubmitting is set to false after the feedback is set,
+      // allowing the button to become active again while the feedback is visible.
+      // If you want the button to remain disabled until feedback disappears,
+      // move this line inside the setTimeout in the useEffect.
+      setIsSubmitting(false);
+    }
+  };
+
   return (
     <div>
       <div className="flex flex-col items-center text-center mb-5 text-white">
@@ -117,58 +186,99 @@ const Contact = () => {
           <div data-aos="fade-left">
             <form
               className="bg-gray-800/50 rounded-xl p-8 border-[1px] border-purple-600/30 hover:border-purple-600 transition-all duration-300"
-              action="https://getform.io/f/pbgxwjka"
-              method="POST"
+              onSubmit={handleSubmit} // Add onSubmit handler
+              // Remove action and method attributes
+              // action="https://getform.io/f/pbgxwjka"
+              // method="POST"
             >
               <div>
                 <div className="mb-2">
-                  <label className="block text-gray-400 mb-2">Name</label>
+                  <label className="block text-gray-400 mb-2" htmlFor="name">
+                    Name
+                  </label>{" "}
+                  {/* Added htmlFor */}
                   <input
                     type="text"
+                    id="name" // Added id
                     className="w-full px-4 py-3 bg-gray-700/50 border-[1px] border-gray-600 rounded-lg focus:outline-none focus:border-purple-600 text-white"
                     placeholder="John"
-                    fdprocessedid="l155t"
                     name="name"
+                    value={formData.name} // Controlled component
+                    onChange={handleChange} // Handle input change
+                    required
                   />
                 </div>
                 <div className="sm:col-span-2 mb-2">
-                  <label className="block text-gray-400 mb-2">Email</label>
+                  <label className="block text-gray-400 mb-2" htmlFor="email">
+                    Email
+                  </label>{" "}
+                  {/* Added htmlFor */}
                   <input
                     type="email"
+                    id="email" // Added id
                     className="w-full px-4 py-3 bg-gray-700/50 border-[1px] border-gray-600 rounded-lg focus:outline-none focus:border-purple-600 text-white"
                     placeholder="johndoe@example.com"
-                    fdprocessedid="kapzpm"
                     name="email"
+                    value={formData.email} // Controlled component
+                    onChange={handleChange} // Handle input change
+                    required
                   />
                 </div>
                 <div className="sm:col-span-2 mb-2">
-                  <label className="block text-gray-400 mb-2">Subject</label>
+                  <label className="block text-gray-400 mb-2" htmlFor="subject">
+                    Subject
+                  </label>{" "}
+                  {/* Added htmlFor */}
                   <input
                     type="text"
+                    id="subject" // Added id
                     className="w-full px-4 py-3 bg-gray-700/50 border-[1px] border-gray-600 rounded-lg focus:outline-none focus:border-purple-600 text-white"
                     placeholder="Project Inquiry"
-                    fdprocessedid="qs97s"
                     name="subject"
+                    value={formData.subject} // Controlled component
+                    onChange={handleChange} // Handle input change
+                    required
                   />
                 </div>
                 <div className="sm:col-span-2 mb-2">
-                  <label className="block text-gray-400 mb-2">Message</label>
+                  <label className="block text-gray-400 mb-2" htmlFor="message">
+                    Message
+                  </label>{" "}
+                  {/* Added htmlFor */}
                   <textarea
                     rows="4"
+                    id="message" // Added id
                     className="w-full px-4 py-3 bg-gray-700/50 border-[1px] border-gray-600 rounded-lg focus:outline-none focus:border-purple-600 text-white resize-none"
                     placeholder="Your message..."
                     name="message"
+                    value={formData.message} // Controlled component
+                    onChange={handleChange} // Handle input change
+                    required
                   ></textarea>
                 </div>
                 <div className="sm:col-span-2">
                   <button
                     type="submit"
-                    className="w-full bg-purple-600 text-white py-3 px-6 rounded-lg hover:bg-purple-700 cursor-auto transition-colors duration-300"
-                    fdprocessedid="4lr358"
+                    className="w-full bg-purple-600 text-white py-3 px-6 rounded-lg hover:bg-purple-700 transition-colors duration-300 disabled:opacity-50 disabled:cursor-not-allowed" // Added disabled styles
+                    disabled={isSubmitting} // Disable button while submitting
                   >
-                    Send Message
+                    {isSubmitting ? "Sending..." : "Send Message"}{" "}
+                    {/* Button text changes while submitting */}
                   </button>
                 </div>
+
+                {/* Feedback Message */}
+                {feedback && (
+                  <div
+                    className={`mt-4 p-3 rounded-lg text-center ${
+                      feedback.type === "success"
+                        ? "bg-green-500 text-white"
+                        : "bg-red-500 text-white"
+                    }`}
+                  >
+                    {feedback.message}
+                  </div>
+                )}
               </div>
             </form>
           </div>

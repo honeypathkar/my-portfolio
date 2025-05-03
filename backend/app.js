@@ -8,7 +8,13 @@ const Work = require("./models/work-model");
 const app = express();
 
 app.use(bodyParser.json());
-app.use(cors());
+app.use(
+  cors({
+    origin: "*",
+    methods: "GET,HEAD,PUT,PATCH,POST,DELETE",
+    credentials: true,
+  })
+);
 app.use(express.urlencoded({ extended: true }));
 
 // Gmail SMTP Transporter
