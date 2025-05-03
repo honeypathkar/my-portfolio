@@ -28,7 +28,12 @@ export default function Work() {
         console.log("Fetched Data:", data);
 
         if (Array.isArray(data.works)) {
-          setWorks(data.works); // ✅ Set the correct array
+          // Create a reversed copy of the array before setting state
+          const reversedWorks = [...data.works].reverse(); // <-- Create a copy and reverse it
+          // OR use: const reversedWorks = data.works.slice().reverse();
+
+          console.log("Reversed Data:", reversedWorks); // Optional: log the reversed array
+          setWorks(reversedWorks); // ✅ Set the reversed array
         } else {
           console.error("API response does not contain an array:", data);
           setError("Invalid data format received from API");
