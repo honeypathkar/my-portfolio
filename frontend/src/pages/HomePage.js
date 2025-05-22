@@ -94,7 +94,7 @@ export default function Home({
       <div id={skills} className="pt-[70px]">
         <SkillsPage />
       </div>
-      <div id={experience} className="py-[70px] inset-0">
+      <div id={experience} className="pt-[70px] inset-0">
         <ExperiencePage />
       </div>
       <div id={project} className="pt-[1px]">
