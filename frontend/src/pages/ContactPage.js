@@ -169,8 +169,8 @@ const Contact = () => {
               <div className="mt-8">
                 <h4 className="text-white font-semibold mb-4">Resume</h4>
                 <a
-                  href="https://drive.google.com/file/d/1alPFKOfvFhDyrm7QhpNUgPWd4vYx-e0q/view?usp=drive_link"
-                  download="resume.pdf"
+                  href="https://yhmckdagkmukoelqjiwf.supabase.co/storage/v1/object/public/doculingua/My%20Resume/HoneyPathkarResume.pdf"
+                  download="HoneyPathkarResume.pdf"
                   target="_blank"
                   rel="noopener noreferrer"
                   className="w-36 h-10 bg-purple-600/20 rounded-full flex items-center justify-center text-purple-400 hover:bg-purple-600 hover:text-white transition-colors duration-300"
@@ -186,10 +186,7 @@ const Contact = () => {
           <div data-aos="fade-left">
             <form
               className="bg-gray-800/50 rounded-xl p-8 border-[1px] border-purple-600/30 hover:border-purple-600 transition-all duration-300"
-              onSubmit={handleSubmit} // Add onSubmit handler
-              // Remove action and method attributes
-              // action="https://getform.io/f/pbgxwjka"
-              // method="POST"
+              onSubmit={handleSubmit}
             >
               <div>
                 <div className="mb-2">

@@ -8,6 +8,7 @@ function App() {
   const skills = "skills";
   const project = "projects";
   const contact = "contact";
+  const experience = "experience";
   return (
     <>
       <Navbar
@@ -16,6 +17,7 @@ function App() {
         skills={skills}
         project={project}
         contact={contact}
+        experience={experience}
       />
       <Home
         home={home}
@@ -23,6 +25,7 @@ function App() {
         skills={skills}
         project={project}
         contact={contact}
+        experience={experience}
       />
     </>
   );

@@ -6,8 +6,16 @@ import WorkPage from "./WorkPage";
 import ContactPage from "./ContactPage";
 import About from "./About";
 import ArrowDownwardIcon from "@mui/icons-material/ArrowDownward";
+import ExperiencePage from "./ExperiencePage";
 
-export default function Home({ home, about, skills, project, contact }) {
+export default function Home({
+  home,
+  about,
+  skills,
+  project,
+  contact,
+  experience,
+}) {
   return (
     <>
       <div className="homepage" id={home}>
@@ -85,6 +93,9 @@ export default function Home({ home, about, skills, project, contact }) {
       </div>
       <div id={skills} className="pt-[70px]">
         <SkillsPage />
+      </div>
+      <div id={experience} className="py-[70px] inset-0">
+        <ExperiencePage />
       </div>
       <div id={project} className="pt-[1px]">
         <WorkPage />
