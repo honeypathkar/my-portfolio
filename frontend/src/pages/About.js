@@ -18,18 +18,22 @@ export default function About() {
         </div>
         <div className="flex-1 max-w-full sm:max-w-[400px] lg:max-w-[600px]">
           <h1 className="text-2xl sm:text-3xl text-purple-400 font-semibold">
-            Frontend Developer & Programmer
+            MERN Stack Developer & Programmer
           </h1>
           <p className="mt-4 text-sm sm:text-base lg:text-lg text-white leading-relaxed">
-            Hello, I'm Honey Pathkar, a passionate Frontend Developer &
-            Programmer. I have built over 20 projects and solved 300+ LeetCode
-            problems, continuously improving my problem-solving skills. With
-            over a year of experience, I have completed an internship where I
-            learned Android app development. Currently, I am working at an
-            organization, further expanding my expertise in web and mobile
-            development. My portfolio showcases hands-on experience with various
-            projects, and I am eager to take on new challenges and
-            opportunities. Hopefully, you like the projects I have worked on!
+            I am a MERN Stack developer with a passion for building dynamic,
+            user-focused web and mobile applications. With solid experience in
+            MongoDB, Express.js, React.js, and Node.js, I create full-stack
+            solutions that are scalable, high-performing, and visually
+            appealing. In addition to web development, I work on Android app
+            development using React Native and Flutter, enabling me to craft
+            cross-platform mobile experiences with smooth performance and
+            responsive UI. {"\n"}I have solved 500+ Data Structures and
+            Algorithms problems across various platforms, which has sharpened my
+            logical thinking and coding skills. My skill set also includes HTML,
+            CSS, JavaScript, and modern styling frameworks like Tailwind CSS and
+            Bootstrap, allowing me to turn complex ideas into clean,
+            user-friendly interfaces.
           </p>
           <div className="text-white mt-4 text-sm sm:text-[15px]">
             <div className="grid grid-cols-1 sm:grid-cols-2 gap-3">
@@ -38,11 +42,11 @@ export default function About() {
                 Pathkar
               </p>
               <p>
-                <span className="text-purple-400">Email:&nbsp;&nbsp;</span>{" "}
+                <span className="text-purple-400">Email:&nbsp;&nbsp;</span>
                 honeypatkar70@gmail.com
               </p>
               <p>
-                <span className="text-purple-400">Location:&nbsp;&nbsp;</span>{" "}
+                <span className="text-purple-400">Location:&nbsp;&nbsp;</span>
                 Baran, Rajasthan
               </p>
               <p>
