@@ -1,18 +1,6 @@
 import React, { useState } from "react";
 import ProjectModal from "./ProjectModal"; // Import the modal component
 
-// Helper function to truncate text (KEEP this one)
-const truncateText = (text, wordLimit) => {
-  if (!text) return "";
-  // Split by one or more whitespace characters to handle multiple spaces correctly
-  const words = text.split(/\s+/);
-  if (words.length <= wordLimit) {
-    return text;
-  }
-  // Join the truncated words and add "..."
-  return words.slice(0, wordLimit).join(" ") + "...";
-};
-
 export default function Container(props) {
   const { name, imageUrl, url, description, tools, source } = props;
   const [isModalOpen, setIsModalOpen] = useState(false);
@@ -26,9 +14,6 @@ export default function Container(props) {
     tools,
     source,
   };
-
-  // Call the external truncateText function for the container view
-  const truncatedDescription = truncateText(description, 100);
 
   const openModal = () => {
     setIsModalOpen(true);
@@ -46,7 +31,7 @@ export default function Container(props) {
           <img
             src={imageUrl}
             alt={name}
-            className="w-full h-[14rem] object-cover transform group-hover:scale-105 transition-transform duration-500"
+            className="w-full h-[15rem] object-cover transform group-hover:scale-105 transition-transform duration-500"
             loading="lazy"
           />{" "}
         </div>
@@ -56,7 +41,10 @@ export default function Container(props) {
           <h3 className="text-lg font-semibold text-white mb-2">{name}</h3>
           {/* Display the truncated description */}
           <p className="text-neutral-300 mb-3 text-sm">
-            {truncatedDescription}
+            {description.slice(0, 100)}...{" "}
+            <button onClick={openModal} className="text-purple-400 font-bold">
+              Read More
+            </button>
           </p>
 
           {/* Tools Section */}
