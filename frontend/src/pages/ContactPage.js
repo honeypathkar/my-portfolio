@@ -8,7 +8,7 @@ import LinkedInIcon from "@mui/icons-material/LinkedIn";
 import InstagramIcon from "@mui/icons-material/Instagram";
 import DownloadIcon from "@mui/icons-material/Download";
 import Footer from "./Footer";
-import LeetcodeIcon from "../images/leetcode.png"; // Make sure this path is correct
+import { SiLeetcode } from "react-icons/si";
 
 const Contact = () => {
   // State to manage form input values
@@ -157,11 +157,7 @@ const Contact = () => {
                     rel="noopener noreferrer"
                     className="w-10 h-10 bg-purple-600/20 rounded-full flex items-center justify-center text-purple-400 hover:bg-purple-600 hover:text-white transition-colors duration-300"
                   >
-                    <img
-                      src={LeetcodeIcon}
-                      alt="Leetcode Icon"
-                      className="w-6 h-6"
-                    />
+                    <SiLeetcode className="text-xl" />
                   </a>
                 </div>
               </div>
