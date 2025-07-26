@@ -14,8 +14,9 @@ app.use(
       "http://localhost:3000",
       "https://honeypathkar.github.io/my-portfolio",
     ],
-    methods: "GET,HEAD,PUT,PATCH,POST,DELETE",
     credentials: true,
+    methods: "GET,HEAD,PUT,PATCH,POST,DELETE",
+    allowedHeaders: ["Content-Type", "Authorization"],
   })
 );
 app.use(express.urlencoded({ extended: true }));
