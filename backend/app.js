@@ -10,14 +10,16 @@ const app = express();
 app.use(bodyParser.json());
 app.use(
   cors({
-    origin: "*",
+    origin: [
+      "http://localhost:3000",
+      "https://honeypathkar.github.io/my-portfolio",
+    ],
     methods: "GET,HEAD,PUT,PATCH,POST,DELETE",
     credentials: true,
   })
 );
 app.use(express.urlencoded({ extended: true }));
 
-// Gmail SMTP Transporter
 const transporter = nodemailer.createTransport({
   service: "gmail",
   auth: {
