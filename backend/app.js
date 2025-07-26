@@ -10,10 +10,7 @@ const app = express();
 app.use(bodyParser.json());
 app.use(
   cors({
-    origin: [
-      "http://localhost:3000",
-      "https://honeypathkar.github.io/my-portfolio",
-    ],
+    origin: ["http://localhost:3000", "https://honeypathkar.github.io"],
     credentials: true,
     methods: "GET,HEAD,PUT,PATCH,POST,DELETE",
     allowedHeaders: ["Content-Type", "Authorization"],
