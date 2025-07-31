@@ -1,5 +1,5 @@
-import React, { useState, useEffect } from "react"; // Import useState and useEffect
-import axios from "axios"; // Import axios
+import React, { useState, useEffect } from "react";
+import axios from "axios";
 import LocationOnIcon from "@mui/icons-material/LocationOn";
 import EmailIcon from "@mui/icons-material/Email";
 import LocalPhoneIcon from "@mui/icons-material/LocalPhone";
@@ -11,7 +11,6 @@ import Footer from "./Footer";
 import { SiLeetcode } from "react-icons/si";
 
 const Contact = () => {
-  // State to manage form input values
   const [formData, setFormData] = useState({
     name: "",
     email: "",
@@ -19,24 +18,19 @@ const Contact = () => {
     message: "",
   });
 
-  // State to manage form submission feedback
   const [feedback, setFeedback] = useState(null);
   const [isSubmitting, setIsSubmitting] = useState(false);
 
-  // Effect to hide feedback message after a few seconds
   useEffect(() => {
     if (feedback) {
       const timer = setTimeout(() => {
-        setFeedback(null); // Hide the feedback message
-      }, 5000); // Hide after 5 seconds (5000 milliseconds)
+        setFeedback(null);
+      }, 5000);
 
-      // Cleanup function to clear the timer if the component unmounts
-      // or if feedback changes before the timer runs out
       return () => clearTimeout(timer);
     }
-  }, [feedback]); // Re-run this effect whenever the 'feedback' state changes
+  }, [feedback]);
 
-  // Handle input changes
   const handleChange = (e) => {
     const { name, value } = e.target;
     setFormData({
@@ -45,25 +39,19 @@ const Contact = () => {
     });
   };
 
-  // Handle form submission
   const handleSubmit = async (e) => {
-    e.preventDefault(); // Prevent default form submission
-    setIsSubmitting(true); // Set submitting state to true
-    setFeedback(null); // Clear previous feedback immediately on new submission attempt
+    e.preventDefault();
+    setIsSubmitting(true);
+    setFeedback(null);
 
     try {
-      // Use environment variable for backend URL
-      // If running locally, it might be 'http://localhost:5000'
-      // If deployed, use your deployed backend URL
       const backendUrl =
         process.env.REACT_APP_DATA_API || "http://localhost:5000/";
       const response = await axios.post(`${backendUrl}send-email`, formData);
 
-      // Handle successful submission
       setFeedback({ type: "success", message: response.data });
-      setFormData({ name: "", email: "", subject: "", message: "" }); // Clear form
+      setFormData({ name: "", email: "", subject: "", message: "" });
     } catch (error) {
-      // Handle submission error
       console.error("Error submitting form:", error);
       setFeedback({
         type: "error",
@@ -71,10 +59,6 @@ const Contact = () => {
           error.response?.data || "Failed to send message. Please try again.",
       });
     } finally {
-      // isSubmitting is set to false after the feedback is set,
-      // allowing the button to become active again while the feedback is visible.
-      // If you want the button to remain disabled until feedback disappears,
-      // move this line inside the setTimeout in the useEffect.
       setIsSubmitting(false);
     }
   };
@@ -165,7 +149,7 @@ const Contact = () => {
               <div className="mt-8">
                 <h4 className="text-white font-semibold mb-4">Resume</h4>
                 <a
-                  href="https://yhmckdagkmukoelqjiwf.supabase.co/storage/v1/object/public/doculingua/My%20Resume/HoneyPathkarResume.pdf"
+                  href="https://drive.google.com/file/d/1alPFKOfvFhDyrm7QhpNUgPWd4vYx-e0q/view?usp=drive_link"
                   download="HoneyPathkarResume.pdf"
                   target="_blank"
                   rel="noopener noreferrer"
