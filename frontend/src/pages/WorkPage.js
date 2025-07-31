@@ -1,4 +1,5 @@
 import React, { useState, useEffect } from "react";
+import axios from "axios";
 import Container from "../components/Container";
 import SkeletonCard from "../components/SkeletonCard";
 import ReactPaginate from "react-paginate";
@@ -8,55 +9,45 @@ import ChevronRightIcon from "@mui/icons-material/ChevronRight";
 export default function Work() {
   const [works, setWorks] = useState([]);
   const [currentPage, setCurrentPage] = useState(0);
+  const [totalPages, setTotalPages] = useState(0);
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState(null);
 
   const itemsPerPage = 6;
-  const offset = currentPage * itemsPerPage;
 
   const myDataApi = process.env.REACT_APP_DATA_API;
+  const access_token = process.env.REACT_APP_ACCESS_TOKEN;
 
   useEffect(() => {
     const fetchWorks = async () => {
+      setLoading(true);
       try {
-        console.log("Fetching data from:", myDataApi);
-        const response = await fetch(myDataApi);
-        if (!response.ok) {
-          throw new Error(`HTTP error! Status: ${response.status}`);
-        }
-        const data = await response.json();
-        console.log("Fetched Data:", data);
+        const response = await axios.get(
+          `${myDataApi}?page=${currentPage + 1}&limit=${itemsPerPage}`,
+          {
+            headers: {
+              Authorization: `Bearer ${access_token}`,
+            },
+          }
+        );
 
-        if (Array.isArray(data.works)) {
-          // Create a reversed copy of the array before setting state
-          const reversedWorks = [...data.works].reverse(); // <-- Create a copy and reverse it
-          // OR use: const reversedWorks = data.works.slice().reverse();
-
-          console.log("Reversed Data:", reversedWorks); // Optional: log the reversed array
-          setWorks(reversedWorks); // ✅ Set the reversed array
-        } else {
-          console.error("API response does not contain an array:", data);
-          setError("Invalid data format received from API");
-        }
+        const { works, totalPages } = response.data;
+        setWorks(works);
+        setTotalPages(totalPages);
       } catch (err) {
         console.error("Error fetching works:", err);
-        setError(err.message);
+        setError("Failed to fetch data. Try again later.");
       } finally {
         setLoading(false);
       }
     };
 
     fetchWorks();
-    // eslint-disable-next-line
-  }, []);
+  }, [currentPage, myDataApi, access_token]);
 
   const handlePageClick = (data) => {
     setCurrentPage(data.selected);
   };
-
-  const currentPageData = Array.isArray(works)
-    ? works.slice(offset, offset + itemsPerPage)
-    : [];
 
   if (error) {
     return (
@@ -81,7 +72,7 @@ export default function Work() {
             ? Array(itemsPerPage)
                 .fill(null)
                 .map((_, index) => <SkeletonCard key={index} />)
-            : currentPageData.map((element) => (
+            : works.map((element) => (
                 <Container
                   key={element._id}
                   name={element.name}
@@ -94,16 +85,17 @@ export default function Work() {
               ))}
         </div>
 
-        {!loading && (
+        {!loading && totalPages > 1 && (
           <div className="pagination-controls mt-4 flex justify-center space-x-4 mb-12">
             <ReactPaginate
               previousLabel={<ChevronLeftIcon />}
               nextLabel={<ChevronRightIcon />}
               breakLabel={"..."}
-              pageCount={Math.ceil(works.length / itemsPerPage)}
+              pageCount={totalPages}
               marginPagesDisplayed={2}
               pageRangeDisplayed={3}
               onPageChange={handlePageClick}
+              forcePage={currentPage}
               containerClassName={"flex space-x-4"}
               activeClassName={"bg-purple-600 text-white rounded"}
               pageClassName={

@@ -1,21 +1,18 @@
-const mongoose = require("mongoose");
-require("dotenv").config();
+import mongoose from "mongoose";
 
-const mongoURI = process.env.MONGO_URI;
+const workSchema = new mongoose.Schema(
+  {
+    imageUrl: String,
+    source: String,
+    url: String,
+    name: String,
+    description: String,
+    tools: [String],
+    cloudinary_id: String,
+  },
+  { timestamps: true }
+);
 
-mongoose
-  .connect(mongoURI, { useNewUrlParser: true, useUnifiedTopology: true })
-  .then(() => console.log("MongoDB connected"))
-  .catch((err) => console.log(err.errmsg));
+const Work = mongoose.model("Work", workSchema);
 
-const workSchema = new mongoose.Schema({
-  imageUrl: String, // Store Cloudinary URL
-  source: String,
-  url: String,
-  name: String,
-  description: String,
-  tools: [String],
-  cloudinary_id: String, // Store Cloudinary Image ID
-});
-
-module.exports = mongoose.model("Work", workSchema);
+export default Work;
