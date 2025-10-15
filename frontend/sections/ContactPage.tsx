@@ -34,11 +34,22 @@ export default function ContactPage() {
       const backendUrl = process.env.NEXT_PUBLIC_DATA_API || "http://localhost:5000/";
       const response = await axios.post(`${backendUrl}/send-email`, formData);
       setFeedback({ type: "success", message: response.data });
-      toast.success("Message sent successfully!");
+      toast.success("Message sent successfully!", {
+        style: {
+          backgroundColor: "#a855f7",
+          color: "#fff",
+        },
+        closeButton: false,
+      });
       setFormData({ name: "", email: "", subject: "", message: "" });
     } catch (error: any) {
       setFeedback({ type: "error", message: error?.response?.data || "Failed to send message. Please try again." });
-      toast.error("Failed to send message");
+      toast.error("Failed to send message", {
+        style: {
+          backgroundColor: "#ef4444",
+          color: "#fff",
+        },
+      });
     } finally {
       setIsSubmitting(false);
     }

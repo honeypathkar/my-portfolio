@@ -9,6 +9,13 @@ import React from "react";
 import Footer from "../components/Footer";
 import { Toaster } from "sonner";
 import { Analytics } from "@vercel/analytics/next";
+import { Bricolage_Grotesque } from "next/font/google";
+
+const bricolageGrotesque = Bricolage_Grotesque({
+  subsets: ["latin"],
+  weight: ["400", "500", "600", "700"],
+});
+  
 
 export default function RootLayout({
   children,
@@ -16,7 +23,7 @@ export default function RootLayout({
   children: React.ReactNode;
 }) {
   return (
-    <html lang="en">
+    <html lang="en" className={bricolageGrotesque.className}>
       <head>
         <link
           rel="shortcut icon"

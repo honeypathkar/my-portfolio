@@ -59,7 +59,7 @@ export default function Home({
                 </div>
               </div>
               <div className="text-center">
-                <h1 className="greet text-4xl font-bold tracking-tight text-gray-900 sm:text-7xl">
+                <h1 className="greet text-4xl font-bold tracking-tight text-gray-900 sm:text-6xl">
                   {"Hii I'm Honey".split("").map((ch, idx) => (
                     <span key={idx} className={`char ${idx >= 7 ? "text-purple-500" : "text-white"}`} style={{ display: "inline-block" }}>
                       {ch === " " ? "\u00A0" : ch}
