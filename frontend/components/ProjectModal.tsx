@@ -17,7 +17,7 @@ export default function ProjectModal({ open, onClose, work }: { open: boolean; o
     <div className="fixed inset-0 z-50 flex items-center justify-center bg-black/70">
       <div className="bg-gray-900 text-white max-w-2xl w-full rounded-xl border border-purple-600/30 overflow-hidden">
         <div className="relative">
-          <img src={work.imageUrl} alt={work.name} className="w-full h-64 object-cover" />
+          <img src={work.imageUrl} alt={work.name} className="w-full h-auto object-cover" />
           <button onClick={onClose} className="absolute top-3 right-3 bg-gray-800/80 hover:bg-gray-700 text-white rounded-full w-9 h-9">✕</button>
         </div>
         <div className="p-5">

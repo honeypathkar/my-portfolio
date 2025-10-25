@@ -21,14 +21,14 @@ export default function SkillsPage() {
         {
           y: 0,
           opacity: 1,
-          duration: 0.6,
-          stagger: 0.06,
+          duration: 0.1,
+          stagger: 0.01,
           ease: "power2.out",
           scrollTrigger: {
             trigger: sectionRef.current as Element,
             start: "top 75%",
             end: "bottom 25%",
-            toggleActions: "play reverse play reverse",
+            toggleActions: "play none none none",
           },
         }
       );

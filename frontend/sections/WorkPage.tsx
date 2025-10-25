@@ -47,7 +47,7 @@ function Container({ name, imageUrl, url, description, tools, source }: Work) {
         <h3 className="font-semibold text-lg">{name}</h3>
         <p className="text-sm text-gray-300 mt-2 line-clamp-3 flex-1">{description}</p>
         <div className="flex flex-wrap gap-2 mt-3">
-          {tools?.map((t, i) => (
+          {tools?.slice(0, 4).map((t, i) => (
             <span key={i} className="text-xs bg-purple-600/30 text-purple-200 px-2 py-1 rounded-full">
               {t}
             </span>
