@@ -17,7 +17,9 @@ export const metadata: Metadata = {
   description:
     "I am a MERN Stack developer with a passion for building dynamic, user-focused web and mobile applications. With solid experience in MongoDB, Express.js, React.js, and Node.js.",
   icons: {
+    icon: "/favicon.ico",
     shortcut: '/android-chrome-512x512.png',
+    apple: '/android-chrome-512x512.png',
   },
   openGraph: {
     title: "Honey Pathkar | MERN Stack & Android Developer",
