@@ -18,8 +18,20 @@ export const metadata: Metadata = {
     "I am a MERN Stack developer with a passion for building dynamic, user-focused web and mobile applications. With solid experience in MongoDB, Express.js, React.js, and Node.js.",
   icons: {
     icon: "/favicon.ico",
-    shortcut: '/android-chrome-512x512.png',
-    apple: '/android-chrome-512x512.png',
+    shortcut: '/favicon-32x32.png',
+    apple: '/apple-touch-icon.png',
+    other: [
+      {
+        url: '/android-chrome-512x512.png',
+        sizes: '512x512',
+        type: 'image/png',
+      },
+      {
+        url: '/favicon-16x16.png',
+        sizes: '16x16',
+        type: 'image/png',
+      },
+    ],
   },
   openGraph: {
     title: "Honey Pathkar | MERN Stack & Android Developer",
