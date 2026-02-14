@@ -6,8 +6,8 @@ import Image from "next/image";
 
 export default function About() {
   const sectionRef = useRef<HTMLDivElement | null>(null);
-  const profilePicUrl = process.env.NEXT_PUBLIC_PROFILE_PIC;
-  
+  const profilePicUrl = process.env.NEXT_PUBLIC_PROFILE_PIC || "/preview.jpg";
+
   useEffect(() => {
     if (!sectionRef.current) return;
     gsap.registerPlugin(ScrollTrigger);
@@ -27,7 +27,7 @@ export default function About() {
             end: "bottom 25%",
             toggleActions: "play reverse play reverse",
           },
-        }
+        },
       );
     }, sectionRef);
     return () => ctx.revert();
@@ -42,9 +42,9 @@ export default function About() {
         <div className="flex-1 max-w-full sm:max-w-[400px] lg:max-w-[500px]">
           <Image
             src={profilePicUrl}
-            width={800}
-            height={800}
-            className="w-full h-auto rounded-lg"
+            width={600}
+            height={600}
+            className="w-full aspect-square object-cover rounded-lg"
             alt="Profile"
           />
         </div>
