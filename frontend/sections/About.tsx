@@ -6,6 +6,8 @@ import Image from "next/image";
 
 export default function About() {
   const sectionRef = useRef<HTMLDivElement | null>(null);
+  const profilePicUrl = process.env.NEXT_PUBLIC_PROFILE_PIC;
+  
   useEffect(() => {
     if (!sectionRef.current) return;
     gsap.registerPlugin(ScrollTrigger);
@@ -39,7 +41,7 @@ export default function About() {
       <div className="flex flex-col lg:flex-row flex-wrap justify-center items-center pt-14 gap-10 lg:gap-20">
         <div className="flex-1 max-w-full sm:max-w-[400px] lg:max-w-[500px]">
           <Image
-            src="https://res.cloudinary.com/dbfyjoiub/image/upload/v1761390582/IMG-20251019-WA0104_1_xgsbiz.jpg"
+            src={profilePicUrl}
             width={800}
             height={800}
             className="w-full h-auto rounded-lg"
