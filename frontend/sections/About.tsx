@@ -50,22 +50,25 @@ export default function About() {
         </div>
         <div className="flex-1 max-w-full sm:max-w-[400px] lg:max-w-[600px]">
           <h1 className="text-2xl sm:text-3xl text-purple-400 font-semibold">
-            MERN Stack Developer & Programmer
+              Software Engineer (Full-Stack) | MERN & React Native
           </h1>
+
           <p className="mt-4 text-sm sm:text-base lg:text-lg text-white leading-relaxed">
-            I am a MERN Stack developer with a passion for building dynamic,
-            user-focused web and mobile applications. With solid experience in
-            MongoDB, Express.js, React.js, and Node.js, I create full-stack
-            solutions that are scalable, high-performing, and visually
-            appealing. In addition to web development, I work on Android app
-            development using React Native and Flutter, enabling me to craft
-            cross-platform mobile experiences with smooth performance and
-            responsive UI. I have solved 500+ Data Structures and Algorithms
-            problems across various platforms, which has sharpened my logical
-            thinking and coding skills. My skill set also includes HTML, CSS,
-            JavaScript, and modern styling frameworks like Tailwind CSS and
-            Bootstrap, allowing me to turn complex ideas into clean,
-            user-friendly interfaces.
+  I am a Software Engineer with 1+ year of professional experience building 
+  scalable full-stack web and mobile applications. I specialize in the MERN 
+  stack (MongoDB, Express.js, React.js, Node.js), delivering production-ready 
+  solutions with clean architecture, optimized performance, and intuitive user 
+  experiences.
+
+  Beyond web applications, I develop cross-platform mobile apps using React 
+  Native and Flutter, focusing on smooth performance and responsive UI. I have 
+  solved 500+ Data Structures and Algorithms problems, strengthening my problem-
+  solving ability and writing efficient, maintainable code.
+
+  My core expertise includes JavaScript, TypeScript, REST APIs, authentication 
+  systems, state management, and modern UI frameworks like Tailwind CSS and 
+  Bootstrap. I aim to build systems that are scalable, secure, and engineered 
+  for real-world impact.
           </p>
           <div className="text-white mt-4 text-sm sm:text-[15px]">
             <div className="grid grid-cols-1 sm:grid-cols-2 gap-3">
