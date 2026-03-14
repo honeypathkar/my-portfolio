@@ -79,11 +79,7 @@ export default function BlogPage() {
         ) : blogs.length > 0 ? (
           <div className="grid md:grid-cols-2 gap-8">
             {blogs.map((post) => (
-              <div 
-                key={post._id} 
-                className="group relative cursor-pointer"
-                onClick={() => router.push(`/blogs/${post.slug}`)}
-              >
+              <div key={post._id} className="group relative">
                 <div className="absolute inset-0 bg-purple-600/10 rounded-[2rem] blur-2xl opacity-0 group-hover:opacity-100 transition-opacity duration-500"></div>
                 <article className="relative bg-gray-900/40 border border-white/10 rounded-[2rem] overflow-hidden hover:border-purple-500/40 transition-all duration-500 hover:shadow-2xl hover:shadow-purple-500/10 flex flex-col h-full">
                   <div className="aspect-[16/9] overflow-hidden relative">
@@ -96,24 +92,22 @@ export default function BlogPage() {
                     <div className="absolute inset-0 bg-black/40 opacity-0 group-hover:opacity-100 transition-opacity duration-500 flex items-center justify-center gap-4 z-20">
                       <button 
                         onClick={(e) => {
+                          e.preventDefault();
                           e.stopPropagation();
                           setPreviewBlog(post);
                         }}
-                        className="p-3 bg-white text-black rounded-full hover:bg-purple-500 hover:text-white transition-all transform hover:scale-110 shadow-xl"
+                        className="p-3 bg-white text-black rounded-full hover:bg-purple-500 hover:text-white transition-all transform hover:scale-110 shadow-xl cursor-pointer"
                         title="Quick Preview"
                       >
                         <Eye size={20} />
                       </button>
-                      <button 
-                        onClick={(e) => {
-                          e.stopPropagation();
-                          router.push(`/blogs/${post.slug}`);
-                        }}
-                        className="p-3 bg-purple-600 text-white rounded-full hover:bg-white hover:text-black transition-all transform hover:scale-110 shadow-xl"
+                      <Link 
+                        href={`/blogs/${post.slug}`}
+                        className="p-3 bg-purple-600 text-white rounded-full hover:bg-white hover:text-black transition-all transform hover:scale-110 shadow-xl cursor-pointer"
                         title="Read Full Article"
                       >
                         <ArrowRight size={20} />
-                      </button>
+                      </Link>
                     </div>
                   </div>
                   <div className="p-8 flex flex-col flex-1">
@@ -122,13 +116,18 @@ export default function BlogPage() {
                       <span className="w-1 h-1 bg-gray-700 rounded-full"></span>
                       <span className="flex items-center gap-1.5 font-black text-purple-400">Preview Available</span>
                     </div>
-                    <h2 className="text-2xl font-bold mb-4 group-hover:text-purple-400 transition-colors leading-tight">{post.title}</h2>
+                    <Link href={`/blogs/${post.slug}`}>
+                      <h2 className="text-2xl font-bold mb-4 group-hover:text-purple-400 transition-colors leading-tight">{post.title}</h2>
+                    </Link>
                     <p className="text-gray-400 mb-8 flex-1 leading-relaxed text-sm">
                       {post.shortDescription}
                     </p>
-                    <div className="flex items-center gap-2 text-purple-400 font-bold text-xs uppercase tracking-[0.2em] group-hover:gap-3 transition-all mt-auto">
+                    <Link 
+                      href={`/blogs/${post.slug}`}
+                      className="flex items-center gap-2 text-purple-400 font-bold text-xs uppercase tracking-[0.2em] group-hover:gap-3 transition-all mt-auto"
+                    >
                       Read Full Article <ArrowRight size={14} />
-                    </div>
+                    </Link>
                   </div>
                 </article>
               </div>
@@ -194,15 +193,13 @@ export default function BlogPage() {
                 </div>
 
                 <div className="mt-12 flex justify-center">
-                  <button 
-                    onClick={() => {
-                      setPreviewBlog(null);
-                      router.push(`/blogs/${previewBlog.slug}`);
-                    }}
+                  <Link 
+                    href={`/blogs/${previewBlog.slug}`}
+                    onClick={() => setPreviewBlog(null)}
                     className="px-10 py-4 bg-white text-black rounded-2xl font-black text-xs uppercase tracking-widest hover:bg-purple-600 hover:text-white transition-all flex items-center gap-2"
                   >
                     Read More <ArrowRight size={16} />
-                  </button>
+                  </Link>
                 </div>
               </div>
 

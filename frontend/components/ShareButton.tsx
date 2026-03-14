@@ -12,27 +12,49 @@ interface ShareButtonProps {
 
 export default function ShareButton({ title, text, url }: ShareButtonProps) {
   const handleShare = async () => {
-    if (navigator.share) {
+    const shareData = {
+      title,
+      text,
+      url,
+    };
+
+    if (navigator.share && navigator.canShare && navigator.canShare(shareData)) {
       try {
-        await navigator.share({
-          title,
-          text,
-          url,
-        });
+        await navigator.share(shareData);
       } catch (err) {
         if ((err as Error).name !== 'AbortError') {
           console.error('Error sharing:', err);
+          // Fallback to clipboard if share fails
+          copyToClipboard();
         }
       }
     } else {
-      // Fallback: Copy to clipboard
-      try {
+      copyToClipboard();
+    }
+  };
+
+  const copyToClipboard = async () => {
+    try {
+      if (navigator.clipboard && navigator.clipboard.writeText) {
         await navigator.clipboard.writeText(url);
         toast.success("Link copied to clipboard!");
-      } catch (err) {
-        console.error('Failed to copy:', err);
-        toast.error("Failed to copy link");
+      } else {
+        // Extreme fallback for older browsers or non-secure contexts
+        const textArea = document.createElement("textarea");
+        textArea.value = url;
+        document.body.appendChild(textArea);
+        textArea.select();
+        try {
+          document.execCommand('copy');
+          toast.success("Link copied to clipboard!");
+        } catch (err) {
+          toast.error("Could not copy link");
+        }
+        document.body.removeChild(textArea);
       }
+    } catch (err) {
+      console.error('Failed to copy:', err);
+      toast.error("Failed to copy link");
     }
   };
 

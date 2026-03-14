@@ -79,34 +79,49 @@ export default async function BlogDetailPage({ params }: { params: Promise<{ slu
           </div>
         </div>
 
-        <article>
+        <article className="max-w-3xl mx-auto">
           <div className="mb-12">
             <div className="flex items-center gap-4 text-xs font-bold text-purple-400 uppercase tracking-widest mb-6">
-              <span className="flex items-center gap-1.5"><Calendar size={14} /> {new Date(blog.publishDate).toLocaleDateString()}</span>
+              <span className="flex items-center gap-1.5 px-3 py-1.5 bg-purple-500/10 border border-purple-500/20 rounded-lg">
+                <Calendar size={14} /> {new Date(blog.publishDate).toLocaleDateString()}
+              </span>
               <span className="w-1 h-1 bg-gray-600 rounded-full"></span>
-              <span className="flex items-center gap-1.5"><Clock size={14} /> 5 min read</span>
+              <span className="flex items-center gap-1.5 px-3 py-1.5 bg-white/5 border border-white/10 rounded-lg text-gray-400">
+                <Clock size={14} /> 5 min read
+              </span>
             </div>
-            <h1 className="text-4xl sm:text-6xl font-black tracking-tight leading-[1.1] mb-8">
+            <h1 className="text-4xl sm:text-6xl font-black tracking-tight leading-[1.1] mb-8 text-white">
               {blog.title}
             </h1>
-            <p className="text-xl text-gray-400 leading-relaxed font-medium mb-12">
+            <p className="text-xl text-gray-400 leading-relaxed font-medium mb-12 border-l-4 border-purple-600 pl-6 py-2">
               {blog.shortDescription}
             </p>
           </div>
 
-          <div className="relative aspect-[21/9] rounded-[2.5rem] overflow-hidden border border-white/10 mb-16 shadow-2xl">
+          <div className="relative aspect-[21/9] rounded-[2.5rem] overflow-hidden border border-white/10 mb-16 shadow-2xl group">
             <Image 
               src={blog.coverImage} 
               alt={blog.title} 
               fill
-              className="object-cover"
+              className="object-cover transition-transform duration-700 group-hover:scale-105"
               priority
             />
           </div>
 
-          <div className="prose prose-invert prose-purple max-w-none">
+          <div className="prose prose-invert prose-purple max-w-none 
+            prose-p:text-gray-300 prose-p:leading-relaxed prose-p:text-lg
+            prose-headings:text-white prose-headings:font-black prose-headings:tracking-tight
+            prose-h2:text-3xl prose-h2:mt-12 prose-h2:mb-6
+            prose-h3:text-2xl prose-h3:mt-8 prose-h3:mb-4
+            prose-strong:text-white prose-strong:font-bold
+            prose-a:text-purple-400 prose-a:no-underline hover:prose-a:text-purple-300
+            prose-code:text-purple-300 prose-code:bg-purple-500/10 prose-code:px-1.5 prose-code:py-0.5 prose-code:rounded-md prose-code:before:content-none prose-code:after:content-none
+            prose-pre:bg-[#0a0f1c] prose-pre:border prose-pre:border-white/10 prose-pre:rounded-2xl
+            prose-img:rounded-3xl prose-img:border prose-img:border-white/10
+            prose-ul:list-disc prose-ol:list-decimal prose-li:text-gray-300
+            break-words">
             <div 
-              className="text-gray-300 text-lg leading-relaxed space-y-6"
+              className="space-y-6"
               dangerouslySetInnerHTML={{ __html: blog.content }}
             />
           </div>
