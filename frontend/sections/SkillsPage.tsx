@@ -26,9 +26,8 @@ export default function SkillsPage() {
           ease: "power2.out",
           scrollTrigger: {
             trigger: sectionRef.current as Element,
-            start: "top 75%",
-            end: "bottom 25%",
-            toggleActions: "play none none none",
+            start: "top 85%",
+            once: true,
           },
         }
       );

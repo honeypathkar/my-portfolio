@@ -5,6 +5,8 @@ import cors from "cors";
 
 import workRoutes from "./routes/index.js";
 import emailRoutes from "./routes/email.js";
+import adminRoutes from "./routes/admin.js";
+import uploadRoutes from "./routes/upload.js";
 import connectDB from "./config/db.js";
 
 dotenv.config();
@@ -32,6 +34,8 @@ app.use(
 // Routes
 app.use("/", workRoutes);
 app.use("/", emailRoutes);
+app.use("/api/admin", adminRoutes);
+app.use("/api", uploadRoutes);
 
 connectDB();
 const PORT = process.env.PORT || 5000;

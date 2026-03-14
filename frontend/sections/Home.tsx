@@ -92,7 +92,7 @@ export default function Home({
                     <Typewriter
                       onInit={(typewriter) => {
                         typewriter
-                          .typeString("Web Developer !")
+                          .typeString("Software Engineer !")
                           .pauseFor(2000)
                           .deleteChars(17)
                           .typeString("Android Developer !")
@@ -113,6 +113,12 @@ export default function Home({
                     className="rounded-full bg-purple-600 px-5 py-2.5 text-sm font-semibold text-white shadow-sm hover:bg-purple-500 border-[2px] border-purple-600 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-indigo-600"
                   >
                     Contact
+                  </a>
+                  <a
+                    href="/blogs"
+                    className="text-sm font-semibold leading-6 text-white border-[2px] border-purple-600 px-5 py-2.5 rounded-full hover:bg-purple-600 transition-all"
+                  >
+                    Blogs
                   </a>
                   <a
                     href="https://linkedin.com/in/honey-pathkar"

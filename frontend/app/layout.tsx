@@ -41,7 +41,7 @@ export const metadata: Metadata = {
     siteName: "Honey Pathkar Portfolio",
     images: [
       {
-        url: "/preview.jpg",
+        url: process.env.NEXT_PUBLIC_PROFILE_PIC || "https://res.cloudinary.com/dbfyjoiub/image/upload/v1771066355/20260202_214003_szoj9j.jpg",
         width: 1200,
         height: 630,
         alt: "Honey Pathkar Portfolio Preview",
@@ -55,7 +55,7 @@ export const metadata: Metadata = {
     title: "Honey Pathkar | MERN Stack & Android Developer",
     description:
       "Building sleek and fast web & mobile experiences with the MERN Stack 🚀",
-    images: ["/preview.jpg"],
+    images: [process.env.NEXT_PUBLIC_PROFILE_PIC || "https://res.cloudinary.com/dbfyjoiub/image/upload/v1771066355/20260202_214003_szoj9j.jpg"],
   },
   other: {
     "application/ld+json": JSON.stringify({
@@ -63,7 +63,7 @@ export const metadata: Metadata = {
       "@type": "Person",
       "name": "Honey Pathkar",
       "url": "https://honeypathkar.com",
-      "image": "https://honeypathkar.com/preview.jpg",
+      "image": process.env.NEXT_PUBLIC_PROFILE_PIC || "https://res.cloudinary.com/dbfyjoiub/image/upload/v1771066355/20260202_214003_szoj9j.jpg",
       "sameAs": [
         "https://github.com/honeypathkar",
         "https://www.linkedin.com/in/honeypathkar"
