@@ -94,10 +94,10 @@ export default function Home({
                         typewriter
                           .typeString("Software Engineer !")
                           .pauseFor(2000)
-                          .deleteChars(17)
+                          .deleteAll()
                           .typeString("Android Developer !")
                           .pauseFor(2000)
-                          .deleteChars(20)
+                          .deleteAll()
                           .typeString("Programmer !")
                           .pauseFor(2000)
                           .deleteAll()
