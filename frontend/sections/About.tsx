@@ -23,9 +23,8 @@ export default function About() {
           ease: "power2.out",
           scrollTrigger: {
             trigger: sectionRef.current as Element,
-            start: "top 75%",
-            end: "bottom 25%",
-            toggleActions: "play reverse play reverse",
+            start: "top 85%",
+            once: true,
           },
         },
       );
