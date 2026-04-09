@@ -52,39 +52,34 @@ export default function About() {
             MERN Stack Developer & Programmer
           </h1>
           <p className="mt-4 text-sm sm:text-base lg:text-lg text-white leading-relaxed">
-            I am a MERN Stack developer with a passion for building dynamic,
-            user-focused web and mobile applications. With solid experience in
-            MongoDB, Express.js, React.js, and Node.js, I create full-stack
-            solutions that are scalable, high-performing, and visually
-            appealing. In addition to web development, I work on Android app
-            development using React Native and Flutter, enabling me to craft
-            cross-platform mobile experiences with smooth performance and
-            responsive UI. I have solved 500+ Data Structures and Algorithms
-            problems across various platforms, which has sharpened my logical
-            thinking and coding skills. My skill set also includes HTML, CSS,
-            JavaScript, and modern styling frameworks like Tailwind CSS and
-            Bootstrap, allowing me to turn complex ideas into clean,
-            user-friendly interfaces.
+            I'm a passionate Full Stack Developer specializing in the MERN stack (MongoDB, Express.js, React.js, Node.js) with expertise in building scalable web applications and cross-platform mobile solutions. With a strong foundation in computer science and hands-on experience in modern web technologies, I create efficient, user-centric digital experiences.
           </p>
-          <div className="text-white mt-4 text-sm sm:text-[15px]">
-            <div className="grid grid-cols-1 sm:grid-cols-2 gap-3">
-              <p>
-                <span className="text-purple-400">Name:&nbsp;&nbsp;</span> Honey
-                Pathkar
-              </p>
-              <p>
-                <span className="text-purple-400">Email:&nbsp;&nbsp;</span>{" "}
-                honeypatkar70@gmail.com
-              </p>
-              <p>
-                <span className="text-purple-400">Location:&nbsp;&nbsp;</span>{" "}
-                Baran, Rajasthan
-              </p>
-              <p>
-                <span className="text-purple-400">Available:&nbsp;&nbsp;</span>{" "}
-                Internship, Job
-              </p>
+          <div className="mt-6">
+            <div className="grid grid-cols-1 sm:grid-cols-2 gap-3 text-sm sm:text-base">
+              <div className="flex items-center">
+                <span className="text-purple-400 font-semibold mr-2">Name:</span>
+                <span className="text-white">Honey Pathkar</span>
+              </div>
+              <div className="flex items-center">
+                <span className="text-purple-400 font-semibold mr-2">Email:</span>
+                <span className="text-white">honeypatkar70@gmail.com</span>
+              </div>
+              <div className="flex items-center">
+                <span className="text-purple-400 font-semibold mr-2">Location:</span>
+                <span className="text-white">Baran, Rajasthan</span>
+              </div>
+              <div className="flex items-center">
+                <span className="text-purple-400 font-semibold mr-2">Availability:</span>
+                <span className="text-white">Internship, Job Opportunities</span>
+              </div>
             </div>
+          </div>
+
+          <div className="mt-6">
+            <h2 className="text-xl font-semibold text-purple-400 mb-3">Technical Expertise</h2>
+            <p className="text-white text-sm sm:text-base leading-relaxed">
+              With over 500+ solved Data Structures and Algorithms problems, I bring strong analytical and problem-solving skills to every project. My expertise spans across modern web development frameworks and mobile application development using React Native and Flutter.
+            </p>
           </div>
         </div>
       </div>

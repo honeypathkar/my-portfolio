@@ -5,6 +5,7 @@ import Footer from "../components/Footer";
 import { Toaster } from "sonner";
 import { Analytics } from "@vercel/analytics/next";
 import { Bricolage_Grotesque } from "next/font/google";
+import CursorSparkle from "../components/CursorSparkle";
 
 const bricolageGrotesque = Bricolage_Grotesque({
   subsets: ["latin"],
@@ -88,6 +89,7 @@ export default function RootLayout({
   return (
     <html lang="en" className={bricolageGrotesque.className}>
       <body>
+        <CursorSparkle />
         <Toaster richColors position="top-right" theme="dark" closeButton />
         {children}
         <Analytics />
