@@ -4,18 +4,23 @@ import React from "react";
 import Footer from "../components/Footer";
 import { Toaster } from "sonner";
 import { Analytics } from "@vercel/analytics/next";
-import { Bricolage_Grotesque } from "next/font/google";
+import { Geist, Geist_Mono } from "next/font/google";
 
-const bricolageGrotesque = Bricolage_Grotesque({
+const geist = Geist({
   subsets: ["latin"],
-  weight: ["400", "500", "600", "700"],
+  variable: "--font-geist",
+});
+
+const geistMono = Geist_Mono({
+  subsets: ["latin"],
+  variable: "--font-geist-mono",
 });
 
 export const metadata: Metadata = {
   metadataBase: new URL('https://honeypathkar.com'),
-  title: "Honey | Portfolio | MERN Stack Developer | Android Developer | Programmer",
+  title: "Honey Pathkar | Full Stack + Mobile Engineer",
   description:
-    "I am a MERN Stack developer with a passion for building dynamic, user-focused web and mobile applications. With solid experience in MongoDB, Express.js, React.js, and Node.js.",
+    "Full Stack & Mobile Engineer building premium web and mobile experiences with React, Node.js, React Native, and Flutter.",
   icons: {
     icon: "/favicon.ico",
     shortcut: '/favicon-32x32.png',
@@ -34,9 +39,9 @@ export const metadata: Metadata = {
     ],
   },
   openGraph: {
-    title: "Honey Pathkar | MERN Stack & Android Developer",
+    title: "Honey Pathkar | Full Stack + Mobile Engineer",
     description:
-      "Building cool web & mobile apps with React, Node.js & Flutter 🚀",
+      "Building premium web and mobile experiences with React, Node.js, React Native & Flutter.",
     url: "https://honeypathkar.com",
     siteName: "Honey Pathkar Portfolio",
     images: [
@@ -52,9 +57,9 @@ export const metadata: Metadata = {
   },
   twitter: {
     card: "summary_large_image",
-    title: "Honey Pathkar | MERN Stack & Android Developer",
+    title: "Honey Pathkar | Full Stack + Mobile Engineer",
     description:
-      "Building sleek and fast web & mobile experiences with the MERN Stack 🚀",
+      "Building premium web and mobile experiences with React, Node.js, React Native & Flutter.",
     images: [process.env.NEXT_PUBLIC_PROFILE_PIC || "https://res.cloudinary.com/dbfyjoiub/image/upload/v1771066355/20260202_214003_szoj9j.jpg"],
   },
   other: {
@@ -68,17 +73,15 @@ export const metadata: Metadata = {
         "https://github.com/honeypathkar",
         "https://www.linkedin.com/in/honeypathkar"
       ],
-      "jobTitle": "MERN Stack & Android Developer",
-      "description": "Full Stack Developer passionate about building web & mobile apps with React, Node.js, and Flutter.",
+      "jobTitle": "Full Stack & Mobile Engineer",
+      "description": "Full Stack & Mobile Engineer building premium web and mobile experiences with React, Node.js, React Native, and Flutter.",
     }),
   },
 };
 
-
 export const viewport: Viewport = {
-  themeColor: '#111827cc',
+  themeColor: '#09090b',
 };
-
 
 export default function RootLayout({
   children,
@@ -86,7 +89,7 @@ export default function RootLayout({
   children: React.ReactNode;
 }) {
   return (
-    <html lang="en" className={bricolageGrotesque.className}>
+    <html lang="en" className={`${geist.variable} ${geistMono.variable}`}>
       <body>
         <Toaster richColors position="top-right" theme="dark" closeButton />
         {children}

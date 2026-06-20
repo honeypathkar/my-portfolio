@@ -1,4 +1,3 @@
-
 import express from "express";
 import Work from "../models/work-model.js";
 import Blog from "../models/blog-model.js";
@@ -6,6 +5,7 @@ import Experience from "../models/experience-model.js";
 import OTP from "../models/otp-model.js";
 import { verifyToken } from "../middleware/verifyToken.js";
 import { transporter } from "../config/transporter.js";
+import { clearCacheByPattern } from "../utils/redis.js";
 
 const router = express.Router();
 
@@ -88,6 +88,7 @@ router.post("/projects", verifyToken, async (req, res) => {
   try {
     const project = new Work(req.body);
     await project.save();
+    await clearCacheByPattern("cache:projects*");
     res.status(201).json(project);
   } catch (error) {
     res.status(400).json({ error: error.message });
@@ -97,6 +98,7 @@ router.post("/projects", verifyToken, async (req, res) => {
 router.put("/projects/:id", verifyToken, async (req, res) => {
   try {
     const project = await Work.findByIdAndUpdate(req.params.id, req.body, { new: true });
+    await clearCacheByPattern("cache:projects*");
     res.json(project);
   } catch (error) {
     res.status(400).json({ error: error.message });
@@ -106,6 +108,7 @@ router.put("/projects/:id", verifyToken, async (req, res) => {
 router.delete("/projects/:id", verifyToken, async (req, res) => {
   try {
     await Work.findByIdAndDelete(req.params.id);
+    await clearCacheByPattern("cache:projects*");
     res.json({ message: "Project deleted" });
   } catch (error) {
     res.status(400).json({ error: error.message });
@@ -174,6 +177,7 @@ router.post("/experience", verifyToken, async (req, res) => {
   try {
     const experience = new Experience(req.body);
     await experience.save();
+    await clearCacheByPattern("cache:experience*");
     res.status(201).json(experience);
   } catch (error) {
     res.status(400).json({ error: error.message });
@@ -183,6 +187,7 @@ router.post("/experience", verifyToken, async (req, res) => {
 router.put("/experience/:id", verifyToken, async (req, res) => {
   try {
     const experience = await Experience.findByIdAndUpdate(req.params.id, req.body, { new: true });
+    await clearCacheByPattern("cache:experience*");
     res.json(experience);
   } catch (error) {
     res.status(400).json({ error: error.message });
@@ -192,6 +197,7 @@ router.put("/experience/:id", verifyToken, async (req, res) => {
 router.delete("/experience/:id", verifyToken, async (req, res) => {
   try {
     await Experience.findByIdAndDelete(req.params.id);
+    await clearCacheByPattern("cache:experience*");
     res.json({ message: "Experience deleted" });
   } catch (error) {
     res.status(400).json({ error: error.message });

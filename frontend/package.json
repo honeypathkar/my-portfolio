@@ -9,6 +9,7 @@
     "start": "next start"
   },
   "dependencies": {
+    "@fontsource/geist-mono": "^5.2.8",
     "@vercel/analytics": "^1.6.1",
     "axios": "^1.13.5",
     "class-variance-authority": "^0.7.1",

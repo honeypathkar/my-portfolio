@@ -1,55 +1,280 @@
+@import "@fontsource/geist-mono/400.css";
+@import "@fontsource/geist-mono/500.css";
+@import "@fontsource/geist-mono/700.css";
+
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
 
-html, body {
-  height: 100%;
+@layer base {
+  :root {
+    --brand: 139 92 246;
+    --brand-rgb: 139, 92, 246;
+    --surface: 9 9 11;
+    --surface-rgb: 9, 9, 11;
+  }
+
+  * {
+    scrollbar-width: thin;
+    scrollbar-color: rgba(139, 92, 246, 0.3) transparent;
+  }
+
+  *::-webkit-scrollbar {
+    width: 6px;
+  }
+
+  *::-webkit-scrollbar-track {
+    background: transparent;
+  }
+
+  *::-webkit-scrollbar-thumb {
+    background: rgba(139, 92, 246, 0.3);
+    border-radius: 3px;
+  }
+
+  *::-webkit-scrollbar-thumb:hover {
+    background: rgba(139, 92, 246, 0.5);
+  }
+
+  ::selection {
+    background: rgba(139, 92, 246, 0.3);
+    color: white;
+  }
+
+  html {
+    scroll-behavior: smooth;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+  }
+
+  body {
+    @apply bg-surface text-white antialiased;
+    overflow-x: hidden;
+  }
+
+  *, *::before, *::after {
+    cursor: url('/cursor.png') 8 8, auto;
+  }
+  a, button, select, input, textarea, label, [role='button'] {
+    cursor: url('/cursor.png') 8 8, pointer !important;
+  }
+
+  h1, h2, h3, h4, h5, h6 {
+    @apply font-display font-bold tracking-tight;
+  }
 }
 
-body {
-  background-color: #0f172a; /* slate-900 */
+@layer components {
+  .glass {
+    @apply bg-white/[0.03] border border-white/[0.06];
+  }
+
+  .glass-strong {
+    @apply bg-white/[0.06] border border-white/[0.1];
+  }
+
+  .glass-card {
+    @apply bg-white/[0.04] border border-white/[0.06] rounded-2xl;
+  }
+
+  .text-gradient {
+    @apply bg-clip-text text-transparent bg-gradient-to-r from-brand-400 via-brand-300 to-brand-500;
+  }
+
+  .text-gradient-subtle {
+    @apply bg-clip-text text-transparent bg-gradient-to-b from-white to-white/60;
+  }
+
+  .section-container {
+    @apply max-w-7xl mx-auto px-6 sm:px-8 lg:px-12;
+  }
+
+  .section-padding {
+    @apply py-16 sm:py-24 lg:py-32;
+  }
+
+  .gradient-border {
+    @apply relative;
+    background: linear-gradient(var(--surface), var(--surface)) padding-box,
+                linear-gradient(135deg, rgba(var(--brand-rgb), 0.3), transparent, rgba(var(--brand-rgb), 0.1)) border-box;
+    border: 1px solid transparent;
+  }
+
+  .gradient-border-hover {
+    @apply transition-all duration-500;
+  }
+  .gradient-border-hover:hover {
+    background: linear-gradient(var(--surface), var(--surface)) padding-box,
+                linear-gradient(135deg, rgba(var(--brand-rgb), 0.5), rgba(var(--brand-rgb), 0.1), rgba(var(--brand-rgb), 0.3)) border-box;
+  }
+
+  .noise-overlay {
+    @apply pointer-events-none;
+    background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noiseFilter'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.65' numOctaves='3' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noiseFilter)'/%3E%3C/svg%3E");
+    opacity: 0.02;
+  }
+
+  .magnetic-btn {
+    @apply relative inline-flex items-center justify-center overflow-hidden rounded-2xl transition-all duration-300;
+  }
+
+  .magnetic-btn::before {
+    content: '';
+    @apply absolute inset-0 opacity-0 transition-opacity duration-300;
+    background: radial-gradient(circle at var(--mouse-x, 50%) var(--mouse-y, 50%), rgba(139, 92, 246, 0.15), transparent 60%);
+  }
+  .magnetic-btn:hover::before {
+    @apply opacity-100;
+  }
+
+  .card-hover {
+    @apply transition-all duration-300;
+  }
+  .card-hover:hover {
+    @apply -translate-y-1;
+  }
+
+  .animate-in {
+    @apply opacity-0 translate-y-8;
+  }
+  .animate-in.is-visible {
+    @apply opacity-100 translate-y-0;
+    transition: opacity 0.8s cubic-bezier(0.16, 1, 0.3, 1),
+                transform 0.8s cubic-bezier(0.16, 1, 0.3, 1);
+  }
+
+  .skeleton {
+    @apply relative overflow-hidden bg-white/[0.04] rounded-lg;
+  }
+
+  .skeleton::after {
+    content: '';
+    @apply absolute inset-0;
+    background: linear-gradient(90deg, transparent 25%, rgba(255,255,255,0.03) 37%, transparent 63%);
+    background-size: 400% 100%;
+    animation: shimmer 2s linear infinite;
+  }
+
+  .prose-premium {
+    @apply text-gray-300 leading-[1.8];
+  }
+
+  .prose-premium h2 {
+    @apply text-white text-3xl font-bold mt-16 mb-6;
+  }
+
+  .prose-premium h3 {
+    @apply text-white text-2xl font-semibold mt-12 mb-4;
+  }
+
+  .prose-premium p {
+    @apply text-gray-300 text-lg leading-relaxed mb-6;
+  }
+
+  .prose-premium a {
+    @apply text-brand-400 hover:text-brand-300 underline underline-offset-4 decoration-brand-400/30 transition-colors;
+  }
+
+  .prose-premium code {
+    @apply bg-brand-500/10 text-brand-300 px-2 py-0.5 rounded-lg text-sm font-mono;
+  }
+
+  .prose-premium pre {
+    @apply bg-surface-100 border border-white/[0.06] rounded-2xl p-6 overflow-x-auto my-8;
+  }
+
+  .prose-premium pre code {
+    @apply bg-transparent text-gray-300 p-0;
+  }
+
+  .prose-premium blockquote {
+    @apply border-l-2 border-brand-500/50 pl-6 italic text-gray-400 my-8;
+  }
+
+  .prose-premium ul {
+    @apply list-disc pl-6 mb-6 space-y-2;
+  }
+
+  .prose-premium ol {
+    @apply list-decimal pl-6 mb-6 space-y-2;
+  }
+
+  .prose-premium li {
+    @apply text-gray-300;
+  }
+
+  .prose-premium img {
+    @apply rounded-2xl border border-white/[0.06] my-8;
+  }
+
+  .prose-premium strong {
+    @apply text-white font-semibold;
+  }
+
+  .prose-premium hr {
+    @apply border-white/[0.06] my-12;
+  }
+
+  .prose-premium table {
+    @apply w-full border-collapse my-8;
+  }
+
+  .prose-premium th {
+    @apply text-left text-sm font-semibold text-white p-3 border-b border-white/[0.06];
+  }
+
+  .prose-premium td {
+    @apply text-gray-300 p-3 border-b border-white/[0.03];
+  }
+
+  .prose-experience p {
+    @apply text-gray-400 text-sm leading-relaxed mb-4;
+  }
+  .prose-experience ul {
+    @apply list-disc pl-5 mb-4 space-y-1.5;
+  }
+  .prose-experience li {
+    @apply text-gray-400 text-sm;
+  }
+  .prose-experience strong {
+    @apply text-white font-semibold;
+  }
 }
 
-/* Ported custom styles from CRA (if any were used) */
-.homepage {
-  min-height: 100vh;
+@layer utilities {
+  .mask-fade-bottom {
+    mask-image: linear-gradient(to bottom, black 60%, transparent 100%);
+    -webkit-mask-image: linear-gradient(to bottom, black 60%, transparent 100%);
+  }
+
+  .mask-fade-edges {
+    mask-image: linear-gradient(to right, transparent, black 10%, black 90%, transparent);
+    -webkit-mask-image: linear-gradient(to right, transparent, black 10%, black 90%, transparent);
+  }
+
+  .text-balance {
+    text-wrap: balance;
+  }
 }
 
-/* Custom cursor */
-body {
-  cursor: url('/cursor.png') 8 8, auto;
+/* Page transition */
+.page-transition-enter {
+  opacity: 0;
+  transform: translateY(10px);
 }
-a, button {
-  cursor: url('/cursor.png') 8 8, pointer;
-}
-
-/* Skeleton shimmer */
-@keyframes shimmer {
-  0% { background-position: -200% 0; }
-  100% { background-position: 200% 0; }
-}
-.skeleton {
-  position: relative;
-  overflow: hidden;
-  background: linear-gradient(90deg, rgba(255,255,255,0.06) 25%, rgba(255,255,255,0.12) 37%, rgba(255,255,255,0.06) 63%);
-  background-size: 400% 100%;
-  animation: shimmer 1.6s infinite linear;
-}
-.shimmer {
-  position: relative;
-  overflow: hidden;
-  background: linear-gradient(90deg, rgba(255,255,255,0.06) 25%, rgba(255,255,255,0.12) 37%, rgba(255,255,255,0.06) 63%);
-  background-size: 400% 100%;
-  animation: shimmer 1.6s infinite linear;
+.page-transition-enter-active {
+  opacity: 1;
+  transform: translateY(0);
+  transition: opacity 0.4s ease-out, transform 0.4s ease-out;
 }
 
 /* Quill Editor Dark Mode Fixes */
 .ql-toolbar.ql-snow {
-  border-color: rgba(255, 255, 255, 0.1) !important;
+  border-color: rgba(255, 255, 255, 0.06) !important;
   background-color: rgba(255, 255, 255, 0.03) !important;
 }
 .ql-container.ql-snow {
-  border-color: rgba(255, 255, 255, 0.1) !important;
+  border-color: rgba(255, 255, 255, 0.06) !important;
 }
 .ql-snow .ql-stroke {
   stroke: #94a3b8 !important;
@@ -99,4 +324,3 @@ a, button {
 .ql-snow .ql-toolbar .ql-picker-item.ql-selected .ql-stroke {
   stroke: #8b5cf6 !important;
 }
-

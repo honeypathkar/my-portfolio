@@ -11,6 +11,7 @@ export default function Page() {
   const project = "projects";
   const contact = "contact";
   const experience = "experience";
+
   return (
     <>
       <Navbar
@@ -33,5 +34,3 @@ export default function Page() {
     </>
   );
 }
-
-

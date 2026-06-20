@@ -7,9 +7,10 @@ import { FiDownload } from "react-icons/fi";
 import { gsap } from "gsap";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
 import { toast } from "sonner";
+import { Send, ArrowUpRight, Mail, MapPin, Phone } from "lucide-react";
 
 export default function ContactPage() {
-  const sectionRef = useRef<HTMLDivElement | null>(null);
+  const sectionRef = useRef<HTMLDivElement>(null);
   const [formData, setFormData] = useState({ name: "", email: "", subject: "", message: "" });
   const [feedback, setFeedback] = useState<{ type: "success" | "error"; message: string } | null>(null);
   const [isSubmitting, setIsSubmitting] = useState(false);
@@ -35,20 +36,14 @@ export default function ContactPage() {
       const response = await axios.post(`${backendUrl}/send-email`, formData);
       setFeedback({ type: "success", message: response.data });
       toast.success("Message sent successfully!", {
-        style: {
-          backgroundColor: "#a855f7",
-          color: "#fff",
-        },
+        style: { backgroundColor: "#7c3aed", color: "#fff" },
         closeButton: false,
       });
       setFormData({ name: "", email: "", subject: "", message: "" });
     } catch (error: any) {
-      setFeedback({ type: "error", message: error?.response?.data || "Failed to send message. Please try again." });
+      setFeedback({ type: "error", message: error?.response?.data || "Failed to send message." });
       toast.error("Failed to send message", {
-        style: {
-          backgroundColor: "#ef4444",
-          color: "#fff",
-        },
+        style: { backgroundColor: "#ef4444", color: "#fff" },
       });
     } finally {
       setIsSubmitting(false);
@@ -58,89 +53,167 @@ export default function ContactPage() {
   useEffect(() => {
     if (!sectionRef.current) return;
     gsap.registerPlugin(ScrollTrigger);
-    const items = sectionRef.current.querySelectorAll("h2, h3, h4, a, label, input, textarea, button");
     const ctx = gsap.context(() => {
-      gsap.fromTo(items, { y: 16, opacity: 0 }, {
-        y: 0,
-        opacity: 1,
-        duration: 0.5,
-        stagger: 0.04,
-        ease: "power2.out",
-        scrollTrigger: {
-          trigger: sectionRef.current as Element,
-          start: "top 85%",
-          once: true,
-        },
+      gsap.fromTo(".contact-label", { opacity: 0, y: 20 }, {
+        opacity: 1, y: 0, duration: 0.6,
+        scrollTrigger: { trigger: sectionRef.current, start: "top 80%", once: true }
+      });
+      gsap.fromTo(".contact-title", { opacity: 0, y: 30 }, {
+        opacity: 1, y: 0, duration: 0.7, delay: 0.1,
+        scrollTrigger: { trigger: sectionRef.current, start: "top 80%", once: true }
+      });
+      gsap.fromTo(".contact-card", { opacity: 0, y: 20 }, {
+        opacity: 1, y: 0, duration: 0.5, stagger: 0.1, delay: 0.2,
+        scrollTrigger: { trigger: ".contact-grid", start: "top 85%", once: true }
       });
     }, sectionRef);
     return () => ctx.revert();
   }, []);
 
+  const socials = [
+    { icon: FaGithub, href: "https://github.com/honeypathkar", label: "GitHub" },
+    { icon: FaLinkedin, href: "https://www.linkedin.com/in/honey-pathkar/", label: "LinkedIn" },
+    { icon: FaInstagram, href: "https://instagram.com/honey.jsx", label: "Instagram" },
+    { icon: SiLeetcode, href: "https://leetcode.com/u/honeypathkar70/", label: "LeetCode" },
+  ];
+
   return (
-    <div ref={sectionRef}>
-      <div className="flex flex-col items-center text-center mb-5 text-white">
-        <h2 className="text-3xl font-bold text-center">Get In Touch</h2>
-        <div className="w-20 h-1 bg-purple-600 mt-3"></div>
-      </div>
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        <div className="grid grid-cols-1 lg:grid-cols-2 gap-12">
-          <div className="space-y-8">
-            <div className="bg-gray-800/50 rounded-xl p-8 border-[1px] border-purple-600/30 hover:border-purple-600 transition-all duration-300">
-              <h3 className="text-2xl font-semibold text-white mb-6">Contact Information</h3>
-              <div className="space-y-6 text-white/80 text-sm">
-                <p><span className="text-purple-400">Phone:</span> +91 7976909686</p>
-                <p><span className="text-purple-400">Email:</span> honeypatkar70@gmail.com</p>
-                <p><span className="text-purple-400">Location:</span> Baran, Rajasthan</p>
-                <div className="mt-4">
-                  <h4 className="text-white font-semibold mb-2">Follow Me</h4>
-                  <div className="flex space-x-4">
-                    <a href="https://github.com/honeypathkar" target="_blank" rel="noopener noreferrer" className="w-10 h-10 bg-purple-600/20 rounded-full flex items-center justify-center text-purple-400 hover:bg-purple-600 hover:text-white transition-colors duration-300"><FaGithub /></a>
-                    <a href="https://www.linkedin.com/in/honey-pathkar/" target="_blank" rel="noopener noreferrer" className="w-10 h-10 bg-purple-600/20 rounded-full flex items-center justify-center text-purple-400 hover:bg-purple-600 hover:text-white transition-colors duration-300"><FaLinkedin /></a>
-                    <a href="https://instagram.com/honey.jsx" target="_blank" rel="noopener noreferrer" className="w-10 h-10 bg-purple-600/20 rounded-full flex items-center justify-center text-purple-400 hover:bg-purple-600 hover:text-white transition-colors duration-300"><FaInstagram /></a>
-                    <a href="https://leetcode.com/u/honeypathkar70/" target="_blank" rel="noopener noreferrer" className="w-10 h-10 bg-purple-600/20 rounded-full flex items-center justify-center text-purple-400 hover:bg-purple-600 hover:text-white transition-colors duration-300"><SiLeetcode className="text-xl" /></a>
+    <section ref={sectionRef} className="section-padding relative overflow-hidden">
+      <div className="absolute top-0 left-1/2 -translate-x-1/2 w-[600px] h-[600px] bg-brand-600/5 rounded-full blur-[150px] pointer-events-none" />
+
+      <div className="section-container relative">
+        <div className="text-center mb-16">
+          <div className="contact-label flex items-center justify-center gap-3 mb-4">
+            <div className="h-px w-12 bg-brand-500" />
+            <span className="text-brand-400 text-xs font-mono font-medium uppercase tracking-widest">Contact</span>
+            <div className="h-px w-12 bg-brand-500" />
+          </div>
+          <h2 className="contact-title text-section text-white mb-4">
+            Let's Build Something <span className="text-gradient">Exceptional</span>
+          </h2>
+          <p className="text-gray-500 text-lg max-w-lg mx-auto">
+            Have a project in mind or want to collaborate? I'd love to hear from you.
+          </p>
+        </div>
+
+        <div className="contact-grid grid lg:grid-cols-5 gap-8 max-w-5xl mx-auto">
+          <div className="lg:col-span-2 space-y-6">
+            <div className="contact-card glass-card p-6 space-y-5">
+              <h3 className="text-white font-semibold text-lg">Get in Touch</h3>
+              <div className="space-y-4">
+                <a href="mailto:honeypatkar70@gmail.com" className="flex items-center gap-3 text-gray-400 hover:text-brand-400 transition-colors group">
+                  <div className="w-10 h-10 rounded-xl bg-brand-500/10 flex items-center justify-center group-hover:bg-brand-500/20 transition-colors">
+                    <Mail size={16} className="text-brand-400" />
+                  </div>
+                  <div>
+                    <div className="text-[10px] font-mono text-gray-600 uppercase tracking-wider">Email</div>
+                    <div className="text-sm">honeypatkar70@gmail.com</div>
+                  </div>
+                </a>
+                <div className="flex items-center gap-3 text-gray-400">
+                  <div className="w-10 h-10 rounded-xl bg-brand-500/10 flex items-center justify-center">
+                    <MapPin size={16} className="text-brand-400" />
+                  </div>
+                  <div>
+                    <div className="text-[10px] font-mono text-gray-600 uppercase tracking-wider">Location</div>
+                    <div className="text-sm">Baran, Rajasthan, India</div>
                   </div>
                 </div>
-                <div className="mt-6">
-                  <h4 className="text-white font-semibold mb-2">Resume</h4>
-                  <a href="https://drive.google.com/file/d/1alPFKOfvFhDyrm7QhpNUgPWd4vYx-e0q/view?usp=drive_link" target="_blank" rel="noopener noreferrer" className="w-36 h-10 bg-purple-600/20 rounded-full inline-flex items-center justify-center gap-2 text-purple-400 hover:bg-purple-600 hover:text-white transition-colors duration-300"><FiDownload /> Download</a>
+                <div className="flex items-center gap-3 text-gray-400">
+                  <div className="w-10 h-10 rounded-xl bg-brand-500/10 flex items-center justify-center">
+                    <Phone size={16} className="text-brand-400" />
+                  </div>
+                  <div>
+                    <div className="text-[10px] font-mono text-gray-600 uppercase tracking-wider">Phone</div>
+                    <div className="text-sm">+91 7976909686</div>
+                  </div>
                 </div>
               </div>
             </div>
+
+            <div className="contact-card glass-card p-6">
+              <h3 className="text-white font-semibold text-sm mb-4">Follow Me</h3>
+              <div className="flex gap-3">
+                {socials.map((s) => (
+                  <a
+                    key={s.label}
+                    href={s.href}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    aria-label={s.label}
+                    className="w-11 h-11 rounded-xl bg-white/[0.03] border border-white/[0.06] flex items-center justify-center text-gray-400 hover:text-brand-400 hover:border-brand-500/30 hover:bg-brand-500/10 transition-all duration-300"
+                  >
+                    <s.icon size={18} />
+                  </a>
+                ))}
+              </div>
+            </div>
+
+            <div className="contact-card">
+              <a
+                href="https://drive.google.com/file/d/1alPFKOfvFhDyrm7QhpNUgPWd4vYx-e0q/view?usp=drive_link"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="flex items-center justify-center gap-2 w-full py-3.5 bg-white/[0.05] hover:bg-white/[0.1] border border-white/[0.08] rounded-2xl text-white text-sm font-semibold transition-all duration-300 hover:border-brand-500/30"
+              >
+                <FiDownload size={16} /> Download Resume
+              </a>
+            </div>
           </div>
-          <div>
-            <form className="bg-gray-800/50 rounded-xl p-8 border-[1px] border-purple-600/30 hover:border-purple-600 transition-all duration-300" onSubmit={handleSubmit}>
-              <div className="mb-2">
-                <label className="block text-gray-400 mb-2" htmlFor="name">Name</label>
-                <input type="text" id="name" className="w-full px-4 py-3 bg-gray-700/50 border-[1px] border-gray-600 rounded-lg focus:outline-none focus:border-purple-600 text-white" placeholder="John" name="name" value={formData.name} onChange={handleChange} required />
-              </div>
-              <div className="mb-2">
-                <label className="block text-gray-400 mb-2" htmlFor="email">Email</label>
-                <input type="email" id="email" className="w-full px-4 py-3 bg-gray-700/50 border-[1px] border-gray-600 rounded-lg focus:outline-none focus:border-purple-600 text-white" placeholder="johndoe@example.com" name="email" value={formData.email} onChange={handleChange} required />
-              </div>
-              <div className="mb-2">
-                <label className="block text-gray-400 mb-2" htmlFor="subject">Subject</label>
-                <input type="text" id="subject" className="w-full px-4 py-3 bg-gray-700/50 border-[1px] border-gray-600 rounded-lg focus:outline-none focus:border-purple-600 text-white" placeholder="Project Inquiry" name="subject" value={formData.subject} onChange={handleChange} required />
-              </div>
-              <div className="mb-2">
-                <label className="block text-gray-400 mb-2" htmlFor="message">Message</label>
-                <textarea rows={4} id="message" className="w-full px-4 py-3 bg-gray-700/50 border-[1px] border-gray-600 rounded-lg focus:outline-none focus:border-purple-600 text-white resize-none" placeholder="Your message..." name="message" value={formData.message} onChange={handleChange} required />
-              </div>
-              <div>
-                <button type="submit" className="w-full bg-purple-600 text-white py-3 px-6 rounded-lg hover:bg-purple-700 transition-colors duration-300 disabled:opacity-50 disabled:cursor-not-allowed" disabled={isSubmitting}>
-                  {isSubmitting ? "Sending..." : "Send Message"}
-                </button>
-              </div>
-              {/* {feedback && (
-                <div className={`mt-4 p-3 rounded-lg text-center ${feedback.type === "success" ? "bg-green-500 text-white" : "bg-red-500 text-white"}`}>
-                  {feedback.message}
+
+          <div className="lg:col-span-3">
+            <form className="contact-card glass-card p-6 sm:p-8" onSubmit={handleSubmit}>
+              <div className="grid sm:grid-cols-2 gap-4 mb-4">
+                <div>
+                  <label className="block text-gray-500 text-xs font-mono uppercase tracking-wider mb-2" htmlFor="name">Name</label>
+                  <input
+                    type="text" id="name" name="name" value={formData.name} onChange={handleChange} required
+                    className="w-full px-4 py-3 bg-white/[0.03] border border-white/[0.06] rounded-xl text-white text-sm focus:outline-none focus:border-brand-500/50 focus:ring-1 focus:ring-brand-500/20 transition-all placeholder:text-gray-600"
+                    placeholder="Your name"
+                  />
                 </div>
-              )} */}
+                <div>
+                  <label className="block text-gray-500 text-xs font-mono uppercase tracking-wider mb-2" htmlFor="email">Email</label>
+                  <input
+                    type="email" id="email" name="email" value={formData.email} onChange={handleChange} required
+                    className="w-full px-4 py-3 bg-white/[0.03] border border-white/[0.06] rounded-xl text-white text-sm focus:outline-none focus:border-brand-500/50 focus:ring-1 focus:ring-brand-500/20 transition-all placeholder:text-gray-600"
+                    placeholder="you@example.com"
+                  />
+                </div>
+              </div>
+              <div className="mb-4">
+                <label className="block text-gray-500 text-xs font-mono uppercase tracking-wider mb-2" htmlFor="subject">Subject</label>
+                <input
+                  type="text" id="subject" name="subject" value={formData.subject} onChange={handleChange} required
+                  className="w-full px-4 py-3 bg-white/[0.03] border border-white/[0.06] rounded-xl text-white text-sm focus:outline-none focus:border-brand-500/50 focus:ring-1 focus:ring-brand-500/20 transition-all placeholder:text-gray-600"
+                  placeholder="Project Inquiry"
+                />
+              </div>
+              <div className="mb-6">
+                <label className="block text-gray-500 text-xs font-mono uppercase tracking-wider mb-2" htmlFor="message">Message</label>
+                <textarea
+                  rows={5} id="message" name="message" value={formData.message} onChange={handleChange} required
+                  className="w-full px-4 py-3 bg-white/[0.03] border border-white/[0.06] rounded-xl text-white text-sm focus:outline-none focus:border-brand-500/50 focus:ring-1 focus:ring-brand-500/20 transition-all resize-none placeholder:text-gray-600"
+                  placeholder="Tell me about your project..."
+                />
+              </div>
+              <button
+                type="submit"
+                disabled={isSubmitting}
+                className="w-full flex items-center justify-center gap-2 py-3.5 bg-brand-600 hover:bg-brand-500 text-white font-semibold rounded-2xl transition-all duration-300 hover:shadow-glow disabled:opacity-50 disabled:cursor-not-allowed text-sm active:scale-[0.98]"
+              >
+                {isSubmitting ? (
+                  <div className="w-5 h-5 border-2 border-white/30 border-t-white rounded-full animate-spin" />
+                ) : (
+                  <>
+                    <Send size={15} /> Send Message
+                  </>
+                )}
+              </button>
             </form>
           </div>
         </div>
       </div>
-    </div>
+    </section>
   );
 }
-
-
