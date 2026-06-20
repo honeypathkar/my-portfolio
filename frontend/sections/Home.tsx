@@ -12,7 +12,7 @@ import ExperiencePage from "./ExperiencePage";
 const metrics = [
   { icon: FolderGit2, label: "Apps Shipped", value: "10+" },
   { icon: Code2, label: "DSA Solved", value: "500+" },
-  { icon: Zap, label: "Years Exp", value: "2+" },
+  { icon: Zap, label: "Years Exp", value: "1+" },
   { icon: Trophy, label: "Tech Stack", value: "20+" },
 ];
 
@@ -154,8 +154,8 @@ export default function Home({
                   <span className="hero-name block opacity-0">
                     Hi, I'm Honey
                   </span>
-                  <span className="hero-role block text-gradient opacity-0">
-                    Software Engineer
+                  <span className="hero-role block text-gradient font-bebas tracking-wider whitespace-nowrap text-[clamp(1rem,4.5vw,1.8rem)] lg:text-[clamp(1.375rem,2.2vw,2.25rem)] opacity-0">
+                    Founder @Fyance | Software Engineer
                   </span>
                 </h1>
 
@@ -178,16 +178,21 @@ export default function Home({
                 <div className="grid grid-cols-2 sm:grid-cols-4 gap-3">
                   {metrics.map((m) => (
                     <div key={m.label} className="hero-metric glass-card p-3 text-center opacity-0">
-                      <m.icon className="w-4 h-4 text-brand-400 mx-auto mb-1.5" />
+                       <m.icon className="w-4 h-4 text-brand-400 mx-auto mb-1.5" />
                       <div className="text-lg font-bold text-white">{m.value}</div>
                       <div className="text-[10px] text-gray-500 font-mono mt-0.5">{m.label}</div>
                     </div>
                   ))}
                 </div>
+
+                {/* Tech Orbit on mobile */}
+                <div className="hero-visual lg:hidden flex justify-center my-8 opacity-0">
+                  <TechOrbit />
+                </div>
               </div>
 
-              {/* Orbit on bottom on mobile, right on desktop */}
-              <div className="hero-visual order-1 lg:order-2 flex justify-center lg:justify-end opacity-0">
+              {/* Orbit on right on desktop */}
+              <div className="hero-visual hidden lg:flex lg:order-2 justify-end opacity-0">
                 <TechOrbit />
               </div>
             </div>

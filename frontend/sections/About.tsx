@@ -93,7 +93,7 @@ export default function About() {
                 </div>
                 <div>
                   <div className="text-xs text-gray-500 font-medium">Location</div>
-                  <div className="text-sm text-white font-semibold">Rajasthan, India</div>
+                  <div className="text-sm text-white font-semibold">Bengaluru, India</div>
                 </div>
               </div>
             </div>

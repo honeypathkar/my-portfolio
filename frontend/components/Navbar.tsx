@@ -84,7 +84,7 @@ export default function Navbar({ home, about, skills, project, contact }: Props)
         <div className="section-container">
           <div className="flex items-center justify-between h-16 sm:h-20">
             <Link href="/" className="relative group">
-              <span className="text-xl font-bold tracking-tight text-white group-hover:text-brand-400 transition-colors duration-300">
+              <span className="text-2xl font-bebas tracking-wider text-white group-hover:text-brand-400 transition-colors duration-300">
                 honey
               </span>
               <span className="text-brand-400 text-xl font-bold">.</span>

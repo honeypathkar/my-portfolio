@@ -35,6 +35,7 @@ module.exports = {
         sans: ['var(--font-geist)', 'system-ui', 'sans-serif'],
         mono: ['var(--font-geist-mono)', 'monospace'],
         display: ['var(--font-geist)', 'system-ui', 'sans-serif'],
+        bebas: ['var(--font-bebas-neue)', 'sans-serif'],
       },
       fontSize: {
         'hero': ['clamp(2rem, 5vw, 4rem)', { lineHeight: '1.1', letterSpacing: '-0.02em', fontWeight: '700' }],

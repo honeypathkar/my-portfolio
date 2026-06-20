@@ -27,7 +27,7 @@ export default function Footer() {
         <div className="grid grid-cols-1 md:grid-cols-3 gap-12 mb-12">
           <div>
             <Link href="/" className="inline-block mb-4">
-              <span className="text-xl font-bold text-white">honey</span>
+              <span className="text-2xl font-bebas tracking-wider text-white">honey</span>
               <span className="text-brand-400 text-xl font-bold">.</span>
             </Link>
             <p className="text-gray-500 text-sm leading-relaxed max-w-xs">

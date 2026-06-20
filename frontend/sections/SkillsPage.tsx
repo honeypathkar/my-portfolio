@@ -125,10 +125,10 @@ export default function SkillsPage() {
             <button
               key={cat.name}
               onClick={() => setActiveCategory(i)}
-              className={`category-tab relative px-5 py-2.5 rounded-xl text-sm font-medium transition-all duration-300 border ${
+              className={`category-tab relative px-5 py-2.5 rounded-xl text-sm font-medium transition-all duration-300 border backdrop-blur-md ${
                 activeCategory === i
-                  ? "text-white border-white/[0.12] bg-white/[0.06]"
-                  : "text-gray-500 hover:text-gray-300 bg-white/[0.03] hover:bg-white/[0.06] border-white/[0.04]"
+                  ? "text-white border-white/[0.2] bg-white/[0.15] shadow-[0_8px_32px_0_rgba(0,0,0,0.37)]"
+                  : "text-gray-400 hover:text-gray-200 bg-white/[0.06] hover:bg-white/[0.1] border-white/[0.08] shadow-[0_4px_12px_0_rgba(0,0,0,0.15)]"
               }`}
             >
               <span className="relative z-10">{cat.name}</span>

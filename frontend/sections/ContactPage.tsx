@@ -116,7 +116,7 @@ export default function ContactPage() {
                   </div>
                   <div>
                     <div className="text-[10px] font-mono text-gray-600 uppercase tracking-wider">Location</div>
-                    <div className="text-sm">Baran, Rajasthan, India</div>
+                    <div className="text-sm">Bengaluru, India</div>
                   </div>
                 </div>
                 <div className="flex items-center gap-3 text-gray-400">
