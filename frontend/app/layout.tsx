@@ -52,7 +52,7 @@ export const metadata: Metadata = {
     siteName: "Honey Pathkar Portfolio",
     images: [
       {
-        url: process.env.NEXT_PUBLIC_PROFILE_PIC || "https://res.cloudinary.com/dbfyjoiub/image/upload/v1771066355/20260202_214003_szoj9j.jpg",
+        url: "/preview.png",
         width: 1200,
         height: 630,
         alt: "Honey Pathkar Portfolio Preview",
@@ -66,7 +66,7 @@ export const metadata: Metadata = {
     title: "Honey Pathkar | Full Stack + Mobile Engineer",
     description:
       "Building premium web and mobile experiences with React, Node.js, React Native & Flutter.",
-    images: [process.env.NEXT_PUBLIC_PROFILE_PIC || "https://res.cloudinary.com/dbfyjoiub/image/upload/v1771066355/20260202_214003_szoj9j.jpg"],
+    images: ["/preview.png"],
   },
   other: {
     "application/ld+json": JSON.stringify({
@@ -74,7 +74,7 @@ export const metadata: Metadata = {
       "@type": "Person",
       "name": "Honey Pathkar",
       "url": "https://honeypathkar.com",
-      "image": process.env.NEXT_PUBLIC_PROFILE_PIC || "https://res.cloudinary.com/dbfyjoiub/image/upload/v1771066355/20260202_214003_szoj9j.jpg",
+      "image": "/preview.png",
       "sameAs": [
         "https://github.com/honeypathkar",
         "https://www.linkedin.com/in/honeypathkar"

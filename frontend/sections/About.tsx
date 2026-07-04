@@ -104,7 +104,7 @@ export default function About() {
             <div className="space-y-6 text-gray-400 text-base sm:text-lg leading-relaxed">
               <p>
                 I'm a <span className="text-white font-medium">Full Stack & Mobile Engineer</span> with 
-                2+ years of professional experience building scalable web and mobile applications. 
+                1+ years of professional experience building scalable web and mobile applications. 
                 I specialize in the MERN stack and React Native, delivering production-ready 
                 solutions with clean architecture and optimized performance.
               </p>
