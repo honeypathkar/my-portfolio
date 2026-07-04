@@ -8,6 +8,7 @@ import SkillsPage from "./SkillsPage";
 import WorkPage from "./WorkPage";
 import ContactPage from "./ContactPage";
 import ExperiencePage from "./ExperiencePage";
+import LiquidGlassCard from "../components/LiquidGlassCard";
 
 const metrics = [
   { icon: FolderGit2, label: "Apps Shipped", value: "10+" },
@@ -19,7 +20,7 @@ const metrics = [
 const techStack = [
   "React", "Next.js", "Node.js", "React Native",
   "Flutter", "TypeScript", "MongoDB", "Tailwind",
-  "GSAP", "Java", "PostgreSQL", "Firebase",
+  "GSAP", "PostgreSQL", "Firebase",
 ];
 
 function Starfield() {
@@ -29,19 +30,28 @@ function Starfield() {
     setMounted(true);
   }, []);
 
-  const stars = useMemo(() => {
-    if (!mounted) return [];
+  const { stars, shootingStars } = useMemo(() => {
+    if (!mounted) return { stars: [], shootingStars: [] };
     const s = [];
-    for (let i = 0; i < 120; i++) {
+    for (let i = 0; i < 300; i++) {
       s.push({
         x: Math.random() * 100,
         y: Math.random() * 100,
-        size: Math.random() * 2 + 0.5,
+        size: Math.random() * 1.5 + 0.5,
         delay: Math.random() * 5,
         duration: Math.random() * 3 + 2,
       });
     }
-    return s;
+    const ss = [];
+    for (let i = 0; i < 7; i++) {
+      ss.push({
+        top: Math.random() * 100 - 20, // Start anywhere vertically from slightly above to 80% down
+        left: Math.random() * 100 + 50, // Start from the right half or offscreen right
+        delay: Math.random() * 15,
+        duration: Math.random() * 5 + 8, // 8-13 seconds duration (much slower)
+      });
+    }
+    return { stars: s, shootingStars: ss };
   }, [mounted]);
 
   if (!mounted) {
@@ -55,20 +65,34 @@ function Starfield() {
 
   return (
     <div className="absolute inset-0 overflow-hidden pointer-events-none">
-      {stars.map((star, i) => (
-        <div
-          key={i}
-          className="absolute rounded-full bg-white animate-twinkle"
-          style={{
-            left: `${star.x}%`,
-            top: `${star.y}%`,
-            width: `${star.size}px`,
-            height: `${star.size}px`,
-            animationDelay: `${star.delay}s`,
-            animationDuration: `${star.duration}s`,
-          }}
-        />
-      ))}
+      <div className="absolute inset-0">
+        {stars.map((star, i) => (
+          <div
+            key={i}
+            className="absolute rounded-full bg-white animate-twinkle"
+            style={{
+              left: `${star.x}%`,
+              top: `${star.y}%`,
+              width: `${star.size}px`,
+              height: `${star.size}px`,
+              animationDelay: `${star.delay}s`,
+              animationDuration: `${star.duration}s`,
+            }}
+          />
+        ))}
+        {shootingStars.map((star, i) => (
+          <div
+            key={`ss-${i}`}
+            className="absolute w-[100px] h-[1px] bg-gradient-to-r from-transparent via-white to-transparent animate-shooting-star"
+            style={{
+              left: `${star.left}%`,
+              top: `${star.top}%`,
+              animationDelay: `${star.delay}s`,
+              animationDuration: `${star.duration}s`,
+            }}
+          />
+        ))}
+      </div>
       <div className="absolute top-1/4 left-1/4 w-96 h-96 bg-brand-600/5 rounded-full blur-[100px]" />
       <div className="absolute bottom-1/4 right-1/4 w-72 h-72 bg-brand-500/4 rounded-full blur-[80px]" />
     </div>
@@ -86,7 +110,7 @@ function TechOrbit() {
 
       {/* Center icon */}
       <div className="absolute inset-0 flex items-center justify-center">
-        <div className="w-16 h-16 rounded-2xl bg-brand-600/15 border border-brand-500/25 flex items-center justify-center">
+        <div className="w-16 h-16 rounded-2xl bg-brand-500/10 border border-brand-500/25 flex items-center justify-center shadow-[0_0_15px_rgba(139,92,246,0.15)_inset,0_4px_24px_rgba(0,0,0,0.3)] backdrop-blur-xl">
           <Code2 className="w-7 h-7 text-brand-400" />
         </div>
       </div>
@@ -105,7 +129,7 @@ function TechOrbit() {
             >
               {/* Counter-rotate so text stays upright */}
               <div className="animate-[spin_25s_linear_infinite_reverse]">
-                <div className="px-2.5 py-1 bg-white/[0.04] border border-white/[0.06] rounded-lg text-[9px] sm:text-[10px] font-mono text-gray-500 hover:text-brand-400 hover:border-brand-500/30 transition-colors whitespace-nowrap cursor-default">
+                <div className="px-2.5 py-1 bg-white/[0.03] backdrop-blur-md border border-white/[0.08] shadow-[0_0_2px_1px_rgba(255,255,255,0.05)_inset,0_4px_12px_rgba(0,0,0,0.2)] rounded-lg text-[9px] sm:text-[10px] font-mono text-gray-400 hover:text-white transition-colors whitespace-nowrap cursor-default">
                   {tech}
                 </div>
               </div>
@@ -177,11 +201,11 @@ export default function Home({
 
                 <div className="grid grid-cols-2 sm:grid-cols-4 gap-3">
                   {metrics.map((m) => (
-                    <div key={m.label} className="hero-metric glass-card p-3 text-center opacity-0">
+                    <LiquidGlassCard key={m.label} className="hero-metric p-3 text-center opacity-0">
                        <m.icon className="w-4 h-4 text-brand-400 mx-auto mb-1.5" />
                       <div className="text-lg font-bold text-white">{m.value}</div>
                       <div className="text-[10px] text-gray-500 font-mono mt-0.5">{m.label}</div>
-                    </div>
+                    </LiquidGlassCard>
                   ))}
                 </div>
 

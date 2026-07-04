@@ -77,6 +77,68 @@
     @apply bg-white/[0.04] border border-white/[0.06] rounded-2xl;
   }
 
+  .glass-displacement {
+    backdrop-filter: url(#glass-displacement-filter) saturate(1.2);
+    background: rgba(255, 255, 255, 0.05);
+    box-shadow:
+      0 0 2px 1px rgba(255, 255, 255, 0.08) inset,
+      0 0 10px 4px rgba(255, 255, 255, 0.05) inset,
+      0 4px 16px rgba(0, 0, 0, 0.05),
+      0 8px 24px rgba(0, 0, 0, 0.05),
+      0 16px 56px rgba(0, 0, 0, 0.05);
+    border: 1px solid rgba(255, 255, 255, 0.08);
+  }
+
+  .glass-nav {
+    backdrop-filter: blur(20px) saturate(1.8);
+    background: rgba(9, 9, 11, 0.75);
+    border: 1px solid rgba(255, 255, 255, 0.06);
+    box-shadow: 0 8px 32px rgba(0, 0, 0, 0.37);
+  }
+
+  .glass-nav-scrolled {
+    backdrop-filter: blur(24px) saturate(2);
+    background: rgba(9, 9, 11, 0.85);
+    border: none;
+    box-shadow: none;
+  }
+
+  .glass-frosted {
+    backdrop-filter: blur(16px) saturate(1.5) brightness(1.1);
+    background: rgba(255, 255, 255, 0.03);
+    border: 1px solid rgba(255, 255, 255, 0.06);
+  }
+
+  .glass-glow {
+    backdrop-filter: blur(20px) saturate(1.8);
+    background: rgba(139, 92, 246, 0.05);
+    border: 1px solid rgba(139, 92, 246, 0.15);
+    box-shadow: 0 0 20px rgba(139, 92, 246, 0.1);
+  }
+
+  .liquid-glass {
+    backdrop-filter: url(#glass-displacement-filter) saturate(1.3) blur(6px);
+    -webkit-backdrop-filter: url(#glass-displacement-filter) saturate(1.3) blur(6px);
+    background: rgba(255, 255, 255, 0.03);
+    border: 1px solid rgba(255, 255, 255, 0.08);
+    box-shadow:
+      0 0 2px 1px rgba(255, 255, 255, 0.05) inset,
+      0 0 10px 4px rgba(255, 255, 255, 0.02) inset,
+      0 4px 16px rgba(0, 0, 0, 0.1),
+      0 8px 32px rgba(0, 0, 0, 0.08);
+    transition: all 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+  }
+
+  .liquid-glass:hover {
+    background: rgba(255, 255, 255, 0.03);
+    border-color: rgba(255, 255, 255, 0.08);
+    box-shadow:
+      0 0 2px 1px rgba(255, 255, 255, 0.05) inset,
+      0 0 10px 4px rgba(255, 255, 255, 0.02) inset,
+      0 4px 16px rgba(0, 0, 0, 0.1),
+      0 8px 32px rgba(0, 0, 0, 0.08);
+  }
+
   .text-gradient {
     @apply bg-clip-text text-transparent bg-gradient-to-r from-brand-400 via-brand-300 to-brand-500;
   }
@@ -323,4 +385,13 @@
 .ql-snow.ql-toolbar .ql-picker-item.ql-selected .ql-stroke,
 .ql-snow .ql-toolbar .ql-picker-item.ql-selected .ql-stroke {
   stroke: #8b5cf6 !important;
+}
+
+/* Hide scrollbar for category tabs */
+.category-tabs::-webkit-scrollbar {
+  display: none;
+}
+.category-tabs {
+  -ms-overflow-style: none;  /* IE and Edge */
+  scrollbar-width: none;  /* Firefox */
 }

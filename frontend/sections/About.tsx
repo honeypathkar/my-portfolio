@@ -4,6 +4,7 @@ import { gsap } from "gsap";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
 import Image from "next/image";
 import { Code2, Rocket, Target, MapPin, Mail, Calendar, ArrowUpRight } from "lucide-react";
+import LiquidGlassCard from "../components/LiquidGlassCard";
 
 const timeline = [
   { year: "2023", title: "Student", desc: "Discovered passion for building products through DSA & web development" },
@@ -87,7 +88,7 @@ export default function About() {
                 />
                 <div className="absolute inset-0 bg-gradient-to-t from-surface/60 via-transparent to-transparent" />
               </div>
-              <div className="absolute -bottom-4 -right-4 glass-card p-4 flex items-center gap-3">
+              <LiquidGlassCard className="absolute -bottom-4 -right-4 p-4 flex items-center gap-3">
                 <div className="w-10 h-10 rounded-xl bg-brand-500/20 flex items-center justify-center">
                   <MapPin size={18} className="text-brand-400" />
                 </div>
@@ -95,7 +96,7 @@ export default function About() {
                   <div className="text-xs text-gray-500 font-medium">Location</div>
                   <div className="text-sm text-white font-semibold">Bengaluru, India</div>
                 </div>
-              </div>
+              </LiquidGlassCard>
             </div>
           </div>
 

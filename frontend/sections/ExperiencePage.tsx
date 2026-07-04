@@ -123,7 +123,7 @@ export default function ExperiencePage() {
                     }`} />
 
                     <div
-                      className={`glass-card overflow-hidden transition-all duration-500 ${
+                      className={`glass-card overflow-hidden transition-all duration-500 rounded-2xl ${
                         isExpanded ? "border-brand-500/20 shadow-glow-sm" : "hover:border-white/[0.1]"
                       }`}
                     >

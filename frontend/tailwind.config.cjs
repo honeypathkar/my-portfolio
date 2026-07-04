@@ -59,6 +59,7 @@ module.exports = {
         'shimmer': 'shimmer 2s linear infinite',
         'pulse-glow': 'pulse-glow 2s ease-in-out infinite',
         'twinkle': 'twinkle 3s ease-in-out infinite',
+        'shooting-star': 'shooting-star 4s linear infinite',
       },
       keyframes: {
         glow: {
@@ -80,6 +81,10 @@ module.exports = {
         'twinkle': {
           '0%, 100%': { opacity: '0.3', transform: 'scale(1)' },
           '50%': { opacity: '1', transform: 'scale(1.2)' },
+        },
+        'shooting-star': {
+          '0%': { transform: 'translateX(0) translateY(0) rotate(-45deg)', opacity: '1' },
+          '100%': { transform: 'translateX(-200vw) translateY(200vh) rotate(-45deg)', opacity: '0' },
         },
       },
       boxShadow: {

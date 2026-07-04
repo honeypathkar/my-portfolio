@@ -97,6 +97,99 @@ export default function RootLayout({
   return (
     <html lang="en" className={`${geist.variable} ${geistMono.variable} ${bebasNeue.variable}`}>
       <body>
+        {/* SVG Filter Definitions for Glass Displacement Effect */}
+        <svg
+          style={{ position: "absolute", width: 0, height: 0, overflow: "hidden" }}
+          xmlns="http://www.w3.org/2000/svg"
+        >
+          <defs>
+            <filter id="glass-displacement-filter" colorInterpolationFilters="sRGB">
+              <feImage
+                x="0"
+                y="0"
+                width="100%"
+                height="100%"
+                result="map"
+                href={`data:image/svg+xml,${encodeURIComponent(
+                  `<svg viewBox="0 0 400 100" xmlns="http://www.w3.org/2000/svg">
+                    <defs>
+                      <linearGradient id="glass-red" x1="100%" y1="0%" x2="0%" y2="0%">
+                        <stop offset="0%" stop-color="#000"/>
+                        <stop offset="100%" stop-color="red"/>
+                      </linearGradient>
+                      <linearGradient id="glass-blue" x1="0%" y1="0%" x2="0%" y2="100%">
+                        <stop offset="0%" stop-color="#000"/>
+                        <stop offset="100%" stop-color="blue"/>
+                      </linearGradient>
+                    </defs>
+                    <rect x="0" y="0" width="400" height="100" fill="black"/>
+                    <rect x="0" y="0" width="400" height="100" rx="16" fill="url(#glass-red)"/>
+                    <rect x="0" y="0" width="400" height="100" rx="16" fill="url(#glass-blue)" style="mix-blend-mode: difference"/>
+                    <rect x="14" y="3.5" width="372" height="93" rx="16" fill="hsl(0 0% 50% / 0.93)" style="filter:blur(11px)"/>
+                  </svg>`
+                )}`}
+              />
+              <feDisplacementMap
+                in="SourceGraphic"
+                in2="map"
+                id="glass-red-channel"
+                xChannelSelector="R"
+                yChannelSelector="B"
+                result="dispRed"
+                scale="-180"
+              />
+              <feColorMatrix
+                in="dispRed"
+                type="matrix"
+                values="1 0 0 0 0
+                        0 0 0 0 0
+                        0 0 0 0 0
+                        0 0 0 1 0"
+                result="red"
+              />
+              <feDisplacementMap
+                in="SourceGraphic"
+                in2="map"
+                id="glass-green-channel"
+                xChannelSelector="R"
+                yChannelSelector="B"
+                result="dispGreen"
+                scale="-170"
+              />
+              <feColorMatrix
+                in="dispGreen"
+                type="matrix"
+                values="0 0 0 0 0
+                        0 1 0 0 0
+                        0 0 0 0 0
+                        0 0 0 1 0"
+                result="green"
+              />
+              <feDisplacementMap
+                in="SourceGraphic"
+                in2="map"
+                id="glass-blue-channel"
+                xChannelSelector="R"
+                yChannelSelector="B"
+                result="dispBlue"
+                scale="-160"
+              />
+              <feColorMatrix
+                in="dispBlue"
+                type="matrix"
+                values="0 0 0 0 0
+                        0 0 0 0 0
+                        0 0 1 0 0
+                        0 0 0 1 0"
+                result="blue"
+              />
+              <feBlend in="red" in2="green" mode="screen" result="rg" />
+              <feBlend in="rg" in2="blue" mode="screen" result="output" />
+              <feGaussianBlur in="output" stdDeviation="0.7" />
+            </filter>
+          </defs>
+        </svg>
+
         <Toaster richColors position="top-right" theme="dark" closeButton />
         {children}
         <Analytics />

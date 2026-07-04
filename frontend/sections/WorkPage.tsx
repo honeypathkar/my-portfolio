@@ -4,8 +4,8 @@ import axios from "axios";
 import ReactPaginate from "react-paginate";
 import Link from "next/link";
 import Image from "next/image";
-import { motion } from "framer-motion";
-import { Star, GitFork, ChevronLeft, ChevronRight, ExternalLink, ArrowUpRight } from "lucide-react";
+import { Star, GitFork, ChevronLeft, ChevronRight, ArrowUpRight } from "lucide-react";
+import { useLiquidGlass } from "../hooks/useLiquidGlass";
 
 type Work = {
   _id: string;
@@ -82,71 +82,76 @@ function stripHtml(html: string) {
   return html.replace(/<[^>]*>/g, " ").replace(/&[a-z]+;/gi, " ").replace(/\s+/g, " ").trim();
 }
 
-function ProjectCard({ _id, name, slug: customSlug, imageUrl, description, tools, url, source }: Work) {
+const GLASS_CONFIG = JSON.stringify({
+  blurAmount: 0.25,
+  cornerRadius: 20,
+  brightness: -0.3,
+});
+
+function ProjectCard({ name, slug: customSlug, imageUrl, description, tools, url, source }: Work) {
   const slugify = (text: string) =>
     text.toString().toLowerCase().trim().replace(/\s+/g, '-').replace(/[^\w-]+/g, '').replace(/--+/g, '-');
   const finalSlug = customSlug || slugify(name);
   const cleanDesc = stripHtml(description);
 
   return (
-    <motion.div
-      initial={{ opacity: 0, y: 30 }}
-      whileInView={{ opacity: 1, y: 0 }}
-      viewport={{ once: true, margin: "-80px" }}
-      transition={{ duration: 0.6, ease: [0.16, 1, 0.3, 1] }}
-      className="flex flex-col h-full"
+    <Link
+      href={`/projects/${finalSlug}`}
+      className="group block liquid-glass overflow-hidden card-hover flex flex-col h-full rounded-2xl"
+      data-config={GLASS_CONFIG}
     >
-      <Link href={`/projects/${finalSlug}`} className="group block glass-card overflow-hidden card-hover flex flex-col h-full">
-        <div className="relative aspect-[16/10] overflow-hidden shrink-0">
-          <Image
-            src={imageUrl}
-            alt={name}
-            fill
-            className="object-cover transition-transform duration-700 group-hover:scale-105"
-            loading="lazy"
-          />
-          <div className="absolute inset-0 bg-gradient-to-t from-surface via-surface/20 to-transparent opacity-60 group-hover:opacity-40 transition-opacity duration-500" />
-          <div className="absolute top-4 right-4 opacity-0 group-hover:opacity-100 transition-all duration-300 translate-y-2 group-hover:translate-y-0">
-            <div className="w-10 h-10 rounded-xl bg-white/10 backdrop-blur-sm border border-white/10 flex items-center justify-center">
-              <ArrowUpRight size={16} className="text-white" />
-            </div>
+      <div className="relative aspect-[16/10] overflow-hidden shrink-0">
+        <Image
+          src={imageUrl}
+          alt={name}
+          fill
+          className="object-cover transition-transform duration-700 group-hover:scale-105"
+          loading="lazy"
+        />
+        <div className="absolute inset-0 bg-gradient-to-t from-surface via-surface/20 to-transparent opacity-60 group-hover:opacity-40 transition-opacity duration-500" />
+        <div className="absolute top-4 right-4 opacity-0 group-hover:opacity-100 transition-all duration-300 translate-y-2 group-hover:translate-y-0">
+          <div className="w-11 h-11 rounded-2xl bg-black/40 backdrop-blur-md border border-white/[0.12] shadow-[0_8px_32px_rgba(0,0,0,0.5)] flex items-center justify-center transition-transform hover:scale-110">
+            <ArrowUpRight size={18} className="text-white" />
           </div>
         </div>
+      </div>
 
-        <div className="p-5 flex flex-col flex-1">
-          <div className="flex items-start justify-between gap-3 mb-2">
-            <h3 className="text-base font-bold text-white group-hover:text-brand-400 transition-colors leading-tight">
-              {name}
-            </h3>
-            {source && <GithubStats url={source} />}
-          </div>
-
-          <p className="text-gray-500 text-xs leading-relaxed line-clamp-2 mb-4 flex-1">
-            {cleanDesc}
-          </p>
-
-          <div className="flex flex-wrap gap-1.5 mt-auto">
-            {tools?.slice(0, 3).map((t, i) => (
-              <span key={i} className="px-2 py-0.5 bg-white/[0.03] border border-white/[0.06] rounded-md text-[9px] font-mono text-gray-400">
-                {t}
-              </span>
-            ))}
-            {tools && tools.length > 3 && (
-              <span className="px-2 py-0.5 text-[9px] font-mono text-gray-600">+{tools.length - 3}</span>
-            )}
-          </div>
+      <div className="p-5 flex flex-col flex-1">
+        <div className="flex items-start justify-between gap-3 mb-2">
+          <h3 className="text-base font-bold text-white group-hover:text-brand-400 transition-colors leading-tight">
+            {name}
+          </h3>
+          {source && <GithubStats url={source} />}
         </div>
-      </Link>
-    </motion.div>
+
+        <p className="text-gray-500 text-xs leading-relaxed line-clamp-2 mb-4 flex-1">
+          {cleanDesc}
+        </p>
+
+        <div className="flex flex-wrap gap-1.5 mt-auto">
+          {tools?.slice(0, 3).map((t, i) => (
+            <span key={i} className="px-2 py-0.5 bg-white/[0.03] border border-white/[0.06] rounded-md text-[9px] font-mono text-gray-400">
+              {t}
+            </span>
+          ))}
+          {tools && tools.length > 3 && (
+            <span className="px-2 py-0.5 text-[9px] font-mono text-gray-600">+{tools.length - 3}</span>
+          )}
+        </div>
+      </div>
+    </Link>
   );
 }
 
 export default function WorkPage() {
+  const rootRef = useRef<HTMLDivElement>(null);
   const [works, setWorks] = useState<Work[]>([]);
   const [currentPage, setCurrentPage] = useState(0);
   const [totalPages, setTotalPages] = useState(0);
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState<string | null>(null);
+
+  useLiquidGlass(rootRef);
 
   const itemsPerPage = 6;
   const myDataApi = process.env.NEXT_PUBLIC_DATA_API as string | undefined;
@@ -188,8 +193,13 @@ export default function WorkPage() {
 
   return (
     <section className="section-padding bg-surface-50">
-      <div className="section-container">
-        <div className="mb-16">
+      <div
+        ref={rootRef}
+        className="section-container relative grid gap-6"
+        style={{ gridTemplateColumns: "repeat(auto-fill, minmax(340px, 1fr))" }}
+      >
+        {/* Non-glass: header spans full width */}
+        <div className="col-span-full mb-8">
           <div className="flex items-center gap-3 mb-4">
             <div className="h-px w-12 bg-brand-500" />
             <span className="text-brand-400 text-xs font-mono font-medium uppercase tracking-widest">Projects</span>
@@ -202,15 +212,15 @@ export default function WorkPage() {
           </p>
         </div>
 
-        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
-          {loading
-            ? Array(itemsPerPage).fill(null).map((_, i) => <SkeletonCard key={i} />)
-            : works.map((work) => <ProjectCard key={work._id} {...work} />)
-          }
-        </div>
+        {/* Glass elements: project cards are direct children of rootRef */}
+        {loading
+          ? Array(itemsPerPage).fill(null).map((_, i) => <SkeletonCard key={i} />)
+          : works.map((work) => <ProjectCard key={work._id} {...work} />)
+        }
 
+        {/* Non-glass: pagination spans full width */}
         {!loading && totalPages > 1 && (
-          <div className="flex justify-center mt-16">
+          <div className="col-span-full flex justify-center mt-8">
             <ReactPaginate
               previousLabel={<ChevronLeft size={18} />}
               nextLabel={<ChevronRight size={18} />}
