@@ -90,11 +90,10 @@ export default function ContactPage() {
     <section className="section-padding relative overflow-hidden">
       <div className="absolute top-0 left-1/2 -translate-x-1/2 w-[600px] h-[600px] bg-brand-600/5 rounded-full blur-[150px] pointer-events-none" />
 
-      {/* Root div with CSS grid — glass cards are direct children */}
+      {/* Root div with CSS grid on desktop, flex column on mobile */}
       <div
         ref={rootRef}
-        className="section-container relative max-w-5xl mx-auto grid gap-6"
-        style={{ gridTemplateColumns: "2fr 3fr", gridTemplateRows: "auto auto auto auto" }}
+        className="section-container relative max-w-5xl mx-auto flex flex-col lg:grid lg:grid-cols-[2fr_3fr] gap-6"
       >
         {/* Non-glass: header spans full width */}
         <div className="col-span-full text-center mb-8">
@@ -145,12 +144,11 @@ export default function ContactPage() {
           </div>
         </div>
 
-        {/* Glass element: Contact form — direct child of root grid, spans rows 2-4 */}
+        {/* Glass element: Contact form — spans rows 2-4 on desktop */}
         <form
-          className="contact-card liquid-glass p-6 sm:p-8 rounded-2xl"
+          className="contact-card liquid-glass p-6 sm:p-8 rounded-2xl lg:row-start-2 lg:row-span-3 lg:col-start-2"
           onSubmit={handleSubmit}
           data-config={GLASS_CONFIG}
-          style={{ gridRow: "2 / 5" }}
         >
           <div className="grid sm:grid-cols-2 gap-4 mb-4">
             <div>

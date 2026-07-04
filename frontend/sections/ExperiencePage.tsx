@@ -132,11 +132,13 @@ export default function ExperiencePage() {
                         onClick={() => setExpandedIdx(isExpanded ? null : idx)}
                       >
                         <div className="flex flex-col sm:flex-row sm:items-center gap-4">
-                          <div className="w-14 h-14 shrink-0 rounded-2xl bg-white/[0.05] border border-white/[0.08] flex items-center justify-center overflow-hidden">
+                          <div className="w-14 h-14 shrink-0 rounded-2xl flex items-center justify-center overflow-hidden">
                             {exp.companyLogo ? (
-                              <Image src={exp.companyLogo} alt={exp.companyName} width={56} height={56} className="w-full h-full object-contain p-1" />
+                              <Image src={exp.companyLogo} alt={exp.companyName} width={56} height={56} className="w-full h-full object-contain" />
                             ) : (
-                              <Briefcase size={24} className="text-brand-400/50" />
+                              <div className="w-full h-full bg-white/[0.05] border border-white/[0.08] rounded-2xl flex items-center justify-center">
+                                <Briefcase size={24} className="text-brand-400/50" />
+                              </div>
                             )}
                           </div>
                           <div className="flex-1 min-w-0">
@@ -227,7 +229,12 @@ export default function ExperiencePage() {
               initial={{ opacity: 0, scale: 0.95, y: 20 }}
               animate={{ opacity: 1, scale: 1, y: 0 }}
               exit={{ opacity: 0, scale: 0.95, y: 20 }}
-              className="relative w-full max-w-3xl bg-surface-100 border border-white/[0.08] rounded-3xl shadow-2xl overflow-hidden flex flex-col max-h-[90vh]"
+              className="relative w-full max-w-3xl border border-white/[0.12] rounded-3xl shadow-2xl overflow-hidden flex flex-col max-h-[90vh]"
+              style={{
+                backdropFilter: `url(#glass-displacement-filter) blur(16px) saturate(1.5)`,
+                WebkitBackdropFilter: `url(#glass-displacement-filter) blur(16px) saturate(1.5)`,
+                background: "rgba(9, 9, 11, 0.65)",
+              }}
             >
               <button
                 onClick={() => setSelectedExp(null)}

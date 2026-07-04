@@ -74,7 +74,7 @@ export default function Footer() {
             &copy; {new Date().getFullYear()} Honey Pathkar. All rights reserved.
           </p>
           <p className="text-gray-600 text-xs font-mono">
-            Built with Next.js, Tailwind & GSAP
+            Built with Love ❤️, By <Link href="https://www.linkedin.com/in/honey-pathkar/" target="_blank">Honey Pathkar</Link>
           </p>
         </div>
       </div>
