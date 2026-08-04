@@ -197,6 +197,9 @@ export default function Home({
                   <a href="/blogs" className="px-6 py-3 bg-white/[0.05] hover:bg-white/[0.1] text-white border border-white/[0.1] font-semibold rounded-xl transition-all text-sm">
                     Blog
                   </a>
+                  <a href="https://docs.honeypathkar.com" className="px-6 py-3 bg-white/[0.05] hover:bg-white/[0.1] text-white border border-white/[0.1] font-semibold rounded-xl transition-all text-sm" target="_blank">
+                    Docs
+                  </a>
                 </div>
 
                 <div className="grid grid-cols-2 sm:grid-cols-4 gap-3">
