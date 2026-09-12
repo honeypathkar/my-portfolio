@@ -7,6 +7,7 @@ import workRoutes from "./routes/index.js";
 import emailRoutes from "./routes/email.js";
 import adminRoutes from "./routes/admin.js";
 import uploadRoutes from "./routes/upload.js";
+import npmRoutes from "./routes/npm.js";
 import connectDB from "./config/db.js";
 
 dotenv.config();
@@ -36,9 +37,10 @@ app.use("/", workRoutes);
 app.use("/", emailRoutes);
 app.use("/api/admin", adminRoutes);
 app.use("/api", uploadRoutes);
+app.use("/api/npm", npmRoutes);
 
 connectDB();
-const PORT = process.env.PORT || 5000;
+const PORT = process.env.PORT || 5001;
 app.listen(PORT, () => {
   console.log(`🔥 Server running on port ${PORT}`);
 });

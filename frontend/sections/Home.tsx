@@ -9,11 +9,12 @@ import WorkPage from "./WorkPage";
 import ContactPage from "./ContactPage";
 import ExperiencePage from "./ExperiencePage";
 import LiquidGlassCard from "../components/LiquidGlassCard";
+import NpmDownloadsCard from "../components/NpmDownloadsCard";
 
 const metrics = [
   { icon: FolderGit2, label: "Apps Shipped", value: "10+" },
   { icon: Code2, label: "DSA Solved", value: "500+" },
-  { icon: Zap, label: "Years Exp", value: "1+" },
+  { icon: Zap, label: "Years Exp", value: process.env.NEXT_PUBLIC_YEARS_EXPERIENCE || "1.5+" },
   { icon: Trophy, label: "Tech Stack", value: "20+" },
 ];
 
@@ -211,6 +212,8 @@ export default function Home({
                     </LiquidGlassCard>
                   ))}
                 </div>
+
+                <NpmDownloadsCard />
 
                 {/* Tech Orbit on mobile */}
                 <div className="hero-visual lg:hidden flex justify-center my-8 opacity-0">

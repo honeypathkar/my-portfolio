@@ -6,6 +6,7 @@ import axios from "axios";
 import { X, Calendar, MapPin, Briefcase, Zap, ChevronDown, ChevronUp } from "lucide-react";
 import { motion, AnimatePresence } from "framer-motion";
 import Image from "next/image";
+import { getDurationLength } from "../utils/duration";
 
 const API_BASE = process.env.NEXT_PUBLIC_DATA_API || "https://api.honeypathkar.com";
 
@@ -148,6 +149,9 @@ export default function ExperiencePage() {
                           <div className="flex flex-wrap items-center gap-2 sm:gap-4 mt-2 sm:mt-0">
                             <div className="flex items-center gap-1.5 text-[11px] text-gray-500 font-mono">
                               <Calendar size={12} /> {exp.duration}
+                              {getDurationLength(exp.duration) && (
+                                <span className="text-gray-600">· {getDurationLength(exp.duration)}</span>
+                              )}
                             </div>
                             <div className="flex items-center gap-1.5 text-[11px] text-gray-500 font-mono">
                               <MapPin size={12} /> {exp.location}
@@ -261,6 +265,9 @@ export default function ExperiencePage() {
                 <div className="flex flex-wrap gap-3 mb-8">
                   <div className="flex items-center gap-2 px-3 py-1.5 bg-white/[0.03] border border-white/[0.06] rounded-xl text-xs text-gray-400 font-mono">
                     <Calendar size={12} className="text-brand-400" /> {selectedExp.duration}
+                    {getDurationLength(selectedExp.duration) && (
+                      <span className="text-gray-600">· {getDurationLength(selectedExp.duration)}</span>
+                    )}
                   </div>
                   <div className="flex items-center gap-2 px-3 py-1.5 bg-white/[0.03] border border-white/[0.06] rounded-xl text-xs text-gray-400 font-mono">
                     <MapPin size={12} className="text-brand-400" /> {selectedExp.location}
