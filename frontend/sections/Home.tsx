@@ -10,11 +10,12 @@ import ContactPage from "./ContactPage";
 import ExperiencePage from "./ExperiencePage";
 import LiquidGlassCard from "../components/LiquidGlassCard";
 import NpmDownloadsCard from "../components/NpmDownloadsCard";
+import { YEARS_EXPERIENCE } from "../utils/profile";
 
 const metrics = [
   { icon: FolderGit2, label: "Apps Shipped", value: "10+" },
   { icon: Code2, label: "DSA Solved", value: "500+" },
-  { icon: Zap, label: "Years Exp", value: process.env.NEXT_PUBLIC_YEARS_EXPERIENCE || "1.5+" },
+  { icon: Zap, label: "Years Exp", value: YEARS_EXPERIENCE },
   { icon: Trophy, label: "Tech Stack", value: "20+" },
 ];
 

@@ -5,6 +5,7 @@ import { ScrollTrigger } from "gsap/ScrollTrigger";
 import Image from "next/image";
 import { Code2, Rocket, Target, MapPin, Mail, Calendar, ArrowUpRight } from "lucide-react";
 import LiquidGlassCard from "../components/LiquidGlassCard";
+import { YEARS_EXPERIENCE } from "../utils/profile";
 
 const timeline = [
   { year: "2023", title: "Student", desc: "Discovered passion for building products through DSA & web development" },
@@ -103,8 +104,8 @@ export default function About() {
           <div className="lg:col-span-3 about-content">
             <div className="space-y-6 text-gray-400 text-base sm:text-lg leading-relaxed">
               <p>
-                I'm a <span className="text-white font-medium">Full Stack & Mobile Engineer</span> with 
-                1+ years of professional experience building scalable web and mobile applications. 
+                I'm a <span className="text-white font-medium">Full Stack & Mobile Engineer</span> with{" "}
+                {YEARS_EXPERIENCE} years of professional experience building scalable web and mobile applications. 
                 I specialize in the MERN stack and React Native, delivering production-ready 
                 solutions with clean architecture and optimized performance.
               </p>
